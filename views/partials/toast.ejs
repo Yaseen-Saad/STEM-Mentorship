@@ -1,2 +1,48 @@
-<!-- Toast Notification Container -->
-<div class="toast-container"></div>
+<% 
+// List of recent acceptances
+const recentAcceptances = [
+  { name: "Ahmed", university: "MIT", program: "Computer Science", lang: "en" },
+  { name: "أحمد", university: "معهد ماساتشوستس للتكنولوجيا", program: "علوم الحاسب", lang: "ar" },
+  { name: "Fatima", university: "Stanford", program: "Bioengineering", lang: "en" },
+  { name: "فاطمة", university: "ستانفورد", program: "الهندسة الحيوية", lang: "ar" },
+  { name: "Mohammed", university: "Harvard", program: "Physics", lang: "en" },
+  { name: "محمد", university: "هارفارد", program: "الفيزياء", lang: "ar" },
+  { name: "Layla", university: "Caltech", program: "Mathematics", lang: "en" },
+  { name: "ليلى", university: "كالتك", program: "الرياضيات", lang: "ar" },
+  { name: "Omar", university: "Princeton", program: "Engineering", lang: "en" },
+  { name: "عمر", university: "برينستون", program: "الهندسة", lang: "ar" }
+];
+
+// Filter by current language
+const languageAcceptances = recentAcceptances.filter(acceptance => acceptance.lang === locals.lang);
+%>
+
+<!-- Hidden div with acceptance data that the JS can read -->
+<div class="acceptance-data" style="display: none;">
+  <% languageAcceptances.forEach(function(acceptance) { %>
+    <div 
+      data-name="<%= acceptance.name %>" 
+      data-university="<%= acceptance.university %>" 
+      data-program="<%= acceptance.program %>">
+    </div>
+  <% }); %>
+</div>
+
+<div id="acceptanceToast" class="toast-container hidden">
+  <div class="toast-icon">
+    <span class="material-symbols-outlined">celebration</span>
+  </div>
+  <div class="toast-content">
+    <div class="toast-title">
+      <% if (locals.lang === 'ar') { %>
+        تهانينا! أحدث القبولات
+      <% } else { %>
+        Congratulations! Recent Acceptances
+      <% } %>
+    </div>
+    <div class="toast-message" id="toastMessage"></div>
+  </div>
+  <button class="toast-close" onclick="dismissToast()">
+    <span class="material-symbols-outlined">close</span>
+  </button>
+</div>

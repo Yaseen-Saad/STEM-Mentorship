@@ -8,6 +8,9 @@ document.addEventListener('DOMContentLoaded', () => {
     });
   }
   
+  // Initialize toast notifications
+  initializeToastNotifications();
+  
   // Testimonials Carousel
   initializeTestimonialCarousel();
   
@@ -20,6 +23,71 @@ document.addEventListener('DOMContentLoaded', () => {
   // Form validation
   initializeFormValidation();
 });
+
+function initializeToastNotifications() {
+  const toastContainer = document.getElementById('acceptanceToast');
+  const toastMessage = document.getElementById('toastMessage');
+  
+  if (!toastContainer || !toastMessage) return;
+  
+  // Extract acceptance data from the data attributes
+  const acceptanceScript = document.querySelector('.acceptance-data');
+  if (!acceptanceScript) return;
+  
+  try {
+    // We'll use the DOM's dataset to get the data
+    const acceptances = Array.from(document.querySelectorAll('[data-name]')).map(el => ({
+      name: el.dataset.name,
+      university: el.dataset.university,
+      program: el.dataset.program
+    }));
+    
+    if (!acceptances.length) return;
+    
+    // Display a random acceptance after a delay
+    setTimeout(() => {
+      displayRandomAcceptance(acceptances, toastMessage, toastContainer);
+      
+      // Set up recurring display
+      setInterval(() => {
+        displayRandomAcceptance(acceptances, toastMessage, toastContainer);
+      }, 10000); // Show a new one every 10 seconds
+      
+    }, 3000); // Initial delay
+  } catch (e) {
+    console.error('Error initializing toast notifications:', e);
+  }
+}
+
+function displayRandomAcceptance(acceptances, messageEl, containerEl) {
+  const randomIndex = Math.floor(Math.random() * acceptances.length);
+  const acceptance = acceptances[randomIndex];
+  
+  // Create the message based on language
+  const isArabic = document.documentElement.lang === 'ar';
+  let message;
+  
+  if (isArabic) {
+    message = `تم قبول ${acceptance.name} في برنامج ${acceptance.program} في ${acceptance.university}!`;
+  } else {
+    message = `${acceptance.name} was accepted to ${acceptance.university} for ${acceptance.program}!`;
+  }
+  
+  messageEl.textContent = message;
+  containerEl.classList.remove('hidden');
+  
+  // Auto-hide after 6 seconds
+  setTimeout(() => {
+    containerEl.classList.add('hidden');
+  }, 6000);
+}
+
+function dismissToast() {
+  const toastContainer = document.getElementById('acceptanceToast');
+  if (toastContainer) {
+    toastContainer.classList.add('hidden');
+  }
+}
 
 function initializeTestimonialCarousel() {
   const carousel = document.querySelector('.testimonial-carousel');
