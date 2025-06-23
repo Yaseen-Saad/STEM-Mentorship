@@ -1,0 +1,255 @@
+<!DOCTYPE html>
+<html lang="<%= lang %>">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title><%= lang==='ar' ? 'الصفحة الرئيسية' : 'Home' %> - Mentorship STEM</title>
+  <link rel="stylesheet" href="/css/style.css">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/chart.js@3.7.0/dist/chart.min.css">
+  <link rel="stylesheet" href="https://unpkg.com/aos@next/dist/aos.css" />
+  <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+</head>
+<body>
+  <%- include('partials/header', { lang: lang }) %>
+  
+  <section class="hero-banner">
+    <div class="hero-overlay"></div>
+    <div class="container">
+      <div class="hero-content" data-aos="fade-up">
+        <span class="hero-badge"><%= lang==='ar' ? 'برنامج توجيه العلوم والتكنولوجيا والهندسة والرياضيات' : 'STEM Mentorship Program' %></span>
+        <h1 class="gradient-text">
+          <%= lang==='ar' ? 'نعد قادة الغد في مجالات العلوم والتكنولوجيا والهندسة والرياضيات' : 'Empowering Tomorrow\'s STEM Leaders' %>
+        </h1>
+        <p class="hero-subtitle">
+          <%= lang==='ar' ? 'انضم إلى برنامجنا الشامل المصمم لتزويدك بالمهارات والمعرفة اللازمة للنجاح في اختبارات القبول بالمدارس الثانوية للمتفوقين في العلوم والتكنولوجيا والهندسة والرياضيات.' : 'Join our comprehensive program designed to equip you with the skills and knowledge to excel in STEM high school entrance exams.' %>
+        </p>
+        <div class="hero-actions">
+          <a href="/program?lang=<%= lang %>" class="btn btn-primary">
+            <i class="material-icons">school</i>
+            <%= lang==='ar' ? 'انضم إلى برنامجنا' : 'Join Our Program' %>
+          </a>
+          <a href="/success?lang=<%= lang %>" class="btn btn-secondary">
+            <i class="material-icons">emoji_events</i>
+            <%= lang==='ar' ? 'قصص النجاح' : 'Success Stories' %>
+          </a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <div class="container">
+    <div class="latex-box info-box" data-aos="fade-up">
+      <div class="box-header">
+        <i class="material-icons">info</i>
+        <h2><%= lang==='ar' ? 'عن برنامجنا' : 'About Our Program' %></h2>
+      </div>
+      <div class="box-content">
+        <p>
+          <%= lang==='ar' ? 
+            'برنامج Mentorship STEM يوفر دعماً متخصصاً للطلاب الطامحين للالتحاق بمدارس STEM الثانوية. نقدم تدريباً شاملاً يغطي جميع مواد الاختبارات مع التركيز على المهارات التحليلية وحل المشكلات.' : 
+            'Mentorship STEM program provides specialized support for students aspiring to join STEM high schools. We offer comprehensive training covering all exam subjects with focus on analytical skills and problem-solving.' 
+          %>
+        </p>
+      </div>
+    </div>
+
+    <section class="features-section" id="features">
+      <div class="section-header latex-style" data-aos="fade-up">
+        <div class="theorem-box">
+          <div class="theorem-title">
+            <%= lang==='ar' ? 'ميزات البرنامج' : 'Program Features' %>
+          </div>
+          <p class="theorem-content">
+            <%= lang==='ar' ? 
+              'برنامجنا يتميز بنهج متكامل لإعداد الطلاب للنجاح في اختبارات STEM' : 
+              'Our program features an integrated approach to prepare students for success in STEM exams' 
+            %>
+          </p>
+        </div>
+      </div>
+
+      <div class="stats-grid">
+        <div class="stat-card conceptbox" data-aos="fade-up">
+          <div class="stat-icon">
+            <span class="material-icons">menu_book</span>
+          </div>
+          <h3><%= lang === 'ar' ? 'محتوى متخصص' : 'Expert Content' %></h3>
+          <p><%= lang === 'ar' ? 'مواد تعليمية ومسابقات أسبوعية مصممة لمحاكاة الاختبارات الحقيقية.' : 'Tailored learning materials and weekly quizzes designed to simulate the real exams.' %></p>
+          <div class="stat-detail">
+            <%= lang === 'ar' ? 'مناهج معدة بعناية من قبل خبراء في المجال' : 'Curriculum carefully crafted by field experts' %>
+          </div>
+        </div>
+
+        <div class="stat-card conceptbox" data-aos="fade-up" data-aos-delay="100">
+          <div class="stat-icon">
+            <span class="material-icons">support_agent</span>
+          </div>
+          <h3><%= lang === 'ar' ? 'دعم تفاعلي' : 'Interactive Support' %></h3>
+          <p><%= lang === 'ar' ? 'وصول مباشر إلى فريقنا من الموجهين للإجابة على جميع أسئلتك.' : 'Direct access to our team of mentors to answer all your questions.' %></p>
+          <div class="stat-detail">
+            <%= lang === 'ar' ? 'مساعدة شخصية في جميع المواد' : 'Personalized assistance in all subjects' %>
+          </div>
+        </div>
+
+        <div class="stat-card conceptbox" data-aos="fade-up" data-aos-delay="200">
+          <div class="stat-icon">
+            <span class="material-icons">verified</span>
+          </div>
+          <h3><%= lang === 'ar' ? 'سجل حافل بالنجاح' : 'Proven Success' %></h3>
+          <p><%= lang === 'ar' ? 'انضم إلى مئات الطلاب الذين حققوا أهدافهم بدعمنا.' : 'Join hundreds of students who have achieved their goals with our support.' %></p>
+          <div class="stat-detail">
+            <%= lang === 'ar' ? 'معدلات قبول متميزة على مدى السنوات' : 'Outstanding acceptance rates over the years' %>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="testimonials-section" id="testimonials" data-aos="fade-up">
+      <div class="section-header latex-style">
+        <div class="theorem-box solution-box">
+          <div class="theorem-title">
+            <%= lang==='ar' ? 'قالوا عنا' : 'Testimonials' %>
+          </div>
+          <p class="theorem-content">
+            <%= lang==='ar' ? 
+              'طلابنا هم أفضل من يتحدث عن تجربتهم مع برنامج التوجيه' : 
+              'Our students are the best to speak about their experience with our mentorship program' 
+            %>
+          </p>
+        </div>
+      </div>
+
+      <div class="testimonial-carousel">
+        <div class="testimonial-track">
+          <div class="testimonial-card" data-aos="fade-up">
+            <div class="quote-icon">
+              <span class="material-icons">format_quote</span>
+            </div>
+            <p class="testimonial-text">
+              <%= lang==='ar' ? 
+                'البرنامج تجاوز كل توقعاتي. الموجهون كانوا داعمين للغاية وساعدوني على تجاوز العقبات. أنا الآن طالب سعيد في مدرسة STEM.' : 
+                'The program exceeded all my expectations. The mentors were extremely supportive and helped me overcome obstacles. I am now a happy student at a STEM school.' 
+              %>
+            </p>
+            <div class="testimonial-author">
+              <strong><%= lang==='ar' ? 'أحمد خالد' : 'Ahmed Khaled' %></strong>
+              <span><%= lang==='ar' ? 'مدرسة STEM أكتوبر' : 'October STEM School' %></span>
+            </div>
+          </div>
+          
+          <div class="testimonial-card" data-aos="fade-up" data-aos-delay="100">
+            <div class="quote-icon">
+              <span class="material-icons">format_quote</span>
+            </div>
+            <p class="testimonial-text">
+              <%= lang==='ar' ? 
+                'لم أكن أثق في قدرتي على النجاح في اختبارات القبول، لكن بفضل هذا البرنامج تمكنت من تحقيق حلمي. أنصح به بشدة لكل من يطمح للالتحاق بمدارس STEM.' : 
+                'I didn\'t trust my ability to pass the entrance exams, but thanks to this program, I was able to achieve my dream. I highly recommend it to anyone aspiring to join STEM schools.' 
+              %>
+            </p>
+            <div class="testimonial-author">
+              <strong><%= lang==='ar' ? 'سارة محمد' : 'Sara Mohamed' %></strong>
+              <span><%= lang==='ar' ? 'مدرسة STEM المعادي' : 'Maadi STEM School' %></span>
+            </div>
+          </div>
+          
+          <div class="testimonial-card" data-aos="fade-up" data-aos-delay="200">
+            <div class="quote-icon">
+              <span class="material-icons">format_quote</span>
+            </div>
+            <p class="testimonial-text">
+              <%= lang==='ar' ? 
+                'الدروس والمواد كانت مفيدة للغاية. نماذج الأسئلة الأسبوعية ساعدتني على فهم نوعية الأسئلة التي سأواجهها في الاختبار الفعلي.' : 
+                'The lessons and materials were extremely helpful. The weekly question forms helped me understand the type of questions I would face in the actual test.' 
+              %>
+            </p>
+            <div class="testimonial-author">
+              <strong><%= lang==='ar' ? 'عمر إبراهيم' : 'Omar Ibrahim' %></strong>
+              <span><%= lang==='ar' ? 'مدرسة STEM القاهرة الجديدة' : 'New Cairo STEM School' %></span>
+            </div>
+          </div>
+        </div>
+        
+        <div class="carousel-indicators">
+          <button class="indicator active"></button>
+          <button class="indicator"></button>
+          <button class="indicator"></button>
+        </div>
+      </div>
+    </section>
+
+    <section class="cta-section" data-aos="fade-up">
+      <div class="theorem-box example-box">
+        <div class="theorem-title">
+          <%= lang==='ar' ? 'ابدأ رحلتك الآن' : 'Start Your Journey Now' %>
+        </div>
+        <div class="cta-content">
+          <p>
+            <%= lang==='ar' ? 
+              'انضم إلى أكثر من 500 طالب نجحوا في تحقيق أحلامهم مع برنامج Mentorship STEM. سجل الآن لتضمن مقعدك في الدفعة القادمة!' : 
+              'Join more than 500 students who succeeded in achieving their dreams with the Mentorship STEM program. Register now to secure your seat in the next cohort!' 
+            %>
+          </p>
+          <div class="cta-buttons">
+            <a href="/program?lang=<%= lang %>" class="btn btn-primary">
+              <i class="material-icons">how_to_reg</i>
+              <%= lang==='ar' ? 'سجل الآن' : 'Register Now' %>
+            </a>
+            <a href="/contact?lang=<%= lang %>" class="btn btn-secondary">
+              <i class="material-icons">contact_support</i>
+              <%= lang==='ar' ? 'تواصل معنا' : 'Contact Us' %>
+            </a>
+          </div>
+        </div>
+      </div>
+    </section>
+  </div>
+  <%- include('partials/footer') %>
+  
+  <!-- Include Toast Notifications -->
+  <%- include('partials/toast') %>
+  
+  <script src="https://unpkg.com/aos@next/dist/aos.js"></script>
+  <script src="/js/main.js"></script>
+  <script>
+    document.addEventListener('DOMContentLoaded', function() {
+      // Initialize AOS
+      AOS.init({
+        duration: 800,
+        once: true
+      });
+      
+      // Setup for testimonial carousel
+      const track = document.querySelector('.testimonial-track');
+      const indicators = document.querySelectorAll('.carousel-indicators button');
+      let currentIndex = 0;
+      
+      indicators.forEach((indicator, index) => {
+        indicator.addEventListener('click', () => {
+          currentIndex = index;
+          updateCarousel();
+        });
+      });
+      
+      function updateCarousel() {
+        const cardWidth = document.querySelector('.testimonial-card').offsetWidth;
+        track.style.transform = `translateX(${-currentIndex * cardWidth}px)`;
+        
+        indicators.forEach((indicator, index) => {
+          if (index === currentIndex) {
+            indicator.classList.add('active');
+          } else {
+            indicator.classList.remove('active');
+          }
+        });
+      }
+      
+      // Auto-rotate testimonials
+      setInterval(() => {
+        currentIndex = (currentIndex + 1) % indicators.length;
+        updateCarousel();
+      }, 5000);
+    });
+  </script>
+</body>
+</html>

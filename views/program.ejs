@@ -1,0 +1,285 @@
+<!DOCTYPE html>
+<html lang="<%= lang %>">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title><%= lang==='ar' ? 'تفاصيل البرنامج' : 'Program Details' %> - Mentorship STEM</title>
+  <link rel="stylesheet" href="/css/style.css">
+  <link rel="stylesheet" href="https://unpkg.com/aos@next/dist/aos.css" />
+  <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+</head>
+<body>
+  <%- include('partials/header', { lang: lang }) %>
+  
+  <section class="hero-banner program-banner">
+    <div class="hero-overlay"></div>
+    <div class="container">
+      <div class="hero-content" data-aos="fade-up">
+        <span class="hero-badge"><%= lang==='ar' ? 'خطتك للنجاح' : 'Your Path to Success' %></span>
+        <h1 class="gradient-text">
+          <%= lang==='ar' ? 'تفاصيل البرنامج' : 'Program Details' %>
+        </h1>
+        <p class="hero-subtitle">
+          <%= lang==='ar' ? 'نقدم منهجًا شاملاً يغطي جميع جوانب اختبارات القبول بمدارس STEM' : 'We offer a comprehensive curriculum covering all aspects of STEM school entrance exams' %>
+        </p>
+        <div class="hero-actions">
+          <a href="#components" class="btn btn-primary">
+            <i class="material-icons">list_alt</i>
+            <%= lang==='ar' ? 'مكونات البرنامج' : 'Program Components' %>
+          </a>
+          <a href="#schedule" class="btn btn-secondary">
+            <i class="material-icons">calendar_today</i>
+            <%= lang==='ar' ? 'الجدول الزمني' : 'Schedule' %>
+          </a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <div class="container">
+    <div class="latex-box info-box" data-aos="fade-up">
+      <div class="box-header">
+        <i class="material-icons">info</i>
+        <h2><%= lang==='ar' ? 'عن البرنامج' : 'About the Program' %></h2>
+      </div>
+      <div class="box-content">
+        <p>
+          <%= lang==='ar' ? 
+            'برنامج STEM Mentorship هو برنامج متكامل مصمم خصيصاً لإعداد الطلاب لاختبارات القبول في مدارس STEM. يجمع البرنامج بين التدريب العملي، والدروس النظرية، والممارسة المستمرة تحت إشراف موجهين متخصصين في جميع المواد.' : 
+            'The STEM Mentorship program is an integrated program specifically designed to prepare students for STEM school entrance exams. The program combines hands-on training, theoretical lessons, and continuous practice under the supervision of specialized mentors in all subjects.' 
+          %>
+        </p>
+      </div>
+    </div>
+
+    <section id="components" class="program-components-section" data-aos="fade-up">
+      <div class="section-header latex-style">
+        <div class="theorem-box">
+          <div class="theorem-title">
+            <%= lang==='ar' ? 'مكونات البرنامج' : 'Program Components' %>
+          </div>
+          <p class="theorem-content">
+            <%= lang==='ar' ? 
+              'برنامجنا يتكون من عناصر متكاملة تضمن تجربة تعليمية شاملة' : 
+              'Our program consists of integrated elements ensuring a comprehensive learning experience' 
+            %>
+          </p>
+        </div>
+      </div>
+
+      <div class="stats-grid">
+        <div class="stat-card conceptbox" data-aos="fade-up">
+          <div class="stat-icon">
+            <span class="material-icons">assignment</span>
+          </div>
+          <h3><%= lang==='ar' ? 'نماذج أسبوعية' : 'Weekly Forms' %></h3>
+          <p><%= lang==='ar' ? 'محاكاة واقعية للاختبار لتعزيز ثقتك بنفسك وتقييم مستواك.' : 'Realistic test simulations to build your confidence and assess your level.' %></p>
+          <div class="stat-detail">
+            <%= lang==='ar' ? 'إعداد مستمر على نمط أسئلة الاختبار الحقيقي' : 'Continuous preparation based on real exam question patterns' %>
+          </div>
+        </div>
+
+        <div class="stat-card conceptbox" data-aos="fade-up" data-aos-delay="100">
+          <div class="stat-icon">
+            <span class="material-icons">video_library</span>
+          </div>
+          <h3><%= lang==='ar' ? 'مقاطع تعليمية' : 'Educational Clips' %></h3>
+          <p><%= lang==='ar' ? 'شرح مبسط للمفاهيم المعقدة بطريقة سهلة الفهم.' : 'Simplified explanations of complex concepts in an easy-to-understand way.' %></p>
+          <div class="stat-detail">
+            <%= lang==='ar' ? 'فيديوهات قصيرة ومركزة يمكن مشاهدتها في أي وقت' : 'Short, focused videos that can be watched anytime' %>
+          </div>
+        </div>
+
+        <div class="stat-card conceptbox" data-aos="fade-up" data-aos-delay="200">
+          <div class="stat-icon">
+            <span class="material-icons">groups</span>
+          </div>
+          <h3><%= lang==='ar' ? 'جلسات تفاعلية' : 'Interactive Sessions' %></h3>
+          <p><%= lang==='ar' ? 'تفاعل مباشر مع الموجهين للإجابة على استفساراتك.' : 'Direct interaction with mentors to answer your questions.' %></p>
+          <div class="stat-detail">
+            <%= lang==='ar' ? 'فرصة للمناقشة وطرح الأسئلة وتوضيح النقاط الصعبة' : 'Opportunity for discussion, asking questions and clarifying difficult points' %>
+          </div>
+        </div>
+
+        <div class="stat-card conceptbox" data-aos="fade-up" data-aos-delay="300">
+          <div class="stat-icon">
+            <span class="material-icons">auto_stories</span>
+          </div>
+          <h3><%= lang==='ar' ? 'مواد تعليمية' : 'Educational Materials' %></h3>
+          <p><%= lang==='ar' ? 'ملخصات شاملة وأوراق عمل لكل موضوع من موضوعات الاختبار.' : 'Comprehensive summaries and worksheets for each exam topic.' %></p>
+          <div class="stat-detail">
+            <%= lang==='ar' ? 'موارد عالية الجودة معدة خصيصاً لاختبارات STEM' : 'High-quality resources specially prepared for STEM exams' %>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="schedule" class="schedule-section" data-aos="fade-up">
+      <div class="theorem-box solution-box">
+        <div class="theorem-title">
+          <%= lang==='ar' ? 'الجدول الأسبوعي' : 'Weekly Schedule' %>
+        </div>
+        <div class="schedule-grid">
+          <div class="schedule-day" data-aos="fade-up">
+            <div class="day-header">
+              <span class="material-icons">event</span>
+              <h3><%= lang==='ar' ? 'الاثنين' : 'Monday' %></h3>
+            </div>
+            <div class="day-content">
+              <div class="schedule-card">
+                <span class="time-badge">4:00 - 6:00 PM</span>
+                <h4>IQ</h4>
+                <p><%= lang==='ar' ? 'تدريبات على اختبارات الذكاء والتفكير المنطقي' : 'IQ and logical thinking exercises' %></p>
+              </div>
+            </div>
+          </div>
+          
+          <div class="schedule-day" data-aos="fade-up" data-aos-delay="100">
+            <div class="day-header">
+              <span class="material-icons">event</span>
+              <h3><%= lang==='ar' ? 'الأربعاء' : 'Wednesday' %></h3>
+            </div>
+            <div class="day-content">
+              <div class="schedule-card">
+                <span class="time-badge">4:00 - 6:30 PM</span>
+                <h4>Science</h4>
+                <p><%= lang==='ar' ? 'فيزياء، كيمياء، أحياء' : 'Physics, Chemistry, Biology' %></p>
+              </div>
+            </div>
+          </div>
+          
+          <div class="schedule-day" data-aos="fade-up" data-aos-delay="200">
+            <div class="day-header">
+              <span class="material-icons">event</span>
+              <h3><%= lang==='ar' ? 'الخميس' : 'Thursday' %></h3>
+            </div>
+            <div class="day-content">
+              <div class="schedule-card">
+                <span class="time-badge">4:00 - 6:00 PM</span>
+                <h4>English</h4>
+                <p><%= lang==='ar' ? 'قواعد، مفردات، فهم المقروء' : 'Grammar, vocabulary, reading comprehension' %></p>
+              </div>
+            </div>
+          </div>
+          
+          <div class="schedule-day" data-aos="fade-up" data-aos-delay="300">
+            <div class="day-header">
+              <span class="material-icons">event</span>
+              <h3><%= lang==='ar' ? 'السبت' : 'Saturday' %></h3>
+            </div>
+            <div class="day-content">
+              <div class="schedule-card">
+                <span class="time-badge">10:00 AM - 12:30 PM</span>
+                <h4>Math</h4>
+                <p><%= lang==='ar' ? 'جبر، هندسة، حساب مثلثات' : 'Algebra, geometry, trigonometry' %></p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+    
+    <section class="faq-section" data-aos="fade-up">
+      <div class="section-header latex-style">
+        <div class="theorem-box example-box">
+          <div class="theorem-title">
+            <%= lang==='ar' ? 'أسئلة شائعة' : 'Frequently Asked Questions' %>
+          </div>
+          <div class="faq-container">
+            <div class="faq-item" data-aos="fade-up">
+              <div class="faq-question">
+                <span class="material-icons">help</span>
+                <h4><%= lang==='ar' ? 'كيف يمكنني الانضمام؟' : 'How do I join?' %></h4>
+                <span class="material-icons toggle-icon">expand_more</span>
+              </div>
+              <div class="faq-answer">
+                <p><%= lang==='ar' ? 'يمكنك التسجيل من خلال صفحة التسجيل على موقعنا الإلكتروني أو التواصل معنا مباشرة عبر البريد الإلكتروني. سيتم إجراء مقابلة قصيرة لتحديد مستواك ثم إلحاقك بالمجموعة المناسبة.' : 'You can register through our website\'s registration page or contact us directly via email. A short interview will be conducted to determine your level, and then you will be assigned to the appropriate group.' %></p>
+              </div>
+            </div>
+            
+            <div class="faq-item" data-aos="fade-up" data-aos-delay="100">
+              <div class="faq-question">
+                <span class="material-icons">monetization_on</span>
+                <h4><%= lang==='ar' ? 'هل البرنامج مجاني؟' : 'Is the program free?' %></h4>
+                <span class="material-icons toggle-icon">expand_more</span>
+              </div>
+              <div class="faq-answer">
+                <p><%= lang==='ar' ? 'نعم، برنامجنا مجاني تمامًا. نحن منظمة غير ربحية تهدف إلى دعم الطلاب الموهوبين بغض النظر عن خلفيتهم الاجتماعية أو الاقتصادية.' : 'Yes, our program is completely free. We are a non-profit organization aimed at supporting talented students regardless of their social or economic background.' %></p>
+              </div>
+            </div>
+            
+            <div class="faq-item" data-aos="fade-up" data-aos-delay="200">
+              <div class="faq-question">
+                <span class="material-icons">schedule</span>
+                <h4><%= lang==='ar' ? 'كم تستغرق مدة البرنامج؟' : 'How long is the program?' %></h4>
+                <span class="material-icons toggle-icon">expand_more</span>
+              </div>
+              <div class="faq-answer">
+                <p><%= lang==='ar' ? 'يستمر البرنامج لمدة 6 أشهر، بدءًا من شهر ديسمبر وحتى موعد الاختبارات في مايو، مع مراعاة الإجازات المدرسية.' : 'The program runs for 6 months, starting from December until the exams in May, taking into account school holidays.' %></p>
+              </div>
+            </div>
+            
+            <div class="faq-item" data-aos="fade-up" data-aos-delay="300">
+              <div class="faq-question">
+                <span class="material-icons">device_hub</span>
+                <h4><%= lang==='ar' ? 'هل البرنامج عبر الإنترنت أم وجهاً لوجه؟' : 'Is the program online or in-person?' %></h4>
+                <span class="material-icons toggle-icon">expand_more</span>
+              </div>
+              <div class="faq-answer">
+                <p><%= lang==='ar' ? 'نقدم كلا الخيارين. تُقام الجلسات وجهاً لوجه في مقرنا الرئيسي بالقاهرة، وتتوفر أيضاً جلسات عبر الإنترنت للطلاب من المحافظات الأخرى.' : 'We offer both options. In-person sessions are held at our main headquarters in Cairo, and online sessions are also available for students from other governorates.' %></p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="registration-section" data-aos="fade-up">
+      <div class="theorem-box tipbox">
+        <div class="theorem-title">
+          <%= lang==='ar' ? 'سجل الآن' : 'Register Now' %>
+        </div>
+        <div class="registration-content">
+          <p>
+            <%= lang==='ar' ? 
+              'التسجيل متاح الآن للدفعة الجديدة. عدد المقاعد محدود، سارع بالتسجيل لضمان مقعدك!' : 
+              'Registration is now open for the new cohort. Seats are limited, hurry up to secure yours!' 
+            %>
+          </p>
+          <div class="registration-buttons">
+            <a href="/contact?lang=<%= lang %>" class="btn btn-primary">
+              <i class="material-icons">app_registration</i>
+              <%= lang==='ar' ? 'سجل الآن' : 'Register Now' %>
+            </a>
+          </div>
+        </div>
+      </div>
+    </section>
+  </div>
+
+  <%- include('partials/footer') %>
+  
+  <script src="https://unpkg.com/aos@next/dist/aos.js"></script>
+  <script>
+    document.addEventListener('DOMContentLoaded', function() {
+      // Initialize AOS
+      AOS.init({
+        duration: 800,
+        once: true,
+        offset: 100
+      });
+      
+      // FAQ toggle functionality
+      const faqItems = document.querySelectorAll('.faq-item');
+      faqItems.forEach(item => {
+        const question = item.querySelector('.faq-question');
+        question.addEventListener('click', () => {
+          item.classList.toggle('active');
+          const toggleIcon = item.querySelector('.toggle-icon');
+          toggleIcon.textContent = item.classList.contains('active') ? 'expand_less' : 'expand_more';
+        });
+      });
+    });
+  </script>
+</body>
+</html>

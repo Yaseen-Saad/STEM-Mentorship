@@ -1,0 +1,208 @@
+<!DOCTYPE html>
+<html lang="<%= lang %>">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title><%= lang==='ar' ? 'من نحن' : 'About Us' %> - Mentorship STEM</title>
+  <link rel="stylesheet" href="/css/style.css">
+  <link rel="stylesheet" href="https://unpkg.com/aos@next/dist/aos.css" />
+  <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+</head>
+<body>
+  <%- include('partials/header', { lang: lang }) %>
+  
+  <section class="hero-banner about-banner">
+    <div class="hero-overlay"></div>
+    <div class="container">
+      <div class="hero-content" data-aos="fade-up">
+        <span class="hero-badge"><%= lang==='ar' ? 'تعرف علينا' : 'Get to Know Us' %></span>
+        <h1 class="gradient-text">
+          <%= lang==='ar' ? 'من نحن' : 'About Us' %>
+        </h1>
+        <p class="hero-subtitle">
+          <%= lang==='ar' ? 'اكتشف قصة نجاحنا وتعرف على رسالتنا ورؤيتنا وفريقنا' : 'Discover our story and learn about our mission, vision, and team' %>
+        </p>
+      </div>
+    </div>
+  </section>
+  
+  <div class="container">
+    <div class="latex-box info-box" data-aos="fade-up">
+      <div class="box-header">
+        <i class="material-icons">info</i>
+        <h2><%= lang==='ar' ? 'من نحن' : 'Who We Are' %></h2>
+      </div>
+      <div class="box-content">
+        <p>
+          <%= lang==='ar' ? 'STEM Mentorship هي منظمة غير ربحية مكرسة لدعم الطلاب الموهوبين في رحلتهم للالتحاق بمدارس المتفوقين في العلوم والتكنولوجيا والهندسة والرياضيات. نحن نؤمن بأن كل طالب يستحق فرصة للوصول إلى إمكاناته الكاملة، ونقدم الأدوات والموارد اللازمة لتحقيق ذلك.' : 'STEM Mentorship is a non-profit organization dedicated to supporting talented students on their journey to STEM high schools. We believe every student deserves the chance to reach their full potential, and we provide the tools and resources to make that happen.' %>
+        </p>
+      </div>
+    </div>
+    
+    <section class="about-mission-section" data-aos="fade-up">
+      <div class="theorem-box solution-box">
+        <div class="theorem-title">
+          <%= lang==='ar' ? 'رؤيتنا وقيمنا' : 'Our Vision & Values' %>
+        </div>
+        <div class="mission-grid">
+          <div class="mission-item" data-aos="fade-up" data-aos-delay="100">
+            <div class="mission-icon">
+              <span class="material-icons">visibility</span>
+            </div>
+            <h3><%= lang==='ar' ? 'الرؤية' : 'Vision' %></h3>
+            <p><%= lang==='ar' ? 'بناء جيل من قادة المستقبل في مجالات العلوم والتكنولوجيا والهندسة والرياضيات قادر على المنافسة عالمياً.' : 'Building a generation of future leaders in science, technology, engineering, and mathematics capable of global competition.' %></p>
+          </div>
+          
+          <div class="mission-item" data-aos="fade-up" data-aos-delay="200">
+            <div class="mission-icon">
+              <span class="material-icons">flag</span>
+            </div>
+            <h3><%= lang==='ar' ? 'المهمة' : 'Mission' %></h3>
+            <p><%= lang==='ar' ? 'توفير فرص تعليمية متميزة للطلاب من خلال برامج توجيه وإرشاد مبتكرة تدعم تطوير مهاراتهم في مجالات العلوم والتكنولوجيا.' : 'Providing outstanding educational opportunities for students through innovative mentoring and guidance programs that support the development of their skills in science and technology fields.' %></p>
+          </div>
+          
+          <div class="mission-item" data-aos="fade-up" data-aos-delay="300">
+            <div class="mission-icon">
+              <span class="material-icons">diamond</span>
+            </div>
+            <h3><%= lang==='ar' ? 'القيم' : 'Values' %></h3>
+            <p><%= lang==='ar' ? 'التميز، التعاون، النزاهة، الابتكار، والالتزام بتطوير مجتمع تعليمي داعم ومحفز.' : 'Excellence, collaboration, integrity, innovation, and commitment to developing a supportive and stimulating educational community.' %></p>
+          </div>
+        </div>
+      </div>
+    </section>
+    
+    <section class="team-section" data-aos="fade-up">
+      <div class="section-header latex-style">
+        <div class="theorem-box">
+          <div class="theorem-title">
+            <%= lang==='ar' ? 'تعرف على فريقنا' : 'Meet Our Team' %>
+          </div>
+          <p class="theorem-content">
+            <%= lang==='ar' ? 
+              'فريقنا يتكون من مجموعة متميزة من الخبراء والمعلمين المتحمسين لمساعدة الطلاب على تحقيق أهدافهم' : 
+              'Our team consists of an outstanding group of experts and educators passionate about helping students achieve their goals' 
+            %>
+          </p>
+        </div>
+      </div>
+      
+      <div class="team-grid">
+        <div class="team-card" data-aos="fade-up">
+          <div class="team-image">
+            <div class="placeholder-avatar">
+              <span class="material-icons">person</span>
+            </div>
+          </div>
+          <div class="team-info">
+            <h4>Dr. Ahmed Hassan</h4>
+            <span class="team-role"><%= lang==='ar' ? 'المؤسس والمدير' : 'Founder & Director' %></span>
+            <p><%= lang==='ar' ? 'دكتوراه في الفيزياء، خبرة 15 عاماً في تعليم العلوم، وشغف بمساعدة الطلاب على اكتشاف إمكاناتهم.' : 'PhD in Physics with 15 years of experience in science education and a passion for helping students discover their potential.' %></p>
+          </div>
+        </div>
+        
+        <div class="team-card" data-aos="fade-up" data-aos-delay="100">
+          <div class="team-image">
+            <div class="placeholder-avatar">
+              <span class="material-icons">person</span>
+            </div>
+          </div>
+          <div class="team-info">
+            <h4>Fatima Nour</h4>
+            <span class="team-role"><%= lang==='ar' ? 'مسؤولة برامج الرياضيات' : 'Mathematics Program Lead' %></span>
+            <p><%= lang==='ar' ? 'ماجستير في الرياضيات، مدرسة سابقة في مدارس STEM، متخصصة في تبسيط المفاهيم المعقدة.' : 'MSc in Mathematics, former teacher at STEM schools, specializes in simplifying complex concepts.' %></p>
+          </div>
+        </div>
+        
+        <div class="team-card" data-aos="fade-up" data-aos-delay="200">
+          <div class="team-image">
+            <div class="placeholder-avatar">
+              <span class="material-icons">person</span>
+            </div>
+          </div>
+          <div class="team-info">
+            <h4>Omar Kamal</h4>
+            <span class="team-role"><%= lang==='ar' ? 'مسؤول برامج العلوم' : 'Science Program Lead' %></span>
+            <p><%= lang==='ar' ? 'ماجستير في الكيمياء، خبرة 10 سنوات في تدريس العلوم، متحمس لتشجيع التفكير النقدي.' : 'MSc in Chemistry with 10 years of science teaching experience, passionate about fostering critical thinking.' %></p>
+          </div>
+        </div>
+        
+        <div class="team-card" data-aos="fade-up" data-aos-delay="300">
+          <div class="team-image">
+            <div class="placeholder-avatar">
+              <span class="material-icons">person</span>
+            </div>
+          </div>
+          <div class="team-info">
+            <h4>Layla Mahmoud</h4>
+            <span class="team-role"><%= lang==='ar' ? 'مسؤولة برامج اللغة الإنجليزية' : 'English Program Lead' %></span>
+            <p><%= lang==='ar' ? 'بكالوريوس في اللغة الإنجليزية، شهادة TESOL، خبرة في تعليم اللغة للأغراض الأكاديمية.' : 'BA in English, TESOL certification, experience in teaching language for academic purposes.' %></p>
+          </div>
+        </div>
+      </div>
+    </section>
+    
+    <section class="timeline-section" data-aos="fade-up">
+      <div class="theorem-box example-box">
+        <div class="theorem-title">
+          <%= lang==='ar' ? 'قصة نجاحنا' : 'Our Success Story' %>
+        </div>
+        <div class="timeline">
+          <div class="timeline-item" data-aos="fade-right">
+            <div class="timeline-date">2018</div>
+            <div class="timeline-content">
+              <h4><%= lang==='ar' ? 'التأسيس' : 'Foundation' %></h4>
+              <p><%= lang==='ar' ? 'تأسيس برنامج Mentorship STEM بمجموعة صغيرة من المتطوعين والطلاب.' : 'Mentorship STEM program established with a small group of volunteers and students.' %></p>
+            </div>
+          </div>
+          
+          <div class="timeline-item" data-aos="fade-left">
+            <div class="timeline-date">2019</div>
+            <div class="timeline-content">
+              <h4><%= lang==='ar' ? 'التوسع الأول' : 'First Expansion' %></h4>
+              <p><%= lang==='ar' ? 'نجاح 50 طالب في الالتحاق بمدارس STEM، وتوسيع الفريق ليشمل 10 موجهين.' : '50 students successfully enrolled in STEM schools, team expanded to include 10 mentors.' %></p>
+            </div>
+          </div>
+          
+          <div class="timeline-item" data-aos="fade-right">
+            <div class="timeline-date">2021</div>
+            <div class="timeline-content">
+              <h4><%= lang==='ar' ? 'برامج جديدة' : 'New Programs' %></h4>
+              <p><%= lang==='ar' ? 'إطلاق برامج متخصصة لكل مادة، وتطوير منصة تعليمية إلكترونية.' : 'Launch of specialized programs for each subject and development of an online learning platform.' %></p>
+            </div>
+          </div>
+          
+          <div class="timeline-item" data-aos="fade-left">
+            <div class="timeline-date">2023</div>
+            <div class="timeline-content">
+              <h4><%= lang==='ar' ? 'توسع وطني' : 'National Expansion' %></h4>
+              <p><%= lang==='ar' ? 'وصول البرنامج لأكثر من 500 طالب من مختلف المحافظات، ومعدل نجاح 75%.' : 'Program reached over 500 students from various governorates, with a 75% success rate.' %></p>
+            </div>
+          </div>
+          
+          <div class="timeline-item" data-aos="fade-right">
+            <div class="timeline-date">2024</div>
+            <div class="timeline-content">
+              <h4><%= lang==='ar' ? 'اليوم' : 'Today' %></h4>
+              <p><%= lang==='ar' ? 'فريق من 25 موجهًا، شراكات مع 5 مدارس STEM، وبرامج تدريبية متقدمة.' : 'A team of 25 mentors, partnerships with 5 STEM schools, and advanced training programs.' %></p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+  </div>
+  
+  <%- include('partials/footer') %>
+  
+  <script src="https://unpkg.com/aos@next/dist/aos.js"></script>
+  <script>
+    document.addEventListener('DOMContentLoaded', function() {
+      AOS.init({
+        duration: 800,
+        once: true,
+        offset: 100
+      });
+    });
+  </script>
+</body>
+</html>
