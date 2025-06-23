@@ -27,11 +27,13 @@ app.get('/api/search', (req, res) => {
   res.json({ query: q, results: [] });
 });
 
-// For serverless
-module.exports.handler = serverless(app);
+// Export the serverless handler for Vercel
+const handler = serverless(app);
+module.exports = handler;
+module.exports.handler = handler;
 
 // Local start
-if (!module.parent) {
+if (require.main === module) {
   const PORT = process.env.PORT || 3000;
   app.listen(PORT, () => console.log(`Server running on port ${PORT}`));
 }

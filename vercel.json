@@ -13,7 +13,7 @@
   "routes": [
     {
       "src": "/api/(.*)",
-      "dest": "app.js"
+      "dest": "/app.js"
     },
     {
       "src": "/images/(.*)",
@@ -29,7 +29,7 @@
     },
     {
       "src": "/(.*)",
-      "dest": "app.js"
+      "dest": "/app.js"
     }
   ]
 }

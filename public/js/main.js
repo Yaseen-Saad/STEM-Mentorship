@@ -8,9 +8,6 @@ document.addEventListener('DOMContentLoaded', () => {
     });
   }
   
-  // Initialize toast notifications
-  initializeToastNotifications();
-  
   // Testimonials Carousel
   initializeTestimonialCarousel();
   
@@ -22,70 +19,83 @@ document.addEventListener('DOMContentLoaded', () => {
   
   // Form validation
   initializeFormValidation();
+  
+  // Initialize toast notifications
+  initializeToastNotifications();
 });
 
 function initializeToastNotifications() {
-  const toastContainer = document.getElementById('acceptanceToast');
-  const toastMessage = document.getElementById('toastMessage');
+  // Get all acceptances from the data divs
+  const acceptanceContainer = document.querySelector('.acceptance-data');
+  if (!acceptanceContainer) return;
   
-  if (!toastContainer || !toastMessage) return;
+  const acceptances = [];
+  const acceptanceDivs = acceptanceContainer.querySelectorAll('div');
   
-  // Extract acceptance data from the data attributes
-  const acceptanceScript = document.querySelector('.acceptance-data');
-  if (!acceptanceScript) return;
-  
-  try {
-    // We'll use the DOM's dataset to get the data
-    const acceptances = Array.from(document.querySelectorAll('[data-name]')).map(el => ({
-      name: el.dataset.name,
-      university: el.dataset.university,
-      program: el.dataset.program
-    }));
+  acceptanceDivs.forEach(div => {
+    const name = div.dataset.name;
+    const university = div.dataset.university;
+    const program = div.dataset.program;
     
-    if (!acceptances.length) return;
-    
-    // Display a random acceptance after a delay
-    setTimeout(() => {
-      displayRandomAcceptance(acceptances, toastMessage, toastContainer);
-      
-      // Set up recurring display
-      setInterval(() => {
-        displayRandomAcceptance(acceptances, toastMessage, toastContainer);
-      }, 10000); // Show a new one every 10 seconds
-      
-    }, 3000); // Initial delay
-  } catch (e) {
-    console.error('Error initializing toast notifications:', e);
-  }
-}
-
-function displayRandomAcceptance(acceptances, messageEl, containerEl) {
+    if (name && university && program) {
+      acceptances.push({ name, university, program });
+    }
+  });
+  
+  if (acceptances.length === 0) return;
+  
+  // Get random acceptance
   const randomIndex = Math.floor(Math.random() * acceptances.length);
   const acceptance = acceptances[randomIndex];
   
-  // Create the message based on language
-  const isArabic = document.documentElement.lang === 'ar';
-  let message;
+  // Format message based on language
+  const lang = document.documentElement.lang;
+  const message = lang === 'ar' 
+    ? `${acceptance.name} تم قبوله في ${acceptance.university} لدراسة ${acceptance.program}!` 
+    : `${acceptance.name} was accepted into ${acceptance.university} to study ${acceptance.program}!`;
   
-  if (isArabic) {
-    message = `تم قبول ${acceptance.name} في برنامج ${acceptance.program} في ${acceptance.university}!`;
-  } else {
-    message = `${acceptance.name} was accepted to ${acceptance.university} for ${acceptance.program}!`;
+  // Set message in toast
+  const toastMessage = document.getElementById('toastMessage');
+  if (toastMessage) {
+    toastMessage.textContent = message;
   }
   
-  messageEl.textContent = message;
-  containerEl.classList.remove('hidden');
+  // Show toast after a delay
+  setTimeout(showToast, 2000);
   
-  // Auto-hide after 6 seconds
-  setTimeout(() => {
-    containerEl.classList.add('hidden');
-  }, 6000);
+  // Set up automatic rotation of acceptances
+  setInterval(() => {
+    const newIndex = Math.floor(Math.random() * acceptances.length);
+    const newAcceptance = acceptances[newIndex];
+    
+    const newMessage = lang === 'ar' 
+      ? `${newAcceptance.name} تم قبوله في ${newAcceptance.university} لدراسة ${newAcceptance.program}!` 
+      : `${newAcceptance.name} was accepted into ${newAcceptance.university} to study ${newAcceptance.program}!`;
+    
+    if (toastMessage) {
+      toastMessage.textContent = newMessage;
+    }
+    
+    showToast();
+  }, 30000); // Show new acceptance every 30 seconds
+}
+
+function showToast() {
+  const toast = document.getElementById('acceptanceToast');
+  if (toast) {
+    toast.classList.remove('hidden');
+    
+    // Auto hide after 5 seconds
+    setTimeout(() => {
+      toast.classList.add('hidden');
+    }, 5000);
+  }
 }
 
 function dismissToast() {
-  const toastContainer = document.getElementById('acceptanceToast');
-  if (toastContainer) {
-    toastContainer.classList.add('hidden');
+  const toast = document.getElementById('acceptanceToast');
+  if (toast) {
+    toast.classList.add('hidden');
   }
 }
 
