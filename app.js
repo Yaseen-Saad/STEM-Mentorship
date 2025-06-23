@@ -20,19 +20,15 @@ app.get('/resources', (req, res) => res.render('resources', { lang: req.query.la
 app.get('/contact', (req, res) => res.render('contact', { lang: req.query.lang || 'en' }));
 app.get('/search', (req, res) => res.render('search', { lang: req.query.lang || 'en', query: req.query.q || '' }));
 
-// API endpoint example
 app.get('/api/search', (req, res) => {
-  // placeholder logic
   const q = req.query.q || '';
   res.json({ query: q, results: [] });
 });
 
-// Export the serverless handler for Vercel
 const handler = serverless(app);
 module.exports = handler;
 module.exports.handler = handler;
 
-// Local start
 if (require.main === module) {
   const PORT = process.env.PORT || 3000;
   app.listen(PORT, () => console.log(`Server running on port ${PORT}`));
