@@ -87,10 +87,10 @@
         </div>
       </div>
       
-      <div class="team-grid">
-        <div class="team-card" data-aos="fade-up">
+      <div class="team-grid">        <div class="team-card" data-aos="fade-up">
           <div class="team-image">
-            <div class="placeholder-avatar">
+            <img src="/images/team-ahmed.jpg" alt="Dr. Ahmed Hassan" class="team-photo" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex'">
+            <div class="placeholder-avatar" style="display: none;">
               <span class="material-icons">person</span>
             </div>
           </div>
@@ -100,10 +100,10 @@
             <p><%= lang==='ar' ? 'دكتوراه في الفيزياء، خبرة 15 عاماً في تعليم العلوم، وشغف بمساعدة الطلاب على اكتشاف إمكاناتهم.' : 'PhD in Physics with 15 years of experience in science education and a passion for helping students discover their potential.' %></p>
           </div>
         </div>
-        
-        <div class="team-card" data-aos="fade-up" data-aos-delay="100">
+          <div class="team-card" data-aos="fade-up" data-aos-delay="100">
           <div class="team-image">
-            <div class="placeholder-avatar">
+            <img src="/images/team-fatima.jpg" alt="Fatima Nour" class="team-photo" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex'">
+            <div class="placeholder-avatar" style="display: none;">
               <span class="material-icons">person</span>
             </div>
           </div>
@@ -113,10 +113,10 @@
             <p><%= lang==='ar' ? 'ماجستير في الرياضيات، مدرسة سابقة في مدارس STEM، متخصصة في تبسيط المفاهيم المعقدة.' : 'MSc in Mathematics, former teacher at STEM schools, specializes in simplifying complex concepts.' %></p>
           </div>
         </div>
-        
-        <div class="team-card" data-aos="fade-up" data-aos-delay="200">
+          <div class="team-card" data-aos="fade-up" data-aos-delay="200">
           <div class="team-image">
-            <div class="placeholder-avatar">
+            <img src="/images/team-omar.jpg" alt="Omar Kamal" class="team-photo" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex'">
+            <div class="placeholder-avatar" style="display: none;">
               <span class="material-icons">person</span>
             </div>
           </div>
@@ -126,10 +126,10 @@
             <p><%= lang==='ar' ? 'ماجستير في الكيمياء، خبرة 10 سنوات في تدريس العلوم، متحمس لتشجيع التفكير النقدي.' : 'MSc in Chemistry with 10 years of science teaching experience, passionate about fostering critical thinking.' %></p>
           </div>
         </div>
-        
-        <div class="team-card" data-aos="fade-up" data-aos-delay="300">
+          <div class="team-card" data-aos="fade-up" data-aos-delay="300">
           <div class="team-image">
-            <div class="placeholder-avatar">
+            <img src="/images/team-layla.jpg" alt="Layla Mahmoud" class="team-photo" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex'">
+            <div class="placeholder-avatar" style="display: none;">
               <span class="material-icons">person</span>
             </div>
           </div>
@@ -138,6 +138,71 @@
             <span class="team-role"><%= lang==='ar' ? 'مسؤولة برامج اللغة الإنجليزية' : 'English Program Lead' %></span>
             <p><%= lang==='ar' ? 'بكالوريوس في اللغة الإنجليزية، شهادة TESOL، خبرة في تعليم اللغة للأغراض الأكاديمية.' : 'BA in English, TESOL certification, experience in teaching language for academic purposes.' %></p>
           </div>
+        </div>
+      </div>    </section>
+    
+    <section class="achievements-section" data-aos="fade-up">
+      <div class="section-header latex-style">
+        <div class="theorem-box conceptbox">
+          <div class="theorem-title">
+            <%= lang==='ar' ? 'إنجازاتنا الأكاديمية' : 'Academic Achievements' %>
+          </div>
+          <p class="theorem-content">
+            <%= lang==='ar' ? 
+              'مجموعة من الإنجازات والشهادات التي حققها فريقنا في مجال التعليم والتوجيه الأكاديمي' : 
+              'A collection of achievements and certifications earned by our team in education and academic mentoring' 
+            %>
+          </p>
+        </div>
+      </div>
+      
+      <div class="achievements-grid">
+        <div class="achievement-card" data-aos="fade-up">
+          <div class="achievement-icon">
+            <span class="material-icons">school</span>
+          </div>
+          <h4><%= lang==='ar' ? 'معتمدون رسمياً' : 'Officially Accredited' %></h4>
+          <p><%= lang==='ar' ? 'شراكة مع وزارة التربية والتعليم ومدارس STEM الرسمية' : 'Partnership with Ministry of Education and official STEM schools' %></p>
+        </div>
+        
+        <div class="achievement-card" data-aos="fade-up" data-aos-delay="100">
+          <div class="achievement-icon">
+            <span class="material-icons">emoji_events</span>
+          </div>
+          <h4><%= lang==='ar' ? 'جائزة التميز' : 'Excellence Award' %></h4>
+          <p><%= lang==='ar' ? 'جائزة أفضل برنامج توجيه تعليمي لعام 2023' : 'Best Educational Mentoring Program Award 2023' %></p>
+        </div>
+        
+        <div class="achievement-card" data-aos="fade-up" data-aos-delay="200">
+          <div class="achievement-icon">
+            <span class="material-icons">verified</span>
+          </div>
+          <h4><%= lang==='ar' ? 'شهادات دولية' : 'International Certifications' %></h4>
+          <p><%= lang==='ar' ? 'فريقنا حاصل على شهادات معتمدة من جامعات ومؤسسات دولية' : 'Our team holds certifications from international universities and institutions' %></p>
+        </div>
+        
+        <div class="achievement-card" data-aos="fade-up" data-aos-delay="300">
+          <div class="achievement-icon">
+            <span class="material-icons">groups</span>
+          </div>
+          <h4><%= lang==='ar' ? 'شبكة واسعة' : 'Extensive Network' %></h4>
+          <p><%= lang==='ar' ? 'شراكات مع 25+ مؤسسة تعليمية وأكاديمية محلية ودولية' : 'Partnerships with 25+ local and international educational institutions' %></p>
+        </div>
+        
+        <div class="achievement-card" data-aos="fade-up" data-aos-delay="400">
+          <div class="achievement-icon">
+            <span class="material-icons">timeline</span>
+          </div>
+          <h4><%= lang==='ar' ? 'خبرة مثبتة' : 'Proven Experience' %></h4>
+          <p><%= lang==='ar' ? '6 سنوات من التميز في التوجيه الأكاديمي ونسبة نجاح 85%' : '6 years of excellence in academic mentoring with 85% success rate' %></p>
+        </div>
+        
+        <div class="achievement-card" data-aos="fade-up" data-aos-delay="500">
+          <div class="achievement-icon">
+            <span class="material-icons">star</span>
+          </div>
+          <h4><%= lang==='ar' ? 'تقييمات عالية' : 'High Ratings' %></h4>
+          <p><%= lang==='ar' ? 'تقييم 4.9/5 من أولياء الأمور والطلاب على منصات التقييم' : '4.9/5 rating from parents and students on review platforms' %></p>
         </div>
       </div>
     </section>

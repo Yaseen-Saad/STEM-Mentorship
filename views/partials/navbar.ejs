@@ -1,26 +1,23 @@
-<nav aria-label="Main navigation">
-  <ul class="nav-list">
+<nav class="navbar" aria-label="Main navigation">
+  <ul class="nav-links">
     <li><a href="/?lang=<%= lang %>"><%= lang==='ar' ? 'الرئيسية' : 'Home' %></a></li>
     <li><a href="/about?lang=<%= lang %>"><%= lang==='ar' ? 'من نحن' : 'About Us' %></a></li>
     <li><a href="/success?lang=<%= lang %>"><%= lang==='ar' ? 'نجاحنا' : 'Our Success' %></a></li>
     <li><a href="/program?lang=<%= lang %>"><%= lang==='ar' ? 'تفاصيل البرنامج' : 'Program Details' %></a></li>
     <li><a href="/resources?lang=<%= lang %>"><%= lang==='ar' ? 'الموارد' : 'Resources' %></a></li>
     <li><a href="/contact?lang=<%= lang %>"><%= lang==='ar' ? 'اتصل بنا' : 'Contact Us' %></a></li>
-    <li>
-      <form action="/search" method="get" class="nav-search" role="search">
-        <input type="text" name="q" placeholder="<%= lang==='ar' ? 'بحث...' : 'Search...' %>" aria-label="Search">
-        <input type="hidden" name="lang" value="<%= lang %>">
-      </form>
-    </li>
-    <li><button class="lang-toggle" aria-label="Toggle language" onclick="toggleLang()">
-      <%= lang==='ar' ? 'EN' : 'عربي' %>
-    </button></li>
   </ul>
+  <div class="nav-actions">
+    <form action="/search" method="get" class="nav-search" role="search">
+      <input type="text" name="q" placeholder="<%= lang==='ar' ? 'بحث...' : 'Search...' %>" aria-label="Search">
+      <input type="hidden" name="lang" value="<%= lang %>">
+      <button type="submit" class="search-btn" aria-label="Submit search">
+        <span class="material-icons">search</span>
+      </button>
+    </form>
+    <a href="?lang=<%= lang === 'ar' ? 'en' : 'ar' %>" class="language-toggle" aria-label="Toggle language">
+      <%= lang==='ar' ? 'EN' : 'عربي' %>
+    </a>
+  </div>
 </nav>
-<script>
-  function toggleLang() {
-    const url = new URL(window.location.href);
-    url.searchParams.set('lang', '<%= lang === "ar" ? "en" : "ar" %>');
-    window.location = url;
-  }
-</script>
+
