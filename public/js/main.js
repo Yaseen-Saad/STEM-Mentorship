@@ -4,25 +4,85 @@ document.addEventListener('DOMContentLoaded', () => {
     AOS.init({
       duration: 800,
       once: true,
-      offset: 100
+      offset: 100,
+      easing: 'ease-out-cubic'
     });
   }
   
-  // Testimonials Carousel
+  // Initialize all components
+  initializeAnimations();
   initializeTestimonialCarousel();
-  
-  // FAQ toggle functionality
   initializeFAQToggle();
-  
-  // Counter animation for statistics
   initializeCounters();
-  
-  // Form validation
   initializeFormValidation();
-  
-  // Initialize toast notifications
   initializeToastNotifications();
+  initializeScrollEffects();
 });
+
+// Initialize custom animations for elements without AOS
+function initializeAnimations() {
+  const elements = document.querySelectorAll('.fade-in, .slide-in-left, .slide-in-right');
+  
+  const observerOptions = {
+    threshold: 0.1,
+    rootMargin: '0px 0px -50px 0px'
+  };
+  
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        entry.target.style.animationPlayState = 'running';
+        observer.unobserve(entry.target);
+      }
+    });
+  }, observerOptions);
+  
+  elements.forEach(el => {
+    el.style.animationPlayState = 'paused';
+    observer.observe(el);
+  });
+}
+
+// Enhanced scroll effects
+function initializeScrollEffects() {
+  let ticking = false;
+  
+  function updateScrollEffects() {
+    const scrolled = window.pageYOffset;
+    const rate = scrolled * -0.5;
+    
+    // Parallax effect for hero sections
+    const heroElements = document.querySelectorAll('.hero-banner');
+    heroElements.forEach(hero => {
+      hero.style.transform = `translateY(${rate}px)`;
+    });
+    
+    // Header shadow effect
+    const header = document.querySelector('header');
+    if (header) {
+      if (scrolled > 100) {
+        header.style.boxShadow = '0 4px 20px rgba(0,0,0,0.1)';
+        header.style.backgroundColor = 'rgba(255,255,255,0.95)';
+        header.style.backdropFilter = 'blur(10px)';
+      } else {
+        header.style.boxShadow = '0 2px 4px rgba(0,0,0,0.1)';
+        header.style.backgroundColor = '#ffffff';
+        header.style.backdropFilter = 'none';
+      }
+    }
+    
+    ticking = false;
+  }
+  
+  function requestTick() {
+    if (!ticking) {
+      requestAnimationFrame(updateScrollEffects);
+      ticking = true;
+    }
+  }
+  
+  window.addEventListener('scroll', requestTick);
+}
 
 function initializeToastNotifications() {
   // Get all acceptances from the data divs
