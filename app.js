@@ -60,6 +60,17 @@ app.get('/api/track-resource', (req, res) => {
   }
 });
 
+// 404 handler
+app.use((req, res, next) => {
+  res.status(404).render('index', { lang: req.query.lang || 'en' });
+});
+
+// Error handler
+app.use((err, req, res, next) => {
+  console.error(err.stack);
+  res.status(500).render('index', { lang: req.query.lang || 'en' });
+});
+
 const handler = serverless(app);
 
 // For Vercel
