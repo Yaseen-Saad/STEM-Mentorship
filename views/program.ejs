@@ -178,6 +178,225 @@
         </div>
       </div>
     </section>
+
+    <section id="syllabus" class="syllabus-section" data-aos="fade-up">
+      <div class="section-header latex-style">
+        <div class="theorem-box">
+          <div class="theorem-title">
+            <%= lang==='ar' ? 'المنهج التفصيلي' : 'Detailed Syllabus' %>
+          </div>
+          <p class="theorem-content">
+            <%= lang==='ar' ? 
+              'منهج شامل ومنظم يغطي جميع جوانب اختبارات القبول بمدارس STEM' : 
+              'A comprehensive and organized curriculum covering all aspects of STEM school entrance exams' 
+            %>
+          </p>
+        </div>
+      </div>
+
+      <div class="syllabus-container">
+        <!-- Mathematics Syllabus -->
+        <div class="syllabus-subject" data-aos="fade-up">
+          <div class="subject-header">
+            <div class="subject-icon">
+              <span class="material-icons">calculate</span>
+            </div>
+            <h3><%= lang==='ar' ? 'الرياضيات' : 'Mathematics' %></h3>
+            <span class="subject-badge"><%= lang==='ar' ? '12 أسبوع' : '12 Weeks' %></span>
+          </div>
+          <div class="subject-content">
+            <div class="topic-grid">
+              <div class="topic-item">
+                <h4><%= lang==='ar' ? 'الجبر' : 'Algebra' %></h4>
+                <ul>
+                  <li><%= lang==='ar' ? 'المعادلات الخطية والتربيعية' : 'Linear and quadratic equations' %></li>
+                  <li><%= lang==='ar' ? 'الدوال وخصائصها' : 'Functions and their properties' %></li>
+                  <li><%= lang==='ar' ? 'المتباينات' : 'Inequalities' %></li>
+                  <li><%= lang==='ar' ? 'الأسس واللوغاريتمات' : 'Exponents and logarithms' %></li>
+                </ul>
+              </div>
+              <div class="topic-item">
+                <h4><%= lang==='ar' ? 'الهندسة' : 'Geometry' %></h4>
+                <ul>
+                  <li><%= lang==='ar' ? 'المضلعات والدوائر' : 'Polygons and circles' %></li>
+                  <li><%= lang==='ar' ? 'الهندسة الفراغية' : 'Solid geometry' %></li>
+                  <li><%= lang==='ar' ? 'التحويلات الهندسية' : 'Geometric transformations' %></li>
+                  <li><%= lang==='ar' ? 'الإحداثيات والمتجهات' : 'Coordinates and vectors' %></li>
+                </ul>
+              </div>
+              <div class="topic-item">
+                <h4><%= lang==='ar' ? 'حساب المثلثات' : 'Trigonometry' %></h4>
+                <ul>
+                  <li><%= lang==='ar' ? 'النسب المثلثية' : 'Trigonometric ratios' %></li>
+                  <li><%= lang==='ar' ? 'المتطابقات المثلثية' : 'Trigonometric identities' %></li>
+                  <li><%= lang==='ar' ? 'قانون الجيب والجيب تمام' : 'Law of sines and cosines' %></li>
+                </ul>
+              </div>
+              <div class="topic-item">
+                <h4><%= lang==='ar' ? 'الإحصاء والاحتمالات' : 'Statistics & Probability' %></h4>
+                <ul>
+                  <li><%= lang==='ar' ? 'التوزيعات الإحصائية' : 'Statistical distributions' %></li>
+                  <li><%= lang==='ar' ? 'الاحتمالات المشروطة' : 'Conditional probability' %></li>
+                  <li><%= lang==='ar' ? 'التحليل الإحصائي' : 'Statistical analysis' %></li>
+                </ul>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Science Syllabus -->
+        <div class="syllabus-subject" data-aos="fade-up" data-aos-delay="100">
+          <div class="subject-header">
+            <div class="subject-icon">
+              <span class="material-icons">science</span>
+            </div>
+            <h3><%= lang==='ar' ? 'العلوم' : 'Science' %></h3>
+            <span class="subject-badge"><%= lang==='ar' ? '10 أسابيع' : '10 Weeks' %></span>
+          </div>
+          <div class="subject-content">
+            <div class="topic-grid">
+              <div class="topic-item">
+                <h4><%= lang==='ar' ? 'الفيزياء' : 'Physics' %></h4>
+                <ul>
+                  <li><%= lang==='ar' ? 'الميكانيكا والحركة' : 'Mechanics and motion' %></li>
+                  <li><%= lang==='ar' ? 'الكهرباء والمغناطيسية' : 'Electricity and magnetism' %></li>
+                  <li><%= lang==='ar' ? 'الضوء والأمواج' : 'Light and waves' %></li>
+                  <li><%= lang==='ar' ? 'الطاقة والشغل' : 'Energy and work' %></li>
+                </ul>
+              </div>
+              <div class="topic-item">
+                <h4><%= lang==='ar' ? 'الكيمياء' : 'Chemistry' %></h4>
+                <ul>
+                  <li><%= lang==='ar' ? 'التفاعلات الكيميائية' : 'Chemical reactions' %></li>
+                  <li><%= lang==='ar' ? 'الجدول الدوري' : 'Periodic table' %></li>
+                  <li><%= lang==='ar' ? 'الروابط الكيميائية' : 'Chemical bonds' %></li>
+                  <li><%= lang==='ar' ? 'المحاليل والأحماض والقواعد' : 'Solutions, acids and bases' %></li>
+                </ul>
+              </div>
+              <div class="topic-item">
+                <h4><%= lang==='ar' ? 'الأحياء' : 'Biology' %></h4>
+                <ul>
+                  <li><%= lang==='ar' ? 'تركيب الخلية ووظائفها' : 'Cell structure and function' %></li>
+                  <li><%= lang==='ar' ? 'الوراثة والتطور' : 'Genetics and evolution' %></li>
+                  <li><%= lang==='ar' ? 'البيئة والنظم البيئية' : 'Ecology and ecosystems' %></li>
+                  <li><%= lang==='ar' ? 'جسم الإنسان وأجهزته' : 'Human body systems' %></li>
+                </ul>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- English Syllabus -->
+        <div class="syllabus-subject" data-aos="fade-up" data-aos-delay="200">
+          <div class="subject-header">
+            <div class="subject-icon">
+              <span class="material-icons">translate</span>
+            </div>
+            <h3><%= lang==='ar' ? 'اللغة الإنجليزية' : 'English Language' %></h3>
+            <span class="subject-badge"><%= lang==='ar' ? '8 أسابيع' : '8 Weeks' %></span>
+          </div>
+          <div class="subject-content">
+            <div class="topic-grid">
+              <div class="topic-item">
+                <h4><%= lang==='ar' ? 'القواعد' : 'Grammar' %></h4>
+                <ul>
+                  <li><%= lang==='ar' ? 'الأزمنة والأفعال' : 'Tenses and verbs' %></li>
+                  <li><%= lang==='ar' ? 'الجمل الشرطية' : 'Conditional sentences' %></li>
+                  <li><%= lang==='ar' ? 'الأصوات المباشرة وغير المباشرة' : 'Direct and indirect speech' %></li>
+                </ul>
+              </div>
+              <div class="topic-item">
+                <h4><%= lang==='ar' ? 'المفردات' : 'Vocabulary' %></h4>
+                <ul>
+                  <li><%= lang==='ar' ? 'المصطلحات العلمية' : 'Scientific terminology' %></li>
+                  <li><%= lang==='ar' ? 'المرادفات والأضداد' : 'Synonyms and antonyms' %></li>
+                  <li><%= lang==='ar' ? 'التعبيرات الاصطلاحية' : 'Idiomatic expressions' %></li>
+                </ul>
+              </div>
+              <div class="topic-item">
+                <h4><%= lang==='ar' ? 'فهم المقروء' : 'Reading Comprehension' %></h4>
+                <ul>
+                  <li><%= lang==='ar' ? 'النصوص العلمية' : 'Scientific texts' %></li>
+                  <li><%= lang==='ar' ? 'التحليل النقدي' : 'Critical analysis' %></li>
+                  <li><%= lang==='ar' ? 'استخراج المعلومات' : 'Information extraction' %></li>
+                </ul>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- IQ & Aptitude Tests -->
+        <div class="syllabus-subject" data-aos="fade-up" data-aos-delay="300">
+          <div class="subject-header">
+            <div class="subject-icon">
+              <span class="material-icons">psychology</span>
+            </div>
+            <h3><%= lang==='ar' ? 'اختبارات الذكاء والقدرات' : 'IQ & Aptitude Tests' %></h3>
+            <span class="subject-badge"><%= lang==='ar' ? '6 أسابيع' : '6 Weeks' %></span>
+          </div>
+          <div class="subject-content">
+            <div class="topic-grid">
+              <div class="topic-item">
+                <h4><%= lang==='ar' ? 'التفكير المنطقي' : 'Logical Reasoning' %></h4>
+                <ul>
+                  <li><%= lang==='ar' ? 'الأنماط والتسلسلات' : 'Patterns and sequences' %></li>
+                  <li><%= lang==='ar' ? 'التفكير النقدي' : 'Critical thinking' %></li>
+                  <li><%= lang==='ar' ? 'حل المشكلات' : 'Problem solving' %></li>
+                </ul>
+              </div>
+              <div class="topic-item">
+                <h4><%= lang==='ar' ? 'التفكير المكاني' : 'Spatial Reasoning' %></h4>
+                <ul>
+                  <li><%= lang==='ar' ? 'الأشكال ثلاثية الأبعاد' : '3D shapes' %></li>
+                  <li><%= lang==='ar' ? 'التدوير والطي' : 'Rotation and folding' %></li>
+                  <li><%= lang==='ar' ? 'التصور المكاني' : 'Spatial visualization' %></li>
+                </ul>
+              </div>
+              <div class="topic-item">
+                <h4><%= lang==='ar' ? 'التفكير العددي' : 'Numerical Reasoning' %></h4>
+                <ul>
+                  <li><%= lang==='ar' ? 'السلاسل العددية' : 'Number series' %></li>
+                  <li><%= lang==='ar' ? 'العمليات الحسابية السريعة' : 'Quick arithmetic' %></li>
+                  <li><%= lang==='ar' ? 'المسائل اللفظية' : 'Word problems' %></li>
+                </ul>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Assessment Methods -->
+        <div class="assessment-section" data-aos="fade-up" data-aos-delay="400">
+          <div class="theorem-box method-box">
+            <div class="theorem-title">
+              <%= lang==='ar' ? 'طرق التقييم' : 'Assessment Methods' %>
+            </div>
+            <div class="assessment-grid">
+              <div class="assessment-item">
+                <div class="assessment-icon">
+                  <span class="material-icons">quiz</span>
+                </div>
+                <h4><%= lang==='ar' ? 'اختبارات أسبوعية' : 'Weekly Tests' %></h4>
+                <p><%= lang==='ar' ? 'تقييم مستمر لقياس التقدم' : 'Continuous assessment to measure progress' %></p>
+              </div>
+              <div class="assessment-item">
+                <div class="assessment-icon">
+                  <span class="material-icons">assignment</span>
+                </div>
+                <h4><%= lang==='ar' ? 'محاكاة الاختبار' : 'Mock Exams' %></h4>
+                <p><%= lang==='ar' ? 'تجربة واقعية لليوم الفعلي' : 'Realistic experience for the actual day' %></p>
+              </div>
+              <div class="assessment-item">
+                <div class="assessment-icon">
+                  <span class="material-icons">analytics</span>
+                </div>
+                <h4><%= lang==='ar' ? 'تقارير مفصلة' : 'Detailed Reports' %></h4>
+                <p><%= lang==='ar' ? 'تحليل شامل للأداء ونقاط التحسين' : 'Comprehensive performance analysis and improvement points' %></p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
     
     <section class="faq-section" data-aos="fade-up">
       <div class="section-header latex-style">

@@ -1,781 +1,675 @@
 <!DOCTYPE html>
 <html lang="<%= lang %>">
+
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title><%= lang==='ar' ? 'نجاحنا' : 'Our Success' %> - Mentorship STEM</title>
-    <link rel="stylesheet" href="/css/style.css">
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/chart.js@3.7.0/dist/chart.min.css">
-    <link rel="stylesheet" href="https://unpkg.com/aos@next/dist/aos.css" />
-    <!-- Add Material Icons for better UI -->
-    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title><%= lang==='ar' ? 'نجاحنا' : 'Our Success' %> - Mentorship STEM</title>
+  <link rel="stylesheet" href="/css/style.css">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/chart.js@3.7.0/dist/chart.min.css">
+  <link rel="stylesheet" href="https://unpkg.com/aos@next/dist/aos.css" />
+  <!-- Add Material Icons for better UI -->
+  <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
 </head>
+
 <body>
-    <%- include('partials/header', { lang: lang }) %>
-      <section class="hero-banner">
-        <div class="hero-overlay"></div>
-        <div class="container">
-            <div class="hero-content" data-aos="fade-up">
-                <span class="hero-badge"><%= lang==='ar' ? 'نجاح العام الماضي' : 'Last Year\'s Success' %></span>
-                <h1 class="gradient-text">
-                    <%= lang==='ar' ? 
+  <%- include('partials/header', { lang: lang }) %>
+  <section class="hero-banner">
+    <div class="hero-overlay"></div>
+    <div class="container">
+      <div class="hero-content" data-aos="fade-up">
+        <span class="hero-badge"><%= lang==='ar' ? 'نجاح العام الماضي' : 'Last Year\'s Success' %></span>
+        <h1 class="gradient-text">
+          <%= lang==='ar' ? 
                         'نفخر بتحقيق أحلام طلابنا في STEM' : 
                         'Proud to Make STEM Dreams Come True' 
                     %>
-                </h1>
-                <p class="hero-subtitle">
-                    <%= lang==='ar' ? 
+        </h1>
+        <p class="hero-subtitle">
+          <%= lang==='ar' ? 
                         'من خلال برنامج التوجيه المتميز، ساعدنا أكثر من 240 طالباً في تحقيق طموحاتهم' : 
                         'Through our distinguished mentorship program, we\'ve helped over 240 students achieve their ambitions' 
                     %>
-                </p>
-                <div class="hero-actions">
-                    <a href="#stats" class="btn btn-primary">
-                        <i class="material-icons">bar_chart</i>
-                        <%= lang==='ar' ? 'اكتشف إحصائياتنا' : 'Explore Our Stats' %>
-                    </a>
-                    <a href="#testimonials" class="btn btn-secondary">
-                        <i class="material-icons">format_quote</i>
-                        <%= lang==='ar' ? 'آراء الطلاب' : 'Student Stories' %>
-                    </a>
-                </div>
-            </div>
+        </p>
+        <div class="hero-actions">
+          <a href="#stats" class="btn btn-primary">
+            <i class="material-icons">bar_chart</i>
+            <%= lang==='ar' ? 'اكتشف إحصائياتنا' : 'Explore Our Stats' %>
+          </a>
+          <a href="#testimonials" class="btn btn-secondary">
+            <i class="material-icons">format_quote</i>
+            <%= lang==='ar' ? 'آراء الطلاب' : 'Student Stories' %>
+          </a>
         </div>
-    </section>
-    
-    <div class="container">
-        <div class="latex-box info-box" data-aos="fade-up">
-            <div class="box-header">
-                <i class="material-icons">info</i>
-                <h2><%= lang==='ar' ? 'حول نجاحنا' : 'About Our Success' %></h2>
-            </div>
-            <div class="box-content">
-                <p>
-                    <%= lang==='ar' ? 
+      </div>
+    </div>
+  </section>
+
+  <div class="container">
+    <div class="latex-box info-box" data-aos="fade-up">
+      <div class="box-header">
+        <i class="material-icons">info</i>
+        <h2><%= lang==='ar' ? 'حول نجاحنا' : 'About Our Success' %></h2>
+      </div>
+      <div class="box-content">
+        <p>
+          <%= lang==='ar' ? 
                         'برنامج Mentorship STEM يفخر بتقديم تجربة تعليمية فريدة تجمع بين التوجيه المتخصص والدعم المستمر. نتائجنا تتحدث عن نفسها، مع معدل قبول متميز ورضا طلابي عالي.' : 
                         'The Mentorship STEM program takes pride in offering a unique educational experience combining specialized mentorship with continuous support. Our results speak for themselves, with outstanding acceptance rates and high student satisfaction.' 
                     %>
-                </p>
+        </p>
+      </div>
+    </div>
+      <section class="impact-section">
+      <div class="section-header" data-aos="fade-up">
+        <h2 class="gradient-text"><%= lang==='ar' ? 'تأثيرنا في أرقام' : 'Our Impact in Numbers' %></h2>
+        <p class="section-subtitle">
+          <%= lang==='ar' ? 
+                        'كيف يساهم برنامجنا في إعداد الجيل القادم من العلماء والمهندسين المصريين' : 
+                        'How our program contributes to preparing the next generation of Egyptian scientists and engineers' %>
+        </p>
+      </div>
+
+      <div class="impact-grid" data-aos="fade-up" data-aos-delay="100">
+        <div class="impact-item">
+          <div class="impact-value">
+            <span class="counter-value" data-value="1200">0</span>
+            <span class="impact-plus">+</span>
+          </div>
+          <div class="impact-label">
+            <%= lang==='ar' ? 'طالب استفاد من البرنامج' : 'Students benefited from the program' %>
+          </div>
+        </div>
+
+        <div class="impact-item">
+          <div class="impact-value">
+            <span class="counter-value" data-value="35">0</span>
+            <span class="impact-plus">%</span>
+          </div>
+          <div class="impact-label">
+            <%= lang==='ar' ? 'من الطلاب من المناطق النائية' : 'Students from remote areas' %>
+          </div>
+        </div>
+
+        <div class="impact-item">
+          <div class="impact-value">
+            <span class="counter-value" data-value="42">0</span>
+            <span class="impact-plus">%</span>
+          </div>
+          <div class="impact-label">
+            <%= lang==='ar' ? 'من الطالبات (الإناث)' : 'Female students' %>
+          </div>
+        </div>
+
+        <div class="impact-item">
+          <div class="impact-value">
+            <span class="counter-value" data-value="87">0</span>
+            <span class="impact-plus">%</span>
+          </div>
+          <div class="impact-label">
+            <%= lang==='ar' ? 'يواصلون دراستهم في مجالات STEM' : 'Continue studies in STEM fields' %>
+          </div>
+        </div>
+
+        <div class="impact-item">
+          <div class="impact-value">
+            <span class="counter-value" data-value="18">0</span>
+          </div>
+          <div class="impact-label">
+            <%= lang==='ar' ? 'محافظة مصرية' : 'Egyptian governorates' %>
+          </div>
+        </div>
+
+        <div class="impact-item">
+          <div class="impact-value">
+            <span class="counter-value" data-value="52">0</span>
+          </div>
+          <div class="impact-label">
+            <%= lang==='ar' ? 'موجه متطوع' : 'Volunteer mentors' %>
+          </div>
+        </div>
+      </div>
+
+      <div class="impact-map" data-aos="zoom-in">
+        <div class="map-title">
+          <%= lang==='ar' ? 'انتشارنا الجغرافي' : 'Our Geographic Reach' %>
+        </div>
+        <div class="egypt-map">
+          <!-- Egypt map placeholder, could be replaced with an interactive SVG map -->
+          <img src="/images/egypt-map.svg" alt="Egypt Map" class="map-svg">
+          <div class="map-legend">
+            <div class="legend-item">
+              <span class="color high"></span>
+              <span><%= lang==='ar' ? 'وجود قوي (5+ مراكز)' : 'Strong presence (5+ centers)' %></span>
             </div>
-        </div>        <section id="stats" class="stats-section">
-            <div class="section-header latex-style" data-aos="fade-up">
-                <div class="theorem-box">
-                    <div class="theorem-title">
-                        <%= lang==='ar' ? 'إحصائيات برنامج التوجيه' : 'Mentorship Program Statistics' %>
-                    </div>
-                    <p class="theorem-content">
-                        <%= lang==='ar' ? 
+            <div class="legend-item">
+              <span class="color medium"></span>
+              <span><%= lang==='ar' ? 'وجود متوسط (2-4 مراكز)' : 'Medium presence (2-4 centers)' %></span>
+            </div>
+            <div class="legend-item">
+              <span class="color low"></span>
+              <span><%= lang==='ar' ? 'وجود محدود (1 مركز)' : 'Limited presence (1 center)' %></span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="stats" class="stats-section">
+      <div class="section-header latex-style" data-aos="fade-up">
+        <div class="theorem-box">
+          <div class="theorem-title">
+            <%= lang==='ar' ? 'إحصائيات برنامج التوجيه' : 'Mentorship Program Statistics' %>
+          </div>
+          <p class="theorem-content">
+            <%= lang==='ar' ? 
                             'نتائج العام الدراسي 2024-2025 تظهر تحسناً ملحوظاً في جميع المؤشرات الرئيسية' : 
                             'Results from the 2024-2025 academic year show significant improvement across all key metrics' 
                         %>
-                    </p>
-                </div>
-            </div>
+          </p>
+        </div>
+      </div>
 
-            <div class="stats-grid">
-                <div class="stat-card conceptbox" data-aos="fade-up">
-                    <div class="stat-icon">
-                        <span class="material-icons">school</span>
-                    </div>
-                    <h3 data-value="240">0</h3>
-                    <p><%= lang==='ar' ? 'طالب مقبول' : 'Accepted Students' %></p>
-                    <div class="stat-trend">
-                        <div class="trend-icon">
-                            <span class="material-icons">trending_up</span>
-                        </div>
-                        <div class="trend-info">
-                            <span class="trend-value">25%</span>
-                            <span class="trend-label">
-                                <%= lang==='ar' ? 'زيادة عن العام السابق' : 'increase from last year' %>
-                            </span>
-                        </div>
-                    </div>
-                    <div class="stat-detail">
-                        <%= lang==='ar' ? 
+      
+      <div class="stats-grid">
+        <div class="stat-card conceptbox" data-aos="fade-up">
+          <div class="stat-icon">
+            <span class="material-icons">school</span>
+          </div>
+          <h3 data-value="240">0</h3>
+          <p><%= lang==='ar' ? 'طالب مقبول' : 'Accepted Students' %></p>
+          <div class="stat-trend">
+            <div class="trend-icon">
+              <span class="material-icons">trending_up</span>
+            </div>
+            <div class="trend-info">
+              <span class="trend-value">25%</span>
+              <span class="trend-label">
+                <%= lang==='ar' ? 'زيادة عن العام السابق' : 'increase from last year' %>
+              </span>
+            </div>
+          </div>
+          <div class="stat-detail">
+            <%= lang==='ar' ? 
                             'أعلى معدل قبول في تاريخ البرنامج' : 
                             'Highest acceptance rate in program history' 
                         %>
-                    </div>
-                </div>                <div class="stat-card conceptbox" data-aos="fade-up" data-aos-delay="100">
-                    <div class="stat-icon">
-                        <span class="material-icons">trending_up</span>
-                    </div>
-                    <h3 data-value="70">0</h3>
-                    <p><%= lang==='ar' ? 'معدل القبول' : 'Acceptance Rate' %></p>
-                    <div class="stat-trend">
-                        <div class="trend-icon">
-                            <span class="material-icons">arrow_upward</span>
-                        </div>
-                        <div class="trend-info">
-                            <span class="trend-value">15%</span>
-                            <span class="trend-label">
-                                <%= lang==='ar' ? 'تحسن في النتائج' : 'improvement in results' %>
-                            </span>
-                        </div>
-                    </div>
-                    <div class="stat-detail">
-                        <%= lang==='ar' ? 
+          </div>
+        </div>
+        <div class="stat-card conceptbox" data-aos="fade-up" data-aos-delay="100">
+          <div class="stat-icon">
+            <span class="material-icons">trending_up</span>
+          </div>
+          <h3 data-value="70">0</h3>
+          <p><%= lang==='ar' ? 'معدل القبول' : 'Acceptance Rate' %></p>
+          <div class="stat-trend">
+            <div class="trend-icon">
+              <span class="material-icons">arrow_upward</span>
+            </div>
+            <div class="trend-info">
+              <span class="trend-value">15%</span>
+              <span class="trend-label">
+                <%= lang==='ar' ? 'تحسن في النتائج' : 'improvement in results' %>
+              </span>
+            </div>
+          </div>
+          <div class="stat-detail">
+            <%= lang==='ar' ? 
                             'معدل القبول يزداد سنوياً' : 
                             'Acceptance rate increases every year' 
                         %>
-                    </div>
-                </div>
-                <div class="stat-card conceptbox" data-aos="fade-up" data-aos-delay="200">
-                    <div class="stat-icon">
-                        <span class="material-icons">star</span>
-                    </div>
-                    <h3 data-value="85">0</h3>
-                    <p><%= lang==='ar' ? 'رضا الطلاب' : 'Student Satisfaction' %></p>
-                    <div class="stat-trend">
-                        <div class="trend-icon">
-                            <span class="material-icons">thumb_up</span>
-                        </div>
-                        <div class="trend-info">
-                            <span class="trend-value">10%</span>
-                            <span class="trend-label">
-                                <%= lang==='ar' ? 'تقييم إيجابي' : 'positive feedback' %>
-                            </span>
-                        </div>
-                    </div>
-                    <div class="stat-detail">
-                        <%= lang==='ar' ? 
+          </div>
+        </div>
+        <div class="stat-card conceptbox" data-aos="fade-up" data-aos-delay="200">
+          <div class="stat-icon">
+            <span class="material-icons">star</span>
+          </div>
+          <h3 data-value="85">0</h3>
+          <p><%= lang==='ar' ? 'رضا الطلاب' : 'Student Satisfaction' %></p>
+          <div class="stat-trend">
+            <div class="trend-icon">
+              <span class="material-icons">thumb_up</span>
+            </div>
+            <div class="trend-info">
+              <span class="trend-value">10%</span>
+              <span class="trend-label">
+                <%= lang==='ar' ? 'تقييم إيجابي' : 'positive feedback' %>
+              </span>
+            </div>
+          </div>
+          <div class="stat-detail">
+            <%= lang==='ar' ? 
                             'طلابنا هم أفضل سفراء لنا' : 
                             'Our students are our best ambassadors' 
                         %>
-                    </div>
-                </div>
-                <div class="stat-card conceptbox" data-aos="fade-up" data-aos-delay="300">
-                    <div class="stat-icon">
-                        <span class="material-icons">emoji_events</span>
-                    </div>
-                    <h3 data-value="95">0</h3>
-                    <p><%= lang==='ar' ? 'معدل النجاح' : 'Success Rate' %></p>
-                    <div class="stat-trend">
-                        <div class="trend-icon">
-                            <span class="material-icons">check_circle</span>
-                        </div>
-                        <div class="trend-info">
-                            <span class="trend-value">5%</span>
-                            <span class="trend-label">
-                                <%= lang==='ar' ? 'في الامتحانات النهائية' : 'in final exams' %>
-                            </span>
-                        </div>
-                    </div>
-                    <div class="stat-detail">
-                        <%= lang==='ar' ? 
+          </div>
+        </div>
+        <div class="stat-card conceptbox" data-aos="fade-up" data-aos-delay="300">
+          <div class="stat-icon">
+            <span class="material-icons">emoji_events</span>
+          </div>
+          <h3 data-value="95">0</h3>
+          <p><%= lang==='ar' ? 'معدل النجاح' : 'Success Rate' %></p>
+          <div class="stat-trend">
+            <div class="trend-icon">
+              <span class="material-icons">check_circle</span>
+            </div>
+            <div class="trend-info">
+              <span class="trend-value">5%</span>
+              <span class="trend-label">
+                <%= lang==='ar' ? 'في الامتحانات النهائية' : 'in final exams' %>
+              </span>
+            </div>
+          </div>
+          <div class="stat-detail">
+            <%= lang==='ar' ? 
                             'نتائج ممتازة في جميع المواد' : 
                             'Excellent results across all subjects' 
                         %>
-                    </div>
-                </div>
-            </div>
-        </section>        <section class="schools-section">
-            <div class="section-header latex-style" data-aos="fade-up">
-                <div class="theorem-box solution-box">
-                    <div class="theorem-title">
-                        <%= lang==='ar' ? 'المدارس الأفضل أداءً' : 'Top Performing Schools' %>
-                    </div>
-                    <p class="theorem-content">
-                        <%= lang==='ar' ? 
+          </div>
+        </div>
+      </div>
+    </section>
+    <section class="schools-section">
+      <div class="section-header latex-style" data-aos="fade-up">
+        <div class="theorem-box solution-box">
+          <div class="theorem-title">
+            <%= lang==='ar' ? 'المدارس الأفضل أداءً' : 'Top Performing Schools' %>
+          </div>
+          <p class="theorem-content">
+            <%= lang==='ar' ? 
                             'حققت مدارس STEM في مصر معدلات قبول متميزة لطلاب برنامجنا، وفيما يلي تحليل لأداء كل مدرسة للعام 2024-2025' : 
                             'STEM schools in Egypt achieved outstanding acceptance rates for our program students. Below is an analysis of each school\'s performance for 2024-2025' 
                         %>
-                    </p>
-                </div>
+          </p>
+        </div>
+      </div>
+
+      <div class="schools-content">
+        <div class="schools-chart" data-aos="fade-right">
+          <canvas id="schoolsChart"></canvas>
+        </div>
+
+        <div class="schools-grid" data-aos="fade-left">
+          <div class="school-card">
+            <div class="school-header">
+              <h4>October STEM</h4>
+              <span class="school-badge">Top Performance</span>
             </div>
-            
-            <div class="schools-content">
-                <div class="schools-chart" data-aos="fade-right">
-                    <canvas id="schoolsChart"></canvas>
-                </div>
-                
-                <div class="schools-grid" data-aos="fade-left">
-                    <div class="school-card">
-                        <div class="school-header">
-                            <h4>October STEM</h4>
-                            <span class="school-badge">Top Performance</span>
-                        </div>
-                        <div class="progress-bar" data-progress="85">
-                            <div class="progress" style="width: 0%">
-                                <span class="progress-text">85%</span>
-                            </div>
-                        </div>
-                        <div class="school-stats">
-                            <div class="stat-item">
-                                <span class="stat-label"><%= lang==='ar' ? 'طلاب مقبولين' : 'Accepted' %></span>
-                                <span class="stat-value">45</span>
-                            </div>
-                            <div class="stat-item">
-                                <span class="stat-label"><%= lang==='ar' ? 'متوسط الدرجات' : 'Avg Score' %></span>
-                                <span class="stat-value">92%</span>
-                            </div>
-                        </div>
-                    </div>
-                    
-                    <div class="school-card">
-                        <div class="school-header">
-                            <h4>Maadi STEM</h4>
-                            <span class="school-badge">High Growth</span>
-                        </div>
-                        <div class="progress-bar" data-progress="80">
-                            <div class="progress" style="width: 0%">
-                                <span class="progress-text">80%</span>
-                            </div>
-                        </div>
-                        <div class="school-stats">
-                            <div class="stat-item">
-                                <span class="stat-label"><%= lang==='ar' ? 'طلاب مقبولين' : 'Accepted' %></span>
-                                <span class="stat-value">38</span>
-                            </div>
-                            <div class="stat-item">
-                                <span class="stat-label"><%= lang==='ar' ? 'متوسط الدرجات' : 'Avg Score' %></span>
-                                <span class="stat-value">89%</span>
-                            </div>
-                        </div>
-                    </div>
-                    
-                    <div class="school-card">
-                        <div class="school-header">
-                            <h4>Alexandria STEM</h4>
-                            <span class="school-badge">Rising Star</span>
-                        </div>
-                        <div class="progress-bar" data-progress="75">
-                            <div class="progress" style="width: 0%">
-                                <span class="progress-text">75%</span>
-                            </div>
-                        </div>
-                        <div class="school-stats">
-                            <div class="stat-item">
-                                <span class="stat-label"><%= lang==='ar' ? 'طلاب مقبولين' : 'Accepted' %></span>
-                                <span class="stat-value">35</span>
-                            </div>
-                            <div class="stat-item">
-                                <span class="stat-label"><%= lang==='ar' ? 'متوسط الدرجات' : 'Avg Score' %></span>
-                                <span class="stat-value">87%</span>
-                            </div>
-                        </div>
-                    </div>
-                    
-                    <div class="school-card">
-                        <div class="school-header">
-                            <h4>Dakahlia STEM</h4>
-                            <span class="school-badge">New Partner</span>
-                        </div>
-                        <div class="progress-bar" data-progress="72">
-                            <div class="progress" style="width: 0%">
-                                <span class="progress-text">72%</span>
-                            </div>
-                        </div>
-                        <div class="school-stats">
-                            <div class="stat-item">
-                                <span class="stat-label"><%= lang==='ar' ? 'طلاب مقبولين' : 'Accepted' %></span>
-                                <span class="stat-value">30</span>
-                            </div>
-                            <div class="stat-item">
-                                <span class="stat-label"><%= lang==='ar' ? 'متوسط الدرجات' : 'Avg Score' %></span>
-                                <span class="stat-value">85%</span>
-                            </div>
-                        </div>
-                    </div>
-                </div>
+            <div class="school-stats">
+              <div class="stat-item">
+                <span class="stat-label"><%= lang==='ar' ? 'طلاب مقبولين' : 'Accepted' %></span>
+                <span class="stat-value">45</span>
+              </div>
+              <div class="stat-item">
+                <span class="stat-label"><%= lang==='ar' ? 'نسبة المقبولين' : 'Percentage' %></span>
+                <span class="stat-value">92%</span>
+              </div>
             </div>
-        </section>        <section class="achievements-section">
-            <div class="section-header latex-style" data-aos="fade-up">
-                <div class="theorem-box example-box">
-                    <div class="theorem-title">
-                        <%= lang==='ar' ? 'إنجازات أكاديمية' : 'Academic Achievements' %>
-                    </div>
-                    <p class="theorem-content">
-                        <%= lang==='ar' ? 
+          </div>
+
+          <div class="school-card">
+            <div class="school-header">
+              <h4>Maadi STEM</h4>
+              <span class="school-badge">High Growth</span>
+            </div>
+            <div class="school-stats">
+              <div class="stat-item">
+                <span class="stat-label"><%= lang==='ar' ? 'طلاب مقبولين' : 'Accepted' %></span>
+                <span class="stat-value">38</span>
+              </div>
+              <div class="stat-item">
+                <span class="stat-label"><%= lang==='ar' ? 'نسبة المقبولين' : 'Percentage' %></span>
+                <span class="stat-value">89%</span>
+              </div>
+            </div>
+          </div>
+
+          <div class="school-card">
+            <div class="school-header">
+              <h4>Alexandria STEM</h4>
+              <span class="school-badge">Rising Star</span>
+            </div>
+
+            <div class="school-stats">
+              <div class="stat-item">
+                <span class="stat-label"><%= lang==='ar' ? 'طلاب مقبولين' : 'Accepted' %></span>
+                <span class="stat-value">35</span>
+              </div>
+              <div class="stat-item">
+                <span class="stat-label"><%= lang==='ar' ? 'نسبة المقبولين' : 'Percentage' %></span>
+                <span class="stat-value">87%</span>
+              </div>
+            </div>
+          </div>
+
+          <div class="school-card">
+            <div class="school-header">
+              <h4>Dakahlia STEM</h4>
+              <span class="school-badge">New Partner</span>
+            </div>
+            <div class="school-stats">
+              <div class="stat-item">
+                <span class="stat-label"><%= lang==='ar' ? 'طلاب مقبولين' : 'Accepted' %></span>
+                <span class="stat-value">30</span>
+              </div>
+              <div class="stat-item">
+                <span class="stat-label"><%= lang==='ar' ? 'نسبة المقبولين' : 'Percentage' %></span>
+                <span class="stat-value">85%</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="achievements-section">
+      <div class="section-header latex-style" data-aos="fade-up">
+        <div class="theorem-box example-box">
+          <div class="theorem-title">
+            <%= lang==='ar' ? 'إنجازات أكاديمية' : 'Academic Achievements' %>
+          </div>
+          <p class="theorem-content">
+            <%= lang==='ar' ? 
                             'حقق طلابنا إنجازات متميزة في المسابقات والأولمبياد العلمية المحلية والدولية' : 
                             'Our students have achieved outstanding accomplishments in local and international scientific competitions and olympiads' 
                         %>
-                    </p>
-                </div>
-            </div>
-            
-            <div class="achievements-grid" data-aos="fade-up">
-                <div class="achievement-card">
-                    <div class="achievement-icon">
-                        <span class="material-icons">science</span>
-                    </div>
-                    <div class="achievement-content">
-                        <h3><%= lang==='ar' ? 'أولمبياد العلوم الدولية' : 'International Science Olympiad' %></h3>
-                        <p>
-                            <%= lang==='ar' ? 
+          </p>
+        </div>
+      </div>
+
+      <div class="achievements-grid" data-aos="fade-up">
+        <div class="achievement-card">
+          <div class="achievement-icon">
+            <span class="material-icons">science</span>
+          </div>
+          <div class="achievement-content">
+            <h3><%= lang==='ar' ? 'أولمبياد العلوم الدولية' : 'International Science Olympiad' %></h3>
+            <p>
+              <%= lang==='ar' ? 
                                 'حصل 5 من طلابنا على ميداليات في أولمبياد العلوم الدولية لعام 2024، بما في ذلك ميداليتان ذهبيتان.' : 
                                 '5 of our students received medals in the 2024 International Science Olympiad, including 2 gold medals.' 
                             %>
-                        </p>
-                        <div class="achievement-stats">
-                            <div class="medal gold">
-                                <span>2</span>
-                                <span><%= lang==='ar' ? 'ذهبية' : 'Gold' %></span>
-                            </div>
-                            <div class="medal silver">
-                                <span>1</span>
-                                <span><%= lang==='ar' ? 'فضية' : 'Silver' %></span>
-                            </div>
-                            <div class="medal bronze">
-                                <span>2</span>
-                                <span><%= lang==='ar' ? 'برونزية' : 'Bronze' %></span>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                
-                <div class="achievement-card">
-                    <div class="achievement-icon">
-                        <span class="material-icons">calculate</span>
-                    </div>
-                    <div class="achievement-content">
-                        <h3><%= lang==='ar' ? 'أولمبياد الرياضيات المصرية' : 'Egyptian Mathematics Olympiad' %></h3>
-                        <p>
-                            <%= lang==='ar' ? 
+            </p>
+            <div class="achievement-stats">
+              <div class="medal gold">
+                <span>2</span>
+                <span><%= lang==='ar' ? 'ذهبية' : 'Gold' %></span>
+              </div>
+              <div class="medal silver">
+                <span>1</span>
+                <span><%= lang==='ar' ? 'فضية' : 'Silver' %></span>
+              </div>
+              <div class="medal bronze">
+                <span>2</span>
+                <span><%= lang==='ar' ? 'برونزية' : 'Bronze' %></span>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="achievement-card">
+          <div class="achievement-icon">
+            <span class="material-icons">calculate</span>
+          </div>
+          <div class="achievement-content">
+            <h3><%= lang==='ar' ? 'أولمبياد الرياضيات المصرية' : 'Egyptian Mathematics Olympiad' %></h3>
+            <p>
+              <%= lang==='ar' ? 
                                 'حاز طلابنا على المركز الأول في أولمبياد الرياضيات المصرية، وتأهل 3 طلاب للمنافسة الدولية.' : 
                                 'Our students won first place in the Egyptian Mathematics Olympiad, and 3 students qualified for international competition.' 
                             %>
-                        </p>
-                        <div class="achievement-metrics">
-                            <div class="metric">
-                                <span class="metric-value">1st</span>
-                                <span class="metric-label"><%= lang==='ar' ? 'المركز الوطني' : 'National Rank' %></span>
-                            </div>
-                            <div class="metric">
-                                <span class="metric-value">12</span>
-                                <span class="metric-label"><%= lang==='ar' ? 'متأهلاً للنهائيات' : 'Finalists' %></span>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                
-                <div class="achievement-card">
-                    <div class="achievement-icon">
-                        <span class="material-icons">engineering</span>
-                    </div>
-                    <div class="achievement-content">
-                        <h3><%= lang==='ar' ? 'مسابقة الروبوتات والذكاء الاصطناعي' : 'Robotics & AI Competition' %></h3>
-                        <p>
-                            <%= lang==='ar' ? 
+            </p>
+            <div class="achievement-metrics">
+              <div class="metric">
+                <span class="metric-value">1st</span>
+                <span class="metric-label"><%= lang==='ar' ? 'المركز الوطني' : 'National Rank' %></span>
+              </div>
+              <div class="metric">
+                <span class="metric-value">12</span>
+                <span class="metric-label"><%= lang==='ar' ? 'متأهلاً للنهائيات' : 'Finalists' %></span>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="achievement-card">
+          <div class="achievement-icon">
+            <span class="material-icons">engineering</span>
+          </div>
+          <div class="achievement-content">
+            <h3><%= lang==='ar' ? 'مسابقة الروبوتات والذكاء الاصطناعي' : 'Robotics & AI Competition' %></h3>
+            <p>
+              <%= lang==='ar' ? 
                                 'فاز فريقنا المكون من 6 طلاب بالمركز الثاني في مسابقة الروبوتات والذكاء الاصطناعي الإقليمية.' : 
                                 'Our team of 6 students won second place in the Regional Robotics & AI Competition.' 
                             %>
-                        </p>
-                        <div class="achievement-project">
-                            <h4>
-                                <%= lang==='ar' ? 'مشروع: روبوت ذكي للتعليم' : 'Project: Smart Education Robot' %>
-                            </h4>
-                            <div class="project-tags">
-                                <span class="tag">AI</span>
-                                <span class="tag">ML</span>
-                                <span class="tag">IoT</span>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                
-                <div class="achievement-card">
-                    <div class="achievement-icon">
-                        <span class="material-icons">biotech</span>
-                    </div>
-                    <div class="achievement-content">
-                        <h3><%= lang==='ar' ? 'معرض مصر للعلوم والهندسة' : 'Egypt Science & Engineering Fair' %></h3>
-                        <p>
-                            <%= lang==='ar' ? 
+            </p>
+            <div class="achievement-project">
+              <h4>
+                <%= lang==='ar' ? 'مشروع: روبوت ذكي للتعليم' : 'Project: Smart Education Robot' %>
+              </h4>
+              <div class="project-tags">
+                <span class="tag">AI</span>
+                <span class="tag">ML</span>
+                <span class="tag">IoT</span>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="achievement-card">
+          <div class="achievement-icon">
+            <span class="material-icons">biotech</span>
+          </div>
+          <div class="achievement-content">
+            <h3><%= lang==='ar' ? 'معرض مصر للعلوم والهندسة' : 'Egypt Science & Engineering Fair' %></h3>
+            <p>
+              <%= lang==='ar' ? 
                                 'قدم طلابنا 8 مشاريع في معرض مصر للعلوم والهندسة، وحصل مشروعان على جوائز التميز.' : 
                                 'Our students presented 8 projects at the Egypt Science & Engineering Fair, with 2 projects receiving excellence awards.' 
                             %>
-                        </p>
-                        <a href="#" class="btn-outline">
-                            <%= lang==='ar' ? 'عرض المشاريع الفائزة' : 'View Winning Projects' %>
-                        </a>
-                    </div>
-                </div>
-            </div>
-        </section>        <section id="testimonials" class="testimonials-section">
-            <div class="section-header latex-style" data-aos="fade-up">
-                <div class="theorem-box tipbox">
-                    <div class="theorem-title">
-                        <%= lang==='ar' ? 'ملاحظات العام الماضي' : 'Last Year\'s Feedback' %>
-                    </div>
-                    <p class="theorem-content">
-                        <%= lang==='ar' ? 
+            </p>
+            <a href="#" class="btn-outline">
+              <%= lang==='ar' ? 'عرض المشاريع الفائزة' : 'View Winning Projects' %>
+            </a>
+          </div>
+        </div>
+      </div>
+    </section>
+    <section id="testimonials" class="testimonials-section">
+      <div class="section-header latex-style" data-aos="fade-up">
+        <div class="theorem-box tipbox">
+          <div class="theorem-title">
+            <%= lang==='ar' ? 'ملاحظات العام الماضي' : 'Last Year\'s Feedback' %>
+          </div>
+          <p class="theorem-content">
+            <%= lang==='ar' ? 
                             'استمع إلى تجارب طلابنا وكيف ساعدهم برنامج Mentorship STEM في تحقيق أهدافهم الأكاديمية والشخصية' : 
                             'Listen to our students\' experiences and how the Mentorship STEM program helped them achieve their academic and personal goals' 
                         %>
-                    </p>
-                </div>
-            </div>
-            
-            <div class="testimonials-container" data-aos="fade-up">
-                <div class="testimonial-carousel">
-                    <div class="testimonial-slide active">
-                        <div class="testimonial-content">
-                            <div class="testimonial-header">
-                                <img src="/images/testimonial1.jpg" alt="Ahmed" class="testimonial-image">
-                                <div class="testimonial-info">
-                                    <h4><%= lang==='ar' ? 'أحمد محمد' : 'Ahmed Mohamed' %></h4>
-                                    <p><%= lang==='ar' ? 'طالب متفوق - مدرسة October STEM' : 'Top Student - October STEM School' %></p>
-                                </div>
-                            </div>
-                            <div class="testimonial-quote">
-                                <i class="quote-mark">❝</i>
-                                <blockquote>
-                                    <p><%= lang==='ar' ? 'البرنامج ساعدني على تحقيق حلمي في الالتحاق بمدرسة STEM. الموجهون كانوا رائعين ودائماً متواجدين للمساعدة. حصلت على المركز الأول في اختبار القبول بفضل دعمهم المستمر.' : 'The program helped me achieve my dream of joining STEM school. The mentors were amazing and always available to help. I ranked first in the admission test thanks to their continuous support.' %></p>
-                                    <footer>Class of 2024</footer>
-                                </blockquote>
-                            </div>
-                            <div class="achievement-badge">
-                                <span>🏆</span>
-                                <%= lang==='ar' ? 'المركز الأول' : 'Top Rank' %>
-                            </div>
-                        </div>
-                    </div>
+          </p>
+        </div>
+      </div>
 
-                    <div class="testimonial-slide">
-                        <div class="testimonial-content">
-                            <div class="testimonial-header">
-                                <img src="/images/testimonial2.jpg" alt="Fatima" class="testimonial-image">
-                                <div class="testimonial-info">
-                                    <h4><%= lang==='ar' ? 'فاطمة أحمد' : 'Fatima Ahmed' %></h4>
-                                    <p><%= lang==='ar' ? 'طالبة - مدرسة Maadi STEM' : 'Student - Maadi STEM School' %></p>
-                                </div>
-                            </div>
-                            <div class="testimonial-quote">
-                                <i class="quote-mark">❝</i>
-                                <blockquote>
-                                    <p><%= lang==='ar' ? 'المحتوى كان شاملاً ومفيدًا جدًا. شعرت بثقة أكبر عند دخول الاختبار بفضل هذا البرنامج. المنهج التفاعلي والتدريبات العملية ساعدتني كثيراً.' : 'The content was comprehensive and incredibly helpful. I felt much more confident going into the exam thanks to this program. The interactive curriculum and practical exercises helped me a lot.' %></p>
-                                    <footer>Class of 2024</footer>
-                                </blockquote>
-                            </div>
-                            <div class="achievement-badge">
-                                <span>🌟</span>
-                                <%= lang==='ar' ? '95% في الرياضيات' : '95% in Math' %>
-                            </div>
-                        </div>
-                    </div>
-
-                    <div class="testimonial-slide">
-                        <div class="testimonial-content">
-                            <div class="testimonial-header">
-                                <img src="/images/testimonial3.jpg" alt="Youssef" class="testimonial-image">
-                                <div class="testimonial-info">
-                                    <h4><%= lang==='ar' ? 'يوسف علي' : 'Youssef Ali' %></h4>
-                                    <p><%= lang==='ar' ? 'طالب - مدرسة Alexandria STEM' : 'Student - Alexandria STEM School' %></p>
-                                </div>
-                            </div>
-                            <div class="testimonial-quote">
-                                <i class="quote-mark">❝</i>
-                                <blockquote>
-                                    <p><%= lang==='ar' ? 'الموجهون في البرنامج غيروا نظرتي للعلوم والرياضيات. تعلمت كيف أفكر بشكل نقدي وإبداعي. البرنامج أكثر من مجرد تحضير للاختبار.' : 'The mentors in the program changed my perspective on science and math. I learned how to think critically and creatively. The program is more than just test preparation.' %></p>
-                                    <footer>Class of 2024</footer>
-                                </blockquote>
-                            </div>
-                            <div class="achievement-badge">
-                                <span>🔬</span>
-                                <%= lang==='ar' ? 'مشروع علمي متميز' : 'Outstanding Project' %>
-                            </div>
-                        </div>
-                    </div>
+      <div class="testimonials-container" data-aos="fade-up">
+        <div class="testimonial-carousel">
+          <div class="testimonial-slide active">
+            <div class="testimonial-content">
+              <div class="testimonial-header">
+                <img src="/images/testimonial1.jpg" alt="Ahmed" class="testimonial-image">
+                <div class="testimonial-info">
+                  <h4><%= lang==='ar' ? 'أحمد محمد' : 'Ahmed Mohamed' %></h4>
+                  <p><%= lang==='ar' ? 'طالب متفوق - مدرسة October STEM' : 'Top Student - October STEM School' %></p>
                 </div>
-                
-                <div class="testimonial-nav">
-                    <button class="prev" aria-label="Previous testimonial">
-                        <svg width="24" height="24" viewBox="0 0 24 24">
-                            <path d="M15.41 7.41L14 6l-6 6 6 6 1.41-1.41L10.83 12z"/>
-                        </svg>
-                    </button>
-                    <div class="testimonial-indicators">
-                        <span class="indicator active"></span>
-                        <span class="indicator"></span>
-                        <span class="indicator"></span>
-                    </div>
-                    <button class="next" aria-label="Next testimonial">
-                        <svg width="24" height="24" viewBox="0 0 24 24">
-                            <path d="M10 6L8.59 7.41 13.17 12l-4.58 4.59L10 18l6-6z"/>
-                        </svg>
-                    </button>
-                </div>
+              </div>
+              <div class="testimonial-quote">
+                <i class="quote-mark">❝</i>
+                <blockquote>
+                  <p><%= lang==='ar' ? 'البرنامج ساعدني على تحقيق حلمي في الالتحاق بمدرسة STEM. الموجهون كانوا رائعين ودائماً متواجدين للمساعدة. حصلت على المركز الأول في اختبار القبول بفضل دعمهم المستمر.' : 'The program helped me achieve my dream of joining STEM school. The mentors were amazing and always available to help. I ranked first in the admission test thanks to their continuous support.' %></p>
+                </blockquote>
+              </div>
+              <div class="achievement-badge">
+                <span>🏆</span>
+                <%= lang==='ar' ? 'المركز الأول' : 'Top Rank' %>
+              </div>
             </div>
-        </section>        <section class="spotlight-section">
-            <div class="section-header" data-aos="fade-up">
-                <h2 class="gradient-text"><%= lang==='ar' ? 'قصص نجاح مميزة' : 'Success Stories Spotlight' %></h2>
-                <p class="section-subtitle">
-                    <%= lang==='ar' ? 
+          </div>
+
+          <div class="testimonial-slide">
+            <div class="testimonial-content">
+              <div class="testimonial-header">
+                <img src="/images/testimonial2.jpg" alt="Fatima" class="testimonial-image">
+                <div class="testimonial-info">
+                  <h4><%= lang==='ar' ? 'فاطمة أحمد' : 'Fatima Ahmed' %></h4>
+                  <p><%= lang==='ar' ? 'طالبة - مدرسة Maadi STEM' : 'Student - Maadi STEM School' %></p>
+                </div>
+              </div>
+              <div class="testimonial-quote">
+                <i class="quote-mark">❝</i>
+                <blockquote>
+                  <p><%= lang==='ar' ? 'المحتوى كان شاملاً ومفيدًا جدًا. شعرت بثقة أكبر عند دخول الاختبار بفضل هذا البرنامج. المنهج التفاعلي والتدريبات العملية ساعدتني كثيراً.' : 'The content was comprehensive and incredibly helpful. I felt much more confident going into the exam thanks to this program. The interactive curriculum and practical exercises helped me a lot.' %></p>
+                </blockquote>
+              </div>
+              <div class="achievement-badge">
+                <span>🌟</span>
+                <%= lang==='ar' ? '95% في الرياضيات' : '95% in Math' %>
+              </div>
+            </div>
+          </div>
+
+          <div class="testimonial-slide">
+            <div class="testimonial-content">
+              <div class="testimonial-header">
+                <img src="/images/testimonial3.jpg" alt="Youssef" class="testimonial-image">
+                <div class="testimonial-info">
+                  <h4><%= lang==='ar' ? 'يوسف علي' : 'Youssef Ali' %></h4>
+                  <p><%= lang==='ar' ? 'طالب - مدرسة Alexandria STEM' : 'Student - Alexandria STEM School' %></p>
+                </div>
+              </div>
+              <div class="testimonial-quote">
+                <i class="quote-mark">❝</i>
+                <blockquote>
+                  <p><%= lang==='ar' ? 'الموجهون في البرنامج غيروا نظرتي للعلوم والرياضيات. تعلمت كيف أفكر بشكل نقدي وإبداعي. البرنامج أكثر من مجرد تحضير للاختبار.' : 'The mentors in the program changed my perspective on science and math. I learned how to think critically and creatively. The program is more than just test preparation.' %></p>
+                </blockquote>
+              </div>
+              <div class="achievement-badge">
+                <span>🔬</span>
+                <%= lang==='ar' ? 'مشروع علمي متميز' : 'Outstanding Project' %>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="testimonial-nav">
+          <button class="prev" aria-label="Previous testimonial">
+            <svg width="24" height="24" viewBox="0 0 24 24">
+              <path d="M15.41 7.41L14 6l-6 6 6 6 1.41-1.41L10.83 12z" />
+            </svg>
+          </button>
+          <div class="testimonial-indicators">
+            <span class="indicator active"></span>
+            <span class="indicator"></span>
+            <span class="indicator"></span>
+          </div>
+          <button class="next" aria-label="Next testimonial">
+            <svg width="24" height="24" viewBox="0 0 24 24">
+              <path d="M10 6L8.59 7.41 13.17 12l-4.58 4.59L10 18l6-6z" />
+            </svg>
+          </button>
+        </div>
+      </div>
+    </section>
+    <section class="spotlight-section">
+      <div class="section-header" data-aos="fade-up">
+        <h2 class="gradient-text"><%= lang==='ar' ? 'قصص نجاح مميزة' : 'Success Stories Spotlight' %></h2>
+        <p class="section-subtitle">
+          <%= lang==='ar' ? 
                         'تعرف على بعض خريجينا المميزين وكيف ساهم البرنامج في مسيرتهم' : 
                         'Meet some of our outstanding alumni and how the program contributed to their journey' %>
-                </p>
-            </div>
-            
-            <div class="success-stories" data-aos="fade-up">
-                <div class="success-story">
-                    <div class="story-image">
-                        <img src="/images/graduate1.jpg" alt="Graduate" class="graduate-image">
-                        <div class="image-overlay"></div>
-                    </div>
-                    <div class="story-content">
-                        <div class="story-header">
-                            <h3><%= lang==='ar' ? 'محمد عبد الله' : 'Mohamed Abdullah' %></h3>
-                            <p class="story-meta">
-                                <%= lang==='ar' ? 'خريج 2022 • مدرسة October STEM • حالياً: طالب هندسة في الجامعة الأمريكية' : 
+        </p>
+      </div>
+
+      <div class="success-stories" data-aos="fade-up">
+        <div class="success-story">
+          <div class="story-image">
+            <img src="/images/graduate1.jpg" alt="Graduate" class="graduate-image">
+            <div class="image-overlay"></div>
+          </div>
+          <div class="story-content">
+            <div class="story-header">
+              <h3><%= lang==='ar' ? 'محمد عبد الله' : 'Mohamed Abdullah' %></h3>
+              <p class="story-meta">
+                <%= lang==='ar' ? 'خريج 2022 • مدرسة October STEM • حالياً: طالب هندسة في الجامعة الأمريكية' : 
                                 'Class of 2022 • October STEM School • Now: Engineering Student at AUC' %>
-                            </p>
-                        </div>
-                        <div class="story-body">
-                            <p>
-                                <%= lang==='ar' ? 
+              </p>
+            </div>
+            <div class="story-body">
+              <p>
+                <%= lang==='ar' ? 
                                     'كان برنامج Mentorship STEM نقطة تحول في حياتي. بفضل الإرشاد المكثف والمواد التعليمية عالية الجودة، تمكنت من الالتحاق بمدرسة STEM والحصول على منحة كاملة في الجامعة الأمريكية. أنا الآن أدرس هندسة الذكاء الاصطناعي وأطمح لتطوير حلول تكنولوجية للتحديات التي تواجه مصر.' : 
                                     'The Mentorship STEM program was a turning point in my life. Thanks to intensive guidance and high-quality educational materials, I was able to join STEM school and receive a full scholarship to AUC. I\'m now studying AI Engineering and aspire to develop technological solutions for challenges facing Egypt.'
                                 %>
-                            </p>
-                        </div>
-                        <div class="story-quote">
-                            <blockquote>
-                                <%= lang==='ar' ? 
+              </p>
+            </div>
+            <div class="story-quote">
+              <blockquote>
+                <%= lang==='ar' ? 
                                     '"لقد منحني البرنامج أكثر من مجرد معرفة أكاديمية - لقد علمني كيف أفكر كعالم وكيف أحل المشكلات كمهندس."' :
                                     '"The program gave me more than just academic knowledge - it taught me how to think like a scientist and solve problems like an engineer."'
                                 %>
-                            </blockquote>
-                        </div>
-                    </div>
-                </div>
-                
-                <div class="success-story reverse">
-                    <div class="story-image">
-                        <img src="/images/graduate2.jpg" alt="Graduate" class="graduate-image">
-                        <div class="image-overlay"></div>
-                    </div>
-                    <div class="story-content">
-                        <div class="story-header">
-                            <h3><%= lang==='ar' ? 'نور محمود' : 'Nour Mahmoud' %></h3>
-                            <p class="story-meta">
-                                <%= lang==='ar' ? 'خريجة 2021 • مدرسة Alexandria STEM • حالياً: باحثة في معهد علوم البيانات' : 
+              </blockquote>
+            </div>
+          </div>
+        </div>
+
+        <div class="success-story reverse">
+          <div class="story-image">
+            <img src="/images/graduate2.jpg" alt="Graduate" class="graduate-image">
+            <div class="image-overlay"></div>
+          </div>
+          <div class="story-content">
+            <div class="story-header">
+              <h3><%= lang==='ar' ? 'نور محمود' : 'Nour Mahmoud' %></h3>
+              <p class="story-meta">
+                <%= lang==='ar' ? 'خريجة 2021 • مدرسة Alexandria STEM • حالياً: باحثة في معهد علوم البيانات' : 
                                 'Class of 2021 • Alexandria STEM School • Now: Researcher at Data Science Institute' %>
-                            </p>
-                        </div>
-                        <div class="story-body">
-                            <p>
-                                <%= lang==='ar' ? 
+              </p>
+            </div>
+            <div class="story-body">
+              <p>
+                <%= lang==='ar' ? 
                                     'ساعدتني Mentorship STEM على اكتشاف شغفي بعلوم البيانات. المفاهيم الرياضية المتقدمة التي تعلمتها خلال البرنامج شكلت الأساس لمسيرتي المهنية. بعد التخرج من مدرسة STEM، حصلت على منحة دراسية للدراسة في الخارج وعدت لأعمل في مصر كباحثة في مجال الذكاء الاصطناعي وعلوم البيانات.' : 
                                     'Mentorship STEM helped me discover my passion for data science. The advanced mathematical concepts I learned during the program formed the foundation for my career. After graduating from STEM school, I received a scholarship to study abroad and returned to work in Egypt as a researcher in AI and data science.'
                                 %>
-                            </p>
-                        </div>
-                        <div class="achievement-pills">
-                            <span class="pill"><%= lang==='ar' ? 'باحثة منشورة' : 'Published Researcher' %></span>
-                            <span class="pill"><%= lang==='ar' ? 'متحدثة في TEDx' : 'TEDx Speaker' %></span>
-                            <span class="pill"><%= lang==='ar' ? '3 براءات اختراع' : '3 Patents' %></span>
-                        </div>
-                    </div>
-                </div>
+              </p>
             </div>
-            
-            <div class="cta-container" data-aos="zoom-in">
-                <div class="cta-box">
-                    <h3><%= lang==='ar' ? 'هل أنت خريج؟ شارك قصتك!' : 'Are you an alumnus? Share your story!' %></h3>
-                    <p>
-                        <%= lang==='ar' ? 
-                            'نحن دائماً فخورون بسماع قصص خريجينا وإنجازاتهم. شارك قصتك وألهم الطلاب الجدد!' : 
-                            'We are always proud to hear our alumni stories and achievements. Share your story and inspire new students!'
-                        %>
-                    </p>
-                    <a href="#" class="btn btn-primary">
-                        <i class="material-icons">edit</i>
-                        <%= lang==='ar' ? 'أرسل قصتك' : 'Submit Your Story' %>
-                    </a>
-                </div>
+            <div class="achievement-pills">
+              <span class="pill"><%= lang==='ar' ? 'باحثة منشورة' : 'Published Researcher' %></span>
+              <span class="pill"><%= lang==='ar' ? 'متحدثة في TEDx' : 'TEDx Speaker' %></span>
+              <span class="pill"><%= lang==='ar' ? '3 براءات اختراع' : '3 Patents' %></span>
             </div>
-        </section>
-        
-        <section class="impact-section">
-            <div class="section-header" data-aos="fade-up">
-                <h2 class="gradient-text"><%= lang==='ar' ? 'تأثيرنا في أرقام' : 'Our Impact in Numbers' %></h2>
-                <p class="section-subtitle">
-                    <%= lang==='ar' ? 
-                        'كيف يساهم برنامجنا في إعداد الجيل القادم من العلماء والمهندسين المصريين' : 
-                        'How our program contributes to preparing the next generation of Egyptian scientists and engineers' %>
-                </p>
-            </div>
-            
-            <div class="impact-grid" data-aos="fade-up" data-aos-delay="100">
-                <div class="impact-item">
-                    <div class="impact-value">
-                        <span class="counter-value" data-value="1200">0</span>
-                        <span class="impact-plus">+</span>
-                    </div>
-                    <div class="impact-label">
-                        <%= lang==='ar' ? 'طالب استفاد من البرنامج' : 'Students benefited from the program' %>
-                    </div>
-                </div>
-                
-                <div class="impact-item">
-                    <div class="impact-value">
-                        <span class="counter-value" data-value="35">0</span>
-                        <span class="impact-plus">%</span>
-                    </div>
-                    <div class="impact-label">
-                        <%= lang==='ar' ? 'من الطلاب من المناطق النائية' : 'Students from remote areas' %>
-                    </div>
-                </div>
-                
-                <div class="impact-item">
-                    <div class="impact-value">
-                        <span class="counter-value" data-value="42">0</span>
-                        <span class="impact-plus">%</span>
-                    </div>
-                    <div class="impact-label">
-                        <%= lang==='ar' ? 'من الطالبات (الإناث)' : 'Female students' %>
-                    </div>
-                </div>
-                
-                <div class="impact-item">
-                    <div class="impact-value">
-                        <span class="counter-value" data-value="87">0</span>
-                        <span class="impact-plus">%</span>
-                    </div>
-                    <div class="impact-label">
-                        <%= lang==='ar' ? 'يواصلون دراستهم في مجالات STEM' : 'Continue studies in STEM fields' %>
-                    </div>
-                </div>
-                
-                <div class="impact-item">
-                    <div class="impact-value">
-                        <span class="counter-value" data-value="18">0</span>
-                    </div>
-                    <div class="impact-label">
-                        <%= lang==='ar' ? 'محافظة مصرية' : 'Egyptian governorates' %>
-                    </div>
-                </div>
-                
-                <div class="impact-item">
-                    <div class="impact-value">
-                        <span class="counter-value" data-value="52">0</span>
-                    </div>
-                    <div class="impact-label">
-                        <%= lang==='ar' ? 'موجه متطوع' : 'Volunteer mentors' %>
-                    </div>
-                </div>
-            </div>
-            
-            <div class="impact-map" data-aos="zoom-in">
-                <div class="map-title">
-                    <%= lang==='ar' ? 'انتشارنا الجغرافي' : 'Our Geographic Reach' %>
-                </div>
-                <div class="egypt-map">
-                    <!-- Egypt map placeholder, could be replaced with an interactive SVG map -->
-                    <img src="/images/egypt-map.svg" alt="Egypt Map" class="map-svg">
-                    <div class="map-legend">
-                        <div class="legend-item">
-                            <span class="color high"></span>
-                            <span><%= lang==='ar' ? 'وجود قوي (5+ مراكز)' : 'Strong presence (5+ centers)' %></span>
-                        </div>
-                        <div class="legend-item">
-                            <span class="color medium"></span>
-                            <span><%= lang==='ar' ? 'وجود متوسط (2-4 مراكز)' : 'Medium presence (2-4 centers)' %></span>
-                        </div>
-                        <div class="legend-item">
-                            <span class="color low"></span>
-                            <span><%= lang==='ar' ? 'وجود محدود (1 مركز)' : 'Limited presence (1 center)' %></span>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </section>
-        
-        <section class="rankings-section">
-            <div class="container">
-                <div class="section-header latex-style" data-aos="fade-up">
-                    <div class="theorem-box definition-box">
-                        <div class="theorem-title">
-                            <%= lang==='ar' ? 'التصنيف العالمي' : 'Global Rankings' %>
-                        </div>
-                        <p class="theorem-content">
-                            <%= lang==='ar' ? 
-                                'أداء خريجينا في المسابقات والأولمبياد العلمية الدولية' : 
-                                'Performance of our alumni in international competitions and scientific olympiads' 
-                            %>
-                        </p>
-                    </div>
-                </div>
-                
-                <div class="rankings-content" data-aos="fade-up">
-                    <div class="rankings-chart">
-                        <canvas id="rankingsChart"></canvas>
-                    </div>
-                    <div class="rankings-list">
-                        <div class="ranking-item">
-                            <div class="ranking-position">#14</div>
-                            <div class="ranking-details">
-                                <h4>
-                                    <%= lang==='ar' ? 'أولمبياد الرياضيات الدولي' : 'International Mathematical Olympiad' %>
-                                </h4>
-                                <p>
-                                    <%= lang==='ar' ? 
-                                        'تقدمنا 7 مراكز مقارنة بالعام الماضي' : 
-                                        'Up 7 positions compared to last year' 
-                                    %>
-                                </p>
-                                <div class="countries-competed">
-                                    <span>104</span>
-                                    <%= lang==='ar' ? 'دولة مشاركة' : 'competing countries' %>
-                                </div>
-                            </div>
-                        </div>
-                        
-                        <div class="ranking-item">
-                            <div class="ranking-position">#22</div>
-                            <div class="ranking-details">
-                                <h4>
-                                    <%= lang==='ar' ? 'أولمبياد الفيزياء الدولي' : 'International Physics Olympiad' %>
-                                </h4>
-                                <p>
-                                    <%= lang==='ar' ? 
-                                        'تقدمنا 4 مراكز مقارنة بالعام الماضي' : 
-                                        'Up 4 positions compared to last year' 
-                                    %>
-                                </p>
-                                <div class="countries-competed">
-                                    <span>87</span>
-                                    <%= lang==='ar' ? 'دولة مشاركة' : 'competing countries' %>
-                                </div>
-                            </div>
-                        </div>
-                        
-                        <div class="ranking-item">
-                            <div class="ranking-position">#19</div>
-                            <div class="ranking-details">
-                                <h4>
-                                    <%= lang==='ar' ? 'أولمبياد المعلوماتية الدولي' : 'International Informatics Olympiad' %>
-                                </h4>
-                                <p>
-                                    <%= lang==='ar' ? 
-                                        'تقدمنا 11 مركزاً مقارنة بالعام الماضي' : 
-                                        'Up 11 positions compared to last year' 
-                                    %>
-                                </p>
-                                <div class="countries-competed">
-                                    <span>92</span>
-                                    <%= lang==='ar' ? 'دولة مشاركة' : 'competing countries' %>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </section>
-    </div>
+          </div>
+        </div>
+      </div>
+    </section>
 
-    <%- include('partials/footer') %>    <script src="https://cdn.jsdelivr.net/npm/chart.js@3.7.0/dist/chart.min.js"></script>
-    <script src="https://unpkg.com/aos@next/dist/aos.js"></script>
-    <script src="/js/success.js"></script>
-    <script>
-        // Initialize AOS
-        AOS.init({
-            duration: 800,
-            offset: 150,
-            once: true,
-            easing: 'ease-out-cubic'
-        });
-    </script>
+  
+
+  </div>
+
+  <%- include('partials/footer') %> <script src="https://cdn.jsdelivr.net/npm/chart.js@3.7.0/dist/chart.min.js"></script>
+  <script src="https://unpkg.com/aos@next/dist/aos.js"></script>
+  <script src="/js/success.js"></script>
+  <script>
+    // Initialize AOS
+    AOS.init({
+      duration: 800,
+      offset: 150,
+      once: true,
+      easing: 'ease-out-cubic'
+    });
+  </script>
 </body>
+
 </html>

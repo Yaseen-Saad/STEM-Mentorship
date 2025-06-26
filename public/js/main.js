@@ -50,13 +50,7 @@ function initializeScrollEffects() {
   function updateScrollEffects() {
     const scrolled = window.pageYOffset;
     const rate = scrolled * -0.5;
-    
-    // Parallax effect for hero sections
-    const heroElements = document.querySelectorAll('.hero-banner');
-    heroElements.forEach(hero => {
-      hero.style.transform = `translateY(${rate}px)`;
-    });
-    
+        
     // Header shadow effect
     const header = document.querySelector('header');
     if (header) {

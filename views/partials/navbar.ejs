@@ -8,13 +8,6 @@
     <li><a href="/contact?lang=<%= lang %>"><%= lang==='ar' ? 'اتصل بنا' : 'Contact Us' %></a></li>
   </ul>
   <div class="nav-actions">
-    <form action="/search" method="get" class="nav-search" role="search">
-      <input type="text" name="q" placeholder="<%= lang==='ar' ? 'بحث...' : 'Search...' %>" aria-label="Search">
-      <input type="hidden" name="lang" value="<%= lang %>">
-      <button type="submit" class="search-btn" aria-label="Submit search">
-        <span class="material-icons">search</span>
-      </button>
-    </form>
     <a href="?lang=<%= lang === 'ar' ? 'en' : 'ar' %>" class="language-toggle" aria-label="Toggle language">
       <%= lang==='ar' ? 'EN' : 'عربي' %>
     </a>

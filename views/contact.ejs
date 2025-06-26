@@ -204,48 +204,63 @@
                                 <p><%= lang==='ar' ? 'نعم، البرنامج مجاني بالكامل! نحن منظمة غير ربحية نسعى لدعم التعليم ونشر المعرفة.' : 'Yes, the program is completely free! We are a non-profit organization that aims to support education and spread knowledge.' %></p>
                             </div>
                         </div>
+                        <div class="faq-item">
+                            <div class="faq-question">
+                                <span class="material-icons">schedule</span>
+                                <h4><%= lang==='ar' ? 'ما هي مدة البرنامج؟' : 'What is the program duration?' %></h4>
+                                <span class="material-icons toggle-icon">expand_more</span>
+                            </div>
+                            <div class="faq-answer">
+                                <p><%= lang==='ar' ? 'يمتد البرنامج على مدار العام الدراسي بأكمله، مع جلسات تفاعلية أسبوعية وموارد تعليمية متاحة على مدار الساعة.' : 'The program extends throughout the entire academic year, with weekly interactive sessions and educational resources available 24/7.' %></p>
+                            </div>
+                        </div>
+                        <div class="faq-item">
+                            <div class="faq-question">
+                                <span class="material-icons">laptop</span>
+                                <h4><%= lang==='ar' ? 'هل أحتاج لأجهزة خاصة للمشاركة؟' : 'Do I need special equipment to participate?' %></h4>
+                                <span class="material-icons toggle-icon">expand_more</span>
+                            </div>
+                            <div class="faq-answer">
+                                <p><%= lang==='ar' ? 'تحتاج فقط لجهاز كمبيوتر أو هاتف ذكي مع اتصال بالإنترنت. جميع المواد التعليمية متوفرة رقمياً.' : 'You only need a computer or smartphone with internet connection. All educational materials are available digitally.' %></p>
+                            </div>
+                        </div>
+                        <div class="faq-item">
+                            <div class="faq-question">
+                                <span class="material-icons">groups</span>
+                                <h4><%= lang==='ar' ? 'كم عدد الطلاب في المجموعة الواحدة؟' : 'How many students are in each group?' %></h4>
+                                <span class="material-icons toggle-icon">expand_more</span>
+                            </div>
+                            <div class="faq-answer">
+                                <p><%= lang==='ar' ? 'نحافظ على مجموعات صغيرة من 15-20 طالب لضمان الاهتمام الشخصي والتفاعل الفعال مع المرشدين.' : 'We maintain small groups of 15-20 students to ensure personal attention and effective interaction with mentors.' %></p>
+                            </div>
+                        </div>
+                        <div class="faq-item">
+                            <div class="faq-question">
+                                <span class="material-icons">school</span>
+                                <h4><%= lang==='ar' ? 'ما هي معدلات النجاح في القبول؟' : 'What are the acceptance success rates?' %></h4>
+                                <span class="material-icons toggle-icon">expand_more</span>
+                            </div>
+                            <div class="faq-answer">
+                                <p><%= lang==='ar' ? 'حقق طلابنا معدلات قبول عالية تتراوح بين 85-95% في مدارس STEM المختلفة، بفضل الإعداد المتميز والمتابعة المستمرة.' : 'Our students have achieved high acceptance rates ranging from 85-95% in various STEM schools, thanks to excellent preparation and continuous follow-up.' %></p>
+                            </div>
+                        </div>
+                        <div class="faq-item">
+                            <div class="faq-question">
+                                <span class="material-icons">support_agent</span>
+                                <h4><%= lang==='ar' ? 'هل يوجد دعم فني متاح؟' : 'Is technical support available?' %></h4>
+                                <span class="material-icons toggle-icon">expand_more</span>
+                            </div>
+                            <div class="faq-answer">
+                                <p><%= lang==='ar' ? 'نعم، فريق الدعم الفني متاح على مدار الساعة لمساعدتك في أي مشاكل تقنية أو استفسارات حول استخدام المنصة.' : 'Yes, our technical support team is available 24/7 to help you with any technical issues or questions about using the platform.' %></p>
+                            </div>
+                        </div>
                     </div>
                 </div>
             </section>
         </div>
     </div>
 
-    <section class="location-section" data-aos="fade-up">
-        <div class="theorem-box tipbox">
-            <div class="theorem-title">
-                <%= lang==='ar' ? 'موقعنا' : 'Our Location' %>
-            </div>
-            <div class="location-content">
-                <div class="map-placeholder">
-                    <!-- Map placeholder - in a real implementation, this would be replaced with an actual map -->
-                    <div class="map-frame">
-                        <div class="map-overlay">
-                            <span class="material-icons">location_on</span>
-                            <p><%= lang==='ar' ? 'انقر لعرض الخريطة' : 'Click to view map' %></p>
-                        </div>
-                    </div>
-                </div>
-                <div class="location-details">
-                    <h3><%= lang==='ar' ? 'مقر البرنامج الرئيسي' : 'Main Program Headquarters' %></h3>
-                    <p><%= lang==='ar' ? 'نقدم خدماتنا في مختلف المحافظات، ويقع مقرنا الرئيسي في القاهرة. لا تتردد في زيارتنا خلال ساعات العمل الرسمية.' : 'We offer our services across different governorates, with our main headquarters located in Cairo. Feel free to visit us during official working hours.' %></p>
-                    <div class="hours-list">
-                        <div class="hours-item">
-                            <span class="material-icons">access_time</span>
-                            <span><%= lang==='ar' ? 'أيام الأسبوع: 9 صباحاً - 5 مساءً' : 'Weekdays: 9 AM - 5 PM' %></span>
-                        </div>
-                        <div class="hours-item">
-                            <span class="material-icons">access_time</span>
-                            <span><%= lang==='ar' ? 'السبت: 10 صباحاً - 3 مساءً' : 'Saturday: 10 AM - 3 PM' %></span>
-                        </div>
-                        <div class="hours-item">
-                            <span class="material-icons">access_time</span>
-                            <span><%= lang==='ar' ? 'الأحد: مغلق' : 'Sunday: Closed' %></span>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>    <%- include('partials/footer') %>
+   </section>    <%- include('partials/footer') %>
     
     <!-- Include Toast Notifications -->
     <%- include('partials/toast') %>

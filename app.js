@@ -25,6 +25,37 @@ app.get('/api/search', (req, res) => {
   res.json({ query: q, results: [] });
 });
 
+// Download tracking endpoint
+app.get('/api/track-resource', (req, res) => {
+  const { type, subject, topic, redirect } = req.query;
+  
+  // Here you would typically log to a database or analytics service
+  console.log(`Resource downloaded: ${type} - ${subject}/${topic}`);
+  
+  // For now, just increment a counter (in production, use a database)
+  const trackingData = {
+    timestamp: new Date().toISOString(),
+    type: type || 'unknown',
+    subject: subject || 'unknown',
+    topic: topic || 'unknown',
+    userAgent: req.headers['user-agent'],
+    ip: req.ip
+  };
+  
+  console.log('Download tracked:', trackingData);
+  
+  // Redirect to the actual resource
+  if (redirect) {
+    res.redirect(redirect);
+  } else {
+    res.status(200).json({ 
+      success: true, 
+      message: 'Download tracked successfully',
+      data: trackingData 
+    });
+  }
+});
+
 const handler = serverless(app);
 module.exports = handler;
 module.exports.handler = handler;
