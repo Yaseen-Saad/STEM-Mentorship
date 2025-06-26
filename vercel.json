@@ -3,21 +3,20 @@
   "builds": [
     {
       "src": "app.js",
-      "use": "@vercel/node"
-    },
-    {
-      "src": "public/**",
-      "use": "@vercel/static"
+      "use": "@vercel/node",
+      "config": {
+        "includeFiles": ["views/**", "public/**"]
+      }
     }
   ],
   "routes": [
     {
-      "src": "/api/(.*)",
+      "src": "/api/track-resource",
       "dest": "/app.js"
     },
     {
-      "src": "/images/(.*)",
-      "dest": "/public/images/$1"
+      "src": "/api/search",
+      "dest": "/app.js"
     },
     {
       "src": "/css/(.*)",
@@ -28,8 +27,17 @@
       "dest": "/public/js/$1"
     },
     {
+      "src": "/images/(.*)",
+      "dest": "/public/images/$1"
+    },
+    {
       "src": "/(.*)",
       "dest": "/app.js"
     }
-  ]
+  ],
+  "functions": {
+    "app.js": {
+      "maxDuration": 10
+    }
+  }
 }

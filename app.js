@@ -4,6 +4,10 @@ const serverless = require('serverless-http');
 
 const app = express();
 
+// Middleware for error handling
+app.use(express.json());
+app.use(express.urlencoded({ extended: true }));
+
 // view engine setup
 app.set('views', path.join(__dirname, 'views'));
 app.set('view engine', 'ejs');
@@ -57,9 +61,12 @@ app.get('/api/track-resource', (req, res) => {
 });
 
 const handler = serverless(app);
+
+// For Vercel
 module.exports = handler;
 module.exports.handler = handler;
 
+// For local development
 if (require.main === module) {
   const PORT = process.env.PORT || 3000;
   app.listen(PORT, () => console.log(`Server running on port ${PORT}`));
