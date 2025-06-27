@@ -2,42 +2,14 @@
   "version": 2,
   "builds": [
     {
-      "src": "app.js",
-      "use": "@vercel/node",
-      "config": {
-        "includeFiles": ["views/**", "public/**"]
-      }
+      "src": "./app.js",
+      "use": "@vercel/node"
     }
   ],
   "routes": [
     {
-      "src": "/api/track-resource",
-      "dest": "/app.js"
-    },
-    {
-      "src": "/api/search",
-      "dest": "/app.js"
-    },
-    {
-      "src": "/css/(.*)",
-      "dest": "/public/css/$1"
-    },
-    {
-      "src": "/js/(.*)",
-      "dest": "/public/js/$1"
-    },
-    {
-      "src": "/images/(.*)",
-      "dest": "/public/images/$1"
-    },
-    {
       "src": "/(.*)",
-      "dest": "/app.js"
+      "dest": "./app.js"
     }
-  ],
-  "functions": {
-    "app.js": {
-      "maxDuration": 10
-    }
-  }
+  ]
 }

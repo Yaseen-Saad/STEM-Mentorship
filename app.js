@@ -1,6 +1,5 @@
 const express = require('express');
 const path = require('path');
-const serverless = require('serverless-http');
 
 const app = express();
 
@@ -23,6 +22,16 @@ app.get('/program', (req, res) => res.render('program', { lang: req.query.lang |
 app.get('/resources', (req, res) => res.render('resources', { lang: req.query.lang || 'en' }));
 app.get('/contact', (req, res) => res.render('contact', { lang: req.query.lang || 'en' }));
 app.get('/search', (req, res) => res.render('search', { lang: req.query.lang || 'en', query: req.query.q || '' }));
+
+// Favicon route
+app.get('/favicon.ico', (req, res) => {
+  res.sendFile(path.join(__dirname, 'public', 'favicon.ico'));
+});
+
+// Health check route
+app.get('/health', (req, res) => {
+  res.json({ status: 'ok', timestamp: new Date().toISOString() });
+});
 
 app.get('/api/search', (req, res) => {
   const q = req.query.q || '';
@@ -62,20 +71,28 @@ app.get('/api/track-resource', (req, res) => {
 
 // 404 handler
 app.use((req, res, next) => {
-  res.status(404).render('index', { lang: req.query.lang || 'en' });
+  console.log('404 Error - Page not found:', req.url);
+  try {
+    res.status(404).render('index', { lang: req.query.lang || 'en' });
+  } catch (error) {
+    res.status(404).send('Page not found');
+  }
 });
 
 // Error handler
 app.use((err, req, res, next) => {
-  console.error(err.stack);
-  res.status(500).render('index', { lang: req.query.lang || 'en' });
+  console.error('Server Error:', err.message);
+  console.error('Stack:', err.stack);
+  try {
+    res.status(500).render('index', { lang: req.query.lang || 'en' });
+  } catch (error) {
+    res.status(500).send('Internal Server Error');
+  }
 });
 
-const handler = serverless(app);
-
-// For Vercel
-module.exports = handler;
-module.exports.handler = handler;
+// For Vercel deployment
+module.exports = app;
+module.exports.default = app;
 
 // For local development
 if (require.main === module) {
