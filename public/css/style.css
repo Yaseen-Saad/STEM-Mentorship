@@ -27,6 +27,7 @@
   --transition-fast: 0.2s ease;
   --transition-medium: 0.3s ease;
   --transition-slow: 0.5s ease;
+  scroll-behavior: smooth;
 }
 
 /* AOS styles with proper visibility */
