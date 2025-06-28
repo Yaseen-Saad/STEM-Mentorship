@@ -113,11 +113,27 @@ app.get('/api/track-resource', (req, res) => {
 
 // 404 handler
 app.use((req, res, next) => {
+  // Skip Chrome DevTools and other system requests to reduce noise
+  if (req.url.includes('.well-known') || req.url.includes('devtools')) {
+    return res.status(404).end();
+  }
+  
   console.log('404 Error - Page not found:', req.url);
   try {
     res.status(404).render('404', { lang: req.query.lang || 'en' });
   } catch (error) {
-    res.status(404).send('Page not found');
+    console.error('Error rendering 404 page:', error);
+    res.status(404).send(`
+      <!DOCTYPE html>
+      <html>
+      <head><title>Page Not Found - 404</title></head>
+      <body style="font-family: Arial; text-align: center; padding: 50px;">
+        <h1>404 - Page Not Found</h1>
+        <p>The page you are looking for does not exist.</p>
+        <a href="/" style="color: #007bff; text-decoration: none;">Go Home</a>
+      </body>
+      </html>
+    `);
   }
 });
 
@@ -128,7 +144,18 @@ app.use((err, req, res, next) => {
   try {
     res.status(500).render('error', { lang: req.query.lang || 'en' });
   } catch (error) {
-    res.status(500).send('Internal Server Error');
+    console.error('Error rendering error page:', error);
+    res.status(500).send(`
+      <!DOCTYPE html>
+      <html>
+      <head><title>Server Error - 500</title></head>
+      <body style="font-family: Arial; text-align: center; padding: 50px;">
+        <h1>500 - Internal Server Error</h1>
+        <p>We are experiencing technical difficulties. Please try again later.</p>
+        <a href="/" style="color: #007bff; text-decoration: none;">Go Home</a>
+      </body>
+      </html>
+    `);
   }
 });
 

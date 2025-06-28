@@ -16,7 +16,65 @@ document.addEventListener('DOMContentLoaded', () => {
   initializeCounters();
   initializeFormValidation();
   initializeScrollEffects();
+  initializeHamburgerMenu();
 });
+
+// Initialize Hamburger Menu
+function initializeHamburgerMenu() {
+  const hamburger = document.querySelector('.hamburger');
+  const navbar = document.querySelector('.navbar');
+  const navOverlay = document.querySelector('.nav-overlay');
+  const navLinks = document.querySelectorAll('.nav-links a');
+  
+  if (!hamburger || !navbar || !navOverlay) return;
+  
+  // Toggle menu
+  function toggleMenu() {
+    const isActive = hamburger.classList.contains('active');
+    
+    hamburger.classList.toggle('active');
+    navbar.classList.toggle('active');
+    navOverlay.classList.toggle('active');
+    
+    // Update ARIA attributes
+    hamburger.setAttribute('aria-expanded', !isActive);
+    
+    // Prevent body scroll when menu is open
+    document.body.style.overflow = isActive ? '' : 'hidden';
+  }
+  
+  // Close menu
+  function closeMenu() {
+    hamburger.classList.remove('active');
+    navbar.classList.remove('active');
+    navOverlay.classList.remove('active');
+    hamburger.setAttribute('aria-expanded', 'false');
+    document.body.style.overflow = '';
+  }
+  
+  // Event listeners
+  hamburger.addEventListener('click', toggleMenu);
+  navOverlay.addEventListener('click', closeMenu);
+  
+  // Close menu when clicking nav links
+  navLinks.forEach(link => {
+    link.addEventListener('click', closeMenu);
+  });
+  
+  // Close menu on escape key
+  document.addEventListener('keydown', (e) => {
+    if (e.key === 'Escape' && navbar.classList.contains('active')) {
+      closeMenu();
+    }
+  });
+  
+  // Close menu on window resize if larger than mobile breakpoint
+  window.addEventListener('resize', () => {
+    if (window.innerWidth > 768) {
+      closeMenu();
+    }
+  });
+}
 
 // Initialize custom animations for elements without AOS
 function initializeAnimations() {

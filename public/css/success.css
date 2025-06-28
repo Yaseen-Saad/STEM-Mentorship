@@ -1,0 +1,36 @@
+.school-header h4{
+font-size: 2rem;
+margin-block: 0.8em;
+}
+
+
+/* Success Stories Timeline Section */
+.spotlight-section {
+  margin: 4rem 0;
+  background: var(--bg-secondary);
+  padding: 3rem 2rem;
+  border-radius: var(--radius-lg);
+  position: relative;
+  overflow: hidden;
+}
+
+.spotlight-section .container {
+  position: relative;
+  z-index: 2;
+}
+
+.spotlight-section .section-header h2 {
+  color: var(--primary-black) !important;
+  background: var(--gradient-primary);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+.spotlight-section .section-subtitle {
+  color: var(--text-secondary);
+  max-width: 600px;
+  margin: 1rem auto;
+  font-size: 1.1rem;
+  line-height: 1.6;
+}
