@@ -1,0 +1,19 @@
+/* Homepage specific styles */
+.home-stats-grid {
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 2rem;
+}
+
+.home-stats-grid .stat-card {
+  margin-block: 20px;
+  background: var(--bg-secondary);
+  border: 1px solid var(--dark-accent-cream);
+  border-radius: var(--radius-lg);
+  padding: 2rem;
+  transition: transform var(--transition-medium), box-shadow var(--transition-medium);
+}
+
+.home-stats-grid .stat-card:hover {
+  transform: translateY(-5px);
+  box-shadow: var(--shadow-lg);
+}

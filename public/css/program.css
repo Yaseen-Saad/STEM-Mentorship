@@ -1,0 +1,434 @@
+/* Enhanced Timetable/Schedule Section */
+.schedule-section {
+  padding: 4rem 0;
+  background: linear-gradient(135deg, var(--bg-primary), var(--bg-secondary));
+  position: relative;
+  overflow: hidden;
+}
+
+.schedule-container {
+  position: relative;
+  z-index: 2;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 1rem;
+}
+
+.schedule-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 2rem;
+  margin-top: 3rem;
+}
+
+.schedule-day {
+  background: var(--bg-primary);
+  border: 2px solid var(--primary-black);
+  border-radius: var(--radius-lg);
+  padding: 0;
+  overflow: hidden;
+  transition: all 0.4s cubic-bezier(0.23, 1, 0.320, 1);
+  position: relative;
+}
+
+.schedule-day::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 3px;
+  background: var(--gradient-primary);
+  z-index: 1;
+}
+
+.schedule-day:hover {
+  transform: translateY(-5px);
+  box-shadow: var(--shadow-md);
+}
+
+.day-header {
+  background: var(--bg-secondary);
+  padding: 1.5rem;
+  border-bottom: 2px solid var(--primary-black);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.day-header h3 {
+  font-size: 1.5rem;
+  margin: 0;
+  color: var(--primary-black);
+}
+
+.day-content {
+  padding: 1.5rem;
+  background: var(--bg-primary);
+  border-radius: var(--radius-md);
+  box-shadow: var(--shadow-sm);
+  position: relative;
+  z-index: 2;
+}
+
+.schedule-card {
+  background: var(--bg-secondary);
+  border: 2px solid var(--primary-black);
+  border-radius: var(--radius-md);
+  padding: 1.5rem;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  position: relative;
+  overflow: hidden;
+}
+
+.schedule-card:hover {
+  transform: translateY(-5px);
+  box-shadow: var(--shadow-lg);
+}
+
+.time-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  background: var(--primary-black);
+  color: var(--primary-white);
+  font-size: 0.9rem;
+  font-weight: 600;
+  padding: 0.5rem 1rem;
+  border-radius: var(--radius-sm);
+  margin-bottom: 1rem;
+}
+
+.time-badge::before {
+  content: 'schedule';
+  font-family: 'Material Icons';
+  font-size: 1rem;
+}
+
+.schedule-card h4 {
+  margin: 0 0 0.5rem 0;
+  font-size: 1.2rem;
+  font-weight: 700;
+  color: var(--primary-black);
+}
+
+.schedule-card p {
+  margin: 0;
+  color: var(--text-secondary);
+  line-height: 1.5;
+}
+
+/* Schedule responsive design */
+@media (max-width: 768px) {
+  .schedule-grid {
+    grid-template-columns: 1fr;
+    gap: 1.5rem;
+  }
+
+  .schedule-day {
+    padding: 1.5rem;
+  }
+
+  .day-header h3 {
+    font-size: 1.2rem;
+  }
+
+  .day-content {
+    padding: 1.5rem;
+  }
+}
+/* Syllabus Section Styles */
+.syllabus-section {
+  margin: 4rem 0;
+  padding: 3rem 0;
+}
+
+.syllabus-container {
+  display: flex;
+  flex-direction: column;
+  gap: 3rem;
+  margin-top: 2rem;
+}
+
+.syllabus-subject {
+  background: var(--bg-primary);
+  border-radius: var(--radius-lg);
+  overflow: hidden;
+  box-shadow: var(--shadow-md);
+  border: 2px solid var(--accent-cream);
+  transition: all var(--transition-medium);
+}
+
+.syllabus-subject:hover {
+  transform: translateY(-5px);
+  box-shadow: var(--shadow-lg);
+  border-color: var(--primary-black);
+}
+
+.subject-header {
+  background: var(--gradient-primary);
+  color: var(--primary-white);
+  padding: 2rem;
+  display: flex;
+  align-items: center;
+  gap: 1.5rem;
+  position: relative;
+  overflow: hidden;
+}
+
+.subject-header::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  right: 0;
+  width: 100px;
+  height: 100%;
+  background: rgba(255, 255, 255, 0.1);
+  transform: skewX(-15deg);
+  transition: var(--transition-medium);
+}
+
+.syllabus-subject:hover .subject-header::before {
+  transform: skewX(-15deg) translateX(200px);
+}
+
+.subject-icon {
+  background: rgba(255, 255, 255, 0.2);
+  padding: 1rem;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.subject-icon .material-icons {
+  font-size: 2rem;
+  color: var(--primary-white);
+}
+
+.subject-header h3 {
+  margin: 0;
+  font-size: 1.8rem;
+  font-weight: 700;
+  flex: 1;
+}
+
+.subject-badge {
+  background: rgba(255, 255, 255, 0.2);
+  padding: 0.5rem 1rem;
+  border-radius: var(--radius-md);
+  font-size: 0.9rem;
+  font-weight: 600;
+  -webkit-backdrop-filter: blur(10px);
+  backdrop-filter: blur(10px);
+}
+
+.subject-content {
+  padding: 2rem;
+  background: var(--bg-primary);
+}
+
+.topic-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 2rem;
+}
+
+.topic-item {
+  background: var(--accent-cream);
+  border-radius: var(--radius-md);
+  padding: 1.5rem;
+  border-left: 4px solid var(--primary-black);
+  transition: var(--transition-medium);
+}
+
+.topic-item:hover {
+  background: var(--dark-accent-cream);
+  transform: translateX(5px);
+  box-shadow: var(--shadow-sm);
+}
+
+.topic-item h4 {
+  margin: 0 0 1rem 0;
+  font-size: 1.2rem;
+  font-weight: 700;
+  color: var(--primary-black);
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.topic-item h4::before {
+  content: 'bookmark';
+  font-family: 'Material Icons';
+  font-size: 1.2rem;
+  color: var(--primary-black);
+}
+
+.topic-item ul {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.topic-item li {
+  padding: 0.5rem 0;
+  color: var(--text-secondary);
+  position: relative;
+  padding-left: 1.5rem;
+  line-height: 1.5;
+}
+
+.topic-item li::before {
+  content: 'check_circle';
+  font-family: 'Material Icons';
+  font-size: 1rem;
+  color: var(--primary-black);
+  position: absolute;
+  left: 0;
+  top: 0.5rem;
+}
+/* Assessment Section */
+.assessment-section {
+  margin-top: 3rem;
+}
+
+.assessment-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 2rem;
+  margin-top: 2rem;
+}
+
+.assessment-item {
+  text-align: center;
+  padding: 2rem 1rem;
+  background: var(--bg-primary);
+  border-radius: var(--radius-lg);
+  border: 2px solid var(--accent-cream);
+  transition: all var(--transition-medium);
+  position: relative;
+  overflow: hidden;
+}
+
+.assessment-item::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 4px;
+  background: var(--gradient-primary);
+  transform: scaleX(0);
+  transition: transform var(--transition-medium);
+}
+
+.assessment-item:hover {
+  transform: translateY(-8px);
+  box-shadow: var(--shadow-lg);
+  border-color: var(--primary-black);
+}
+
+.assessment-item:hover::before {
+  transform: scaleX(1);
+}
+
+.assessment-icon {
+  background: var(--accent-cream);
+  width: 80px;
+  height: 80px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 0 auto 1.5rem;
+  transition: var(--transition-medium);
+}
+
+.assessment-item:hover .assessment-icon {
+  background: var(--primary-black);
+  transform: scale(1.1);
+}
+
+.assessment-icon .material-icons {
+  font-size: 2rem;
+  color: var(--primary-black);
+  transition: var(--transition-medium);
+}
+
+.assessment-item:hover .assessment-icon .material-icons {
+  color: var(--primary-white);
+}
+
+.assessment-item h4 {
+  margin: 0 0 1rem 0;
+  font-size: 1.2rem;
+  font-weight: 700;
+  color: var(--primary-black);
+}
+
+.assessment-item p {
+  margin: 0;
+  color: var(--text-secondary);
+  line-height: 1.5;
+}
+
+/* Responsive Design for Syllabus */
+@media (max-width: 768px) {
+  .topic-grid {
+    grid-template-columns: 1fr;
+    gap: 1.5rem;
+  }
+
+  .subject-header {
+    padding: 1.5rem;
+    flex-direction: column;
+    text-align: center;
+    gap: 1rem;
+  }
+
+  .subject-header h3 {
+    font-size: 1.5rem;
+  }
+
+  .subject-content {
+    padding: 1.5rem;
+  }
+
+  .assessment-grid {
+    grid-template-columns: 1fr;
+    gap: 1.5rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .syllabus-container {
+    gap: 2rem;
+  }
+
+  .topic-item {
+    padding: 1rem;
+  }
+
+  .assessment-item {
+    padding: 1.5rem 1rem;
+  }
+}
+.program-components-grid {
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 2rem;
+}
+
+.program-components-grid .component-card {
+  background: var(--bg-secondary);
+  border: 1px solid var(--dark-accent-cream);
+  border-radius: var(--radius-lg);
+  padding: 2rem;
+  transition: transform var(--transition-medium), box-shadow var(--transition-medium);
+}
+
+.program-components-grid .component-card:hover {
+  transform: translateY(-5px);
+  box-shadow: var(--shadow-lg);
+}
