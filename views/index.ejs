@@ -17,7 +17,7 @@
     <div class="container">
       <div class="hero-content" data-aos="fade-up">
         <span class="hero-badge"><%= lang==='ar' ? 'برنامج توجيه العلوم والتكنولوجيا والهندسة والرياضيات' : 'STEM Mentorship Program' %></span>
-        <h1 class="gradient-text">
+        <h1 class="gradient-text hero-title">
           <%= lang==='ar' ? 'نعد قادة الغد في مجالات العلوم والتكنولوجيا والهندسة والرياضيات' : 'Empowering Tomorrow\'s STEM Leaders' %>
         </h1>
         <p class="hero-subtitle">
@@ -68,7 +68,7 @@
         </div>
       </div>
 
-      <div class="stats-grid">
+      <div class="stats-grid home-stats-grid">
         <div class="stat-card conceptbox" data-aos="fade-up">
           <div class="stat-icon">
             <span class="material-icons">menu_book</span>
@@ -104,80 +104,6 @@
       </div>
     </section>
 
-    <section class="testimonials-section" id="testimonials" data-aos="fade-up">
-      <div class="section-header latex-style">
-        <div class="theorem-box solution-box">
-          <div class="theorem-title">
-            <%= lang==='ar' ? 'قالوا عنا' : 'Testimonials' %>
-          </div>
-          <p class="theorem-content">
-            <%= lang==='ar' ? 
-              'طلابنا هم أفضل من يتحدث عن تجربتهم مع برنامج التوجيه' : 
-              'Our students are the best to speak about their experience with our mentorship program' 
-            %>
-          </p>
-        </div>
-      </div>
-
-      <div class="testimonial-carousel">
-        <div class="testimonial-track">
-          <div class="testimonial-card" data-aos="fade-up">
-            <div class="quote-icon">
-              <span class="material-icons">format_quote</span>
-            </div>
-            <p class="testimonial-text">
-              <%= lang==='ar' ? 
-                'البرنامج تجاوز كل توقعاتي. الموجهون كانوا داعمين للغاية وساعدوني على تجاوز العقبات. أنا الآن طالب سعيد في مدرسة STEM.' : 
-                'The program exceeded all my expectations. The mentors were extremely supportive and helped me overcome obstacles. I am now a happy student at a STEM school.' 
-              %>
-            </p>
-            <div class="testimonial-author">
-              <strong><%= lang==='ar' ? 'أحمد خالد' : 'Ahmed Khaled' %></strong>
-              <span><%= lang==='ar' ? 'مدرسة STEM أكتوبر' : 'October STEM School' %></span>
-            </div>
-          </div>
-          
-          <div class="testimonial-card" data-aos="fade-up" data-aos-delay="100">
-            <div class="quote-icon">
-              <span class="material-icons">format_quote</span>
-            </div>
-            <p class="testimonial-text">
-              <%= lang==='ar' ? 
-                'لم أكن أثق في قدرتي على النجاح في اختبارات القبول، لكن بفضل هذا البرنامج تمكنت من تحقيق حلمي. أنصح به بشدة لكل من يطمح للالتحاق بمدارس STEM.' : 
-                'I didn\'t trust my ability to pass the entrance exams, but thanks to this program, I was able to achieve my dream. I highly recommend it to anyone aspiring to join STEM schools.' 
-              %>
-            </p>
-            <div class="testimonial-author">
-              <strong><%= lang==='ar' ? 'سارة محمد' : 'Sara Mohamed' %></strong>
-              <span><%= lang==='ar' ? 'مدرسة STEM المعادي' : 'Maadi STEM School' %></span>
-            </div>
-          </div>
-          
-          <div class="testimonial-card" data-aos="fade-up" data-aos-delay="200">
-            <div class="quote-icon">
-              <span class="material-icons">format_quote</span>
-            </div>
-            <p class="testimonial-text">
-              <%= lang==='ar' ? 
-                'الدروس والمواد كانت مفيدة للغاية. نماذج الأسئلة الأسبوعية ساعدتني على فهم نوعية الأسئلة التي سأواجهها في الاختبار الفعلي.' : 
-                'The lessons and materials were extremely helpful. The weekly question forms helped me understand the type of questions I would face in the actual test.' 
-              %>
-            </p>
-            <div class="testimonial-author">
-              <strong><%= lang==='ar' ? 'عمر إبراهيم' : 'Omar Ibrahim' %></strong>
-              <span><%= lang==='ar' ? 'مدرسة STEM القاهرة الجديدة' : 'New Cairo STEM School' %></span>
-            </div>
-          </div>
-        </div>
-        
-        <div class="carousel-indicators">
-          <button class="indicator active"></button>
-          <button class="indicator"></button>
-          <button class="indicator"></button>
-        </div>
-      </div>
-    </section>
-
     <section class="cta-section" data-aos="fade-up">
       <div class="theorem-box example-box">
         <div class="theorem-title">
@@ -206,9 +132,6 @@
   </div>
   <%- include('partials/footer') %>
   
-  <!-- Include Toast Notifications -->
-  <%- include('partials/toast') %>
-  
   <script src="https://unpkg.com/aos@next/dist/aos.js"></script>
   <script src="/js/main.js"></script>
   <script>
@@ -218,37 +141,6 @@
         duration: 800,
         once: true
       });
-      
-      // Setup for testimonial carousel
-      const track = document.querySelector('.testimonial-track');
-      const indicators = document.querySelectorAll('.carousel-indicators button');
-      let currentIndex = 0;
-      
-      indicators.forEach((indicator, index) => {
-        indicator.addEventListener('click', () => {
-          currentIndex = index;
-          updateCarousel();
-        });
-      });
-      
-      function updateCarousel() {
-        const cardWidth = document.querySelector('.testimonial-card').offsetWidth;
-        track.style.transform = `translateX(${-currentIndex * cardWidth}px)`;
-        
-        indicators.forEach((indicator, index) => {
-          if (index === currentIndex) {
-            indicator.classList.add('active');
-          } else {
-            indicator.classList.remove('active');
-          }
-        });
-      }
-      
-      // Auto-rotate testimonials
-      setInterval(() => {
-        currentIndex = (currentIndex + 1) % indicators.length;
-        updateCarousel();
-      }, 5000);
     });
   </script>
 </body>

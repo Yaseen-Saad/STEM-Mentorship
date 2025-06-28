@@ -19,7 +19,7 @@
     <div class="container">
       <div class="hero-content" data-aos="fade-up">
         <span class="hero-badge"><%= lang==='ar' ? 'نجاح العام الماضي' : 'Last Year\'s Success' %></span>
-        <h1 class="gradient-text">
+        <h1 class="gradient-text hero-title">
           <%= lang==='ar' ? 
                         'نفخر بتحقيق أحلام طلابنا في STEM' : 
                         'Proud to Make STEM Dreams Come True' 
@@ -135,8 +135,7 @@
           <%= lang==='ar' ? 'انتشارنا الجغرافي' : 'Our Geographic Reach' %>
         </div>
         <div class="egypt-map">
-          <!-- Egypt map placeholder, could be replaced with an interactive SVG map -->
-          <img src="/images/egypt-map.svg" alt="Egypt Map" class="map-svg">
+          <div id="map"></div>
           <div class="map-legend">
             <div class="legend-item">
               <span class="color high"></span>
@@ -470,7 +469,7 @@
                                 'Our students presented 8 projects at the Egypt Science & Engineering Fair, with 2 projects receiving excellence awards.' 
                             %>
             </p>
-            <a href="#" class="btn-outline">
+            <a  href="#" class="btn btn-primary btn-outline" style="margin-top: 10px;">
               <%= lang==='ar' ? 'عرض المشاريع الفائزة' : 'View Winning Projects' %>
             </a>
           </div>
@@ -657,10 +656,11 @@
   
 
   </div>
-
   <%- include('partials/footer') %> <script src="https://cdn.jsdelivr.net/npm/chart.js@3.7.0/dist/chart.min.js"></script>
   <script src="https://unpkg.com/aos@next/dist/aos.js"></script>
   <script src="/js/success.js"></script>
+    <script type="text/javascript" src="/js/mapdata.js"></script>
+    <script type="text/javascript" src="/js/countrymap.js"></script>
   <script>
     // Initialize AOS
     AOS.init({
