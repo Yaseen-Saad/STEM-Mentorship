@@ -109,7 +109,7 @@
   }
 }
 
-/* Contact section specific styles */
+/* Contact section specific styles 
 .contact-section {
   position: relative;
   z-index: 1;
@@ -164,7 +164,7 @@
 /* Typography */
 @import url('https://fonts.googleapis.com/css2?family=Amiri:wght@400;700&family=Lato:wght@400;700&display=swap');
 
-/* Vision Section Styles */
+/* Vision Section Styles 
 .vision-section {
   padding: 4rem 0;
 }
@@ -213,7 +213,7 @@
 .mission-item p {
   color: var(--text-secondary);
   line-height: 1.6;
-}
+}*/
 
 body {
   margin: 0;
@@ -670,6 +670,7 @@ header {
 }
 
 /* Hero Banner Sections */
+
 .hero-banner {
   margin-block: 0 !important;
   background: var(--gradient-primary);
@@ -869,7 +870,7 @@ header {
   }
 }
 
-/* Resources Content */
+/* Resources Content *
 .resources-content {
   margin: 40px 0;
 }
@@ -917,7 +918,7 @@ header {
   margin: 0 auto;
 }
 
-/* Resource Cards Grid */
+/* Resource Cards Grid *
 .resource-cards-grid {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
@@ -932,7 +933,7 @@ header {
   }
 }
 
-/* Enhanced Resource Cards */
+/* Enhanced Resource Cards 
 .resource-card {
   background: var(--bg-secondary);
   border-radius: 20px;
@@ -1088,7 +1089,7 @@ header {
   box-shadow: var(--shadow-lg);
 }
 
-/* Advanced Resource Page Enhancements */
+/* Advanced Resource Page Enhancements *
 .resource-search {
   transition: all 0.3s ease;
 }
@@ -1138,7 +1139,7 @@ header {
   }
 }
 
-/* Enhanced Card Animations */
+/* Enhanced Card Animations *
 .resource-card {
   animation-duration: 0.6s;
   animation-fill-mode: both;
@@ -1154,7 +1155,7 @@ header {
   transform: translateY(0);
 }
 
-/* Tab Content Animations */
+/* Tab Content Animations *
 .tab-content {
   transition: all 0.5s ease;
 }
@@ -1175,7 +1176,7 @@ header {
   }
 }
 
-/* Resource Type Badge Enhancements */
+/* Resource Type Badge Enhancements *
 .resource-type {
   position: relative;
   overflow: hidden;
@@ -1196,7 +1197,7 @@ header {
   left: 100%;
 }
 
-/* Download Count Animation */
+/* Download Count Animation *
 .download-count {
   transition: all 0.3s ease;
 }
@@ -1206,7 +1207,7 @@ header {
   color: var(--primary-black);
 }
 
-/* Responsive Enhancements */
+/* Responsive Enhancements /
 @media (max-width: 1200px) {
   .resource-cards-grid {
     grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
@@ -1261,7 +1262,7 @@ header {
   }
 }
 
-/* Contact Page Social Links Enhancement */
+/* Contact Page Social Links Enhancement 
 .social-info {
   transition: all 0.3s ease;
 }
@@ -1299,7 +1300,7 @@ header {
   height: 60px;
 }
 
-/* Form Input Enhancements */
+/* Form Input Enhancements 
 .input-with-icon input:focus,
 .input-with-icon select:focus,
 .input-with-icon textarea:focus {
@@ -1385,7 +1386,7 @@ header {
   }
 }
 
-/* Enhanced Form Styles */
+/* Enhanced Form Styles 
 .form-container {
   max-width: 600px;
   margin: 0 auto;
@@ -1482,7 +1483,7 @@ header {
 }
 
 /* Team Section Styles */
-.team-section {
+/*.team-section {
   margin: 4rem 0;
 }
 
@@ -1597,7 +1598,7 @@ header {
   margin: 1rem 0 0 0;
 }
 
-/* Academic Achievements Section */
+/* Academic Achievements Section 
 .achievements-section {
   margin: 4rem 0;
 }
@@ -1702,7 +1703,7 @@ header {
   line-height: 1.6;
 }
 
-/* Timeline Container */
+/* Timeline Container 
 .success-stories {
   margin-top: 3rem;
   position: relative;
@@ -1711,7 +1712,7 @@ header {
   margin-right: auto;
 }
 
-/* Timeline Line */
+/* Timeline Line 
 .success-stories::before {
   content: '';
   position: absolute;
@@ -1725,7 +1726,7 @@ header {
   z-index: 1;
 }
 
-/* Timeline Story Item */
+/* Timeline Story Item 
 .success-story {
   position: relative;
   margin: 4rem 0;
@@ -1739,7 +1740,7 @@ header {
   justify-content: flex-start;
 }
 
-/* Timeline Node */
+/* Timeline Node 
 .success-story::before {
   content: '';
   position: absolute;
@@ -1761,7 +1762,7 @@ header {
   box-shadow: 0 0 0 8px rgba(242, 239, 235, 0.3);
 }
 
-/* Story Card */
+/* Story Card 
 .story-card {
   width: 45%;
   background: var(--primary-white);
@@ -1796,7 +1797,7 @@ header {
   border-color: var(--accent-cream);
 }
 
-/* Arrow pointing to timeline */
+/* Arrow pointing to timeline 
 .story-card::after {
   content: '';
   position: absolute;
@@ -1818,7 +1819,7 @@ header {
   transform: translateY(-50%);
 }
 
-/* Story Content */
+/* Story Content 
 .story-header {
   display: flex;
   align-items: center;
@@ -1904,7 +1905,7 @@ header {
   font-weight: 500;
 }
 
-/* Year Labels */
+/* Year Labels 
 .timeline-year {
   position: absolute;
   left: 50%;
@@ -1934,7 +1935,7 @@ header {
     padding: 1.5rem;
   }
 
-  /* Timeline Responsive */
+  /* Timeline Responsive 
   .success-stories::before {
     left: 30px;
   }
@@ -1960,6 +1961,7 @@ header {
   }
 
   /* Map Responsive */
+@media (max-width: 768px) {
   .egypt-map {
     max-width: 100%;
     padding: 1rem;
@@ -1975,9 +1977,9 @@ header {
 
   .map-stats {
     grid-template-columns: repeat(2, 1fr);
-  }
+  }}
 
-  /* Schedule Responsive */
+  /* Schedule Responsive 
   .schedule-grid {
     grid-template-columns: 1fr;
     gap: 1.5rem;
@@ -2387,7 +2389,7 @@ header {
   margin-top: 0.5rem;
 }
 
-/* Enhanced Timetable/Schedule Section */
+/* Enhanced Timetable/Schedule Section 
 .schedule-section {
   padding: 4rem 0;
   background: linear-gradient(135deg, var(--bg-primary), var(--bg-secondary));
@@ -2508,7 +2510,7 @@ header {
   line-height: 1.5;
 }
 
-/* Schedule responsive design */
+/* Schedule responsive design 
 @media (max-width: 768px) {
   .schedule-grid {
     grid-template-columns: 1fr;
@@ -2732,7 +2734,7 @@ header {
   font-weight: 700;
 }
 
-/* Syllabus Section Styles */
+/* Syllabus Section Styles 
 .syllabus-section {
   margin: 4rem 0;
   padding: 3rem 0;
@@ -2884,7 +2886,7 @@ header {
   top: 0.5rem;
 }
 
-/* Assessment Section */
+/* Assessment Section 
 .assessment-section {
   margin-top: 3rem;
 }
@@ -2969,7 +2971,7 @@ header {
   line-height: 1.5;
 }
 
-/* Responsive Design for Syllabus */
+/* Responsive Design for Syllabus 
 @media (max-width: 768px) {
   .topic-grid {
     grid-template-columns: 1fr;
@@ -3011,7 +3013,7 @@ header {
   }
 }
 
-/* Contact Section Styles */
+/* Contact Section Styles 
 .contact-banner {
   background: var(--gradient-primary);
   color: var(--primary-white);
@@ -3031,7 +3033,7 @@ header {
   gap: 2rem;
 }
 
-/* Contact Form Styles */
+/* Contact Form Styles 
 .contact-form {
   display: flex;
   flex-direction: column;
@@ -3172,7 +3174,7 @@ header {
   margin-top: 0.5rem;
 }
 
-/* Enhanced Timetable/Schedule Section */
+/* Enhanced Timetable/Schedule Section 
 .schedule-section {
   padding: 4rem 0;
   background: linear-gradient(135deg, var(--bg-primary), var(--bg-secondary));
@@ -3215,7 +3217,7 @@ header {
   height: 3px;
   background: var(--gradient-primary);
   z-index: 1;
-}
+}*/
 
 .schools-section .section-header {
   margin-bottom: 3rem;
@@ -3454,7 +3456,7 @@ header {
   box-shadow: var(--shadow-md);
 }
 
-/* Syllabus Section Styles */
+/* Syllabus Section Styles 
 .syllabus-section {
   margin: 4rem 0;
   padding: 3rem 0;
@@ -3607,7 +3609,7 @@ header {
   top: 0.5rem;
 }
 
-/* Assessment Section */
+/* Assessment Section 
 .assessment-section {
   margin-top: 3rem;
 }
@@ -3714,7 +3716,7 @@ header {
   line-height: 1.5;
 }
 
-/* Schedule responsive design */
+/* Schedule responsive design 
 @media (max-width: 768px) {
   .schedule-grid {
     grid-template-columns: 1fr;
@@ -3934,7 +3936,7 @@ header {
   font-weight: 700;
 }
 
-/* Syllabus Section Styles */
+/* Syllabus Section Styles 
 .syllabus-section {
   margin: 4rem 0;
   padding: 3rem 0;
@@ -4086,7 +4088,7 @@ header {
   top: 0.5rem;
 }
 
-/* Assessment Section */
+/* Assessment Section 
 .assessment-section {
   margin-top: 3rem;
 }
@@ -4171,7 +4173,7 @@ header {
   line-height: 1.5;
 }
 
-/* Responsive Design for Syllabus */
+/* Responsive Design for Syllabus 
 @media (max-width: 768px) {
   .topic-grid {
     grid-template-columns: 1fr;
@@ -4213,7 +4215,7 @@ header {
   }
 }
 
-/* Contact Section Styles */
+/* Contact Section Styles 
 .contact-banner {
   background: var(--gradient-primary);
   color: var(--primary-white);
@@ -4233,7 +4235,7 @@ header {
   gap: 2rem;
 }
 
-/* Contact Form Styles */
+/* Contact Form Styles 
 .contact-form {
   display: flex;
   flex-direction: column;
@@ -4321,7 +4323,7 @@ header {
   min-width: 200px;
 }
 
-/* Contact Info Styles */
+/* Contact Info Styles 
 .contact-info {
   background: var(--accent-cream);
   border-radius: var(--radius-lg);
@@ -4370,7 +4372,7 @@ header {
   line-height: 1.4;
 }
 
-/* Social Media Styles */
+/* Social Media Styles 
 .social-links {
   display: flex;
   gap: 1rem;
@@ -5083,7 +5085,7 @@ footer .container {
   }
 }
 
-/* Homepage specific styles */
+/* Homepage specific styles 
 .home-stats-grid {
   grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
   gap: 2rem;
@@ -5103,7 +5105,7 @@ footer .container {
   box-shadow: var(--shadow-lg);
 }
 
-/* About page specific styles */
+/* About page specific styles 
 .about-success-grid {
   grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
   gap: 2rem;
@@ -5122,7 +5124,7 @@ footer .container {
   box-shadow: var(--shadow-lg);
 }
 
-/* Program page specific styles */
+/* Program page specific styles 
 .program-components-grid {
   grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
   gap: 2rem;
@@ -5139,48 +5141,4 @@ footer .container {
 .program-components-grid .component-card:hover {
   transform: translateY(-5px);
   box-shadow: var(--shadow-lg);
-}
-
-
-
-/* Success Story Timeline Styles */
-.success-story-timeline {
-  position: relative;
-  padding: 2rem 0;
-}
-
-.timeline-item {
-  position: relative;
-  padding-left: 40px;
-  margin-bottom: 2rem;
-}
-
-.timeline-item::before {
-  content: '';
-  position: absolute;
-  left: 10px;
-  top: 0;
-  bottom: 0;
-  width: 2px;
-  background: var(--dark-accent-cream);
-}
-
-.timeline-year {
-  position: absolute;
-  left: -20px;
-  top: 0;
-  font-weight: bold;
-  background: var(--primary-black);
-  color: var(--primary-white);
-  padding: 5px 10px;
-  border-radius: var(--radius-sm);
-}
-
-.timeline-content h3 {
-  font-size: 1.5rem;
-  margin-bottom: 0.5rem;
-}
-
-.timeline-content p {
-  color: var(--text-secondary);
 }
