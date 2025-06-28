@@ -17,7 +17,7 @@
         <div class="container">
             <div class="hero-content" data-aos="fade-up">
                 <span class="hero-badge"><%= lang==='ar' ? 'مواردك التعليمية' : 'Your Learning Resources' %></span>
-                <h1 class="gradient-text">
+                <h1 class="gradient-text hero-title">
                     <%= lang==='ar' ? 'مكتبة الموارد التعليمية' : 'Educational Resources Library' %>
                 </h1>
                 <p class="hero-subtitle">
@@ -46,9 +46,12 @@
             </div>
         </div>
 
-        <!-- Enhanced Resources Navigation -->
         <div class="resources-nav" data-aos="fade-up">
-            <button class="nav-item active" data-tab="math">
+            <button class="nav-item active" data-tab="all">
+                <span class="material-icons">apps</span>
+                <%= lang==='ar' ? 'الكل' : 'All' %>
+            </button>
+            <button class="nav-item" data-tab="math">
                 <span class="material-icons">calculate</span>
                 <%= lang==='ar' ? 'الرياضيات' : 'Mathematics' %>
             </button>
@@ -62,11 +65,7 @@
             </button>
             <button class="nav-item" data-tab="iq">
                 <span class="material-icons">psychology</span>
-                <%= lang==='ar' ? 'اختبارات الذكاء' : 'IQ Tests' %>
-            </button>
-            <button class="nav-item" data-tab="cheatsheets">
-                <span class="material-icons">quick_reference</span>
-                <%= lang==='ar' ? 'أوراق المراجعة' : 'Cheat Sheets' %>
+                <%= lang==='ar' ? 'اختبارات الذكاء' : 'IQ' %>
             </button>
             <button class="nav-item" data-tab="exams">
                 <span class="material-icons">quiz</span>
@@ -74,20 +73,17 @@
             </button>
         </div>
 
-        <!-- Mathematics Resources -->
         <div class="resources-content">
-            <div class="tab-content active" id="math-content">
+            <div class="tab-content active" id="all-content">
                 <div class="section-header">
-                    <h2><%= lang==='ar' ? 'موارد الرياضيات' : 'Mathematics Resources' %></h2>
-                    <p><%= lang==='ar' ? 'ملخصات وتمارين شاملة في الرياضيات' : 'Comprehensive summaries and exercises in Mathematics' %></p>
+                    <h2><%= lang==='ar' ? 'موارد شاملة' : 'All Resources' %></h2>
+                    <p><%= lang==='ar' ? 'استعرض جميع الموارد المتاحة في جميع المواد' : 'Browse all available resources across subjects' %></p>
                 </div>
                 
                 <div class="resource-cards-grid">
+                    <!-- Mathematics Resources -->
                     <div class="resource-card" data-aos="fade-up">
                         <div class="card-header">
-                            <div class="resource-icon math">
-                                <span class="material-icons">functions</span>
-                            </div>
                             <div class="resource-type">PDF</div>
                         </div>
                         <div class="card-content">
@@ -113,9 +109,7 @@
 
                     <div class="resource-card" data-aos="fade-up" data-aos-delay="100">
                         <div class="card-header">
-                            <div class="resource-icon math">
-                                <span class="material-icons">auto_graph</span>
-                            </div>
+                          
                             <div class="resource-type">PDF</div>
                         </div>
                         <div class="card-content">
@@ -141,9 +135,332 @@
 
                     <div class="resource-card" data-aos="fade-up" data-aos-delay="200">
                         <div class="card-header">
-                            <div class="resource-icon math">
-                                <span class="material-icons">equalizer</span>
+                           
+                            <div class="resource-type">PDF</div>
+                        </div>
+                        <div class="card-content">
+                            <h3><%= lang==='ar' ? 'الإحصاء والاحتمالات' : 'Statistics & Probability' %></h3>
+                            <p><%= lang==='ar' ? 'أساسيات الإحصاء والاحتمالات مع أمثلة تطبيقية' : 'Fundamentals of statistics and probability with practical examples' %></p>
+                            <div class="resource-stats">
+                                <span class="file-size">2.8 MB</span>
+                                <span class="download-count">
+                                    <span class="material-icons">download</span>
+                                    <span class="count">756</span>
+                                </span>
                             </div>
+                        </div>
+                        <div class="card-actions">
+                            <button class="btn btn-primary resource-link" 
+                                    data-resource="math-statistics" 
+                                    data-url="/api/track-resource?type=pdf&subject=math&topic=statistics&redirect=https://example.com/math-statistics.pdf">
+                                <span class="material-icons">download</span>
+                                <%= lang==='ar' ? 'تحميل' : 'Download' %>
+                            </button>
+                        </div>
+                    </div>
+
+                    <!-- Science Resources -->
+                    <div class="resource-card" data-aos="fade-up">
+                        <div class="card-header">
+                           
+                            <div class="resource-type">PDF</div>
+                        </div>
+                        <div class="card-content">
+                            <h3><%= lang==='ar' ? 'الفيزياء - الميكانيكا' : 'Physics - Mechanics' %></h3>
+                            <p><%= lang==='ar' ? 'قوانين نيوتن والحركة والطاقة' : 'Newton\'s laws, motion, and energy' %></p>
+                            <div class="resource-stats">
+                                <span class="file-size">4.2 MB</span>
+                                <span class="download-count">
+                                    <span class="material-icons">download</span>
+                                    <span class="count">1,456</span>
+                                </span>
+                            </div>
+                        </div>
+                        <div class="card-actions">
+                            <button class="btn btn-primary resource-link" 
+                                    data-resource="physics-mechanics" 
+                                    data-url="/api/track-resource?type=pdf&subject=physics&topic=mechanics&redirect=https://example.com/physics-mechanics.pdf">
+                                <span class="material-icons">download</span>
+                                <%= lang==='ar' ? 'تحميل' : 'Download' %>
+                            </button>
+                        </div>
+                    </div>
+
+                    <div class="resource-card" data-aos="fade-up" data-aos-delay="100">
+                        <div class="card-header">
+                           
+                            <div class="resource-type">PDF</div>
+                        </div>
+                        <div class="card-content">
+                            <h3><%= lang==='ar' ? 'الكيمياء العضوية' : 'Organic Chemistry' %></h3>
+                            <p><%= lang==='ar' ? 'أساسيات الكيمياء العضوية والتفاعلات' : 'Fundamentals of organic chemistry and reactions' %></p>
+                            <div class="resource-stats">
+                                <span class="file-size">3.7 MB</span>
+                                <span class="download-count">
+                                    <span class="material-icons">download</span>
+                                    <span class="count">1,123</span>
+                                </span>
+                            </div>
+                        </div>
+                        <div class="card-actions">
+                            <button class="btn btn-primary resource-link" 
+                                    data-resource="chemistry-organic" 
+                                    data-url="/api/track-resource?type=pdf&subject=chemistry&topic=organic&redirect=https://example.com/chemistry-organic.pdf">
+                                <span class="material-icons">download</span>
+                                <%= lang==='ar' ? 'تحميل' : 'Download' %>
+                            </button>
+                        </div>
+                    </div>
+
+                    <div class="resource-card" data-aos="fade-up" data-aos-delay="200">
+                        <div class="card-header">
+                           
+                            <div class="resource-type">PDF</div>
+                        </div>
+                        <div class="card-content">
+                            <h3><%= lang==='ar' ? 'علم الأحياء الخلوي' : 'Cell Biology' %></h3>
+                            <p><%= lang==='ar' ? 'تركيب الخلية ووظائفها' : 'Cell structure and functions' %></p>
+                            <div class="resource-stats">
+                                <span class="file-size">5.1 MB</span>
+                                <span class="download-count">
+                                    <span class="material-icons">download</span>
+                                    <span class="count">892</span>
+                                </span>
+                            </div>
+                        </div>
+                        <div class="card-actions">
+                            <button class="btn btn-primary resource-link" 
+                                    data-resource="biology-cell" 
+                                    data-url="/api/track-resource?type=pdf&subject=biology&topic=cell&redirect=https://example.com/biology-cell.pdf">
+                                <span class="material-icons">download</span>
+                                <%= lang==='ar' ? 'تحميل' : 'Download' %>
+                            </button>
+                        </div>
+                    </div>
+
+                    <!-- English Resources -->
+                    <div class="resource-card" data-aos="fade-up">
+                        <div class="card-header">
+                            
+                            <div class="resource-type">PDF</div>
+                        </div>
+                        <div class="card-content">
+                            <h3><%= lang==='ar' ? 'القواعد الأساسية' : 'Essential Grammar' %></h3>
+                            <p><%= lang==='ar' ? 'قواعد اللغة الإنجليزية الأساسية مع أمثلة' : 'Essential English grammar rules with examples' %></p>
+                            <div class="resource-stats">
+                                <span class="file-size">2.3 MB</span>
+                                <span class="download-count">
+                                    <span class="material-icons">download</span>
+                                    <span class="count">1,678</span>
+                                </span>
+                            </div>
+                        </div>
+                        <div class="card-actions">
+                            <button class="btn btn-primary resource-link" 
+                                    data-resource="english-grammar" 
+                                    data-url="/api/track-resource?type=pdf&subject=english&topic=grammar&redirect=https://example.com/english-grammar.pdf">
+                                <span class="material-icons">download</span>
+                                <%= lang==='ar' ? 'تحميل' : 'Download' %>
+                            </button>
+                        </div>
+                    </div>
+
+                    <div class="resource-card" data-aos="fade-up" data-aos-delay="100">
+                        <div class="card-header">
+                           
+                            <div class="resource-type">PDF</div>
+                        </div>
+                        <div class="card-content">
+                            <h3><%= lang==='ar' ? 'المفردات العلمية' : 'Scientific Vocabulary' %></h3>
+                            <p><%= lang==='ar' ? 'مفردات مهمة للاختبارات العلمية' : 'Important vocabulary for scientific tests' %></p>
+                            <div class="resource-stats">
+                                <span class="file-size">1.9 MB</span>
+                                <span class="download-count">
+                                    <span class="material-icons">download</span>
+                                    <span class="count">1,234</span>
+                                </span>
+                            </div>
+                        </div>
+                        <div class="card-actions">
+                            <button class="btn btn-primary resource-link" 
+                                    data-resource="english-vocabulary" 
+                                    data-url="/api/track-resource?type=pdf&subject=english&topic=vocabulary&redirect=https://example.com/english-vocabulary.pdf">
+                                <span class="material-icons">download</span>
+                                <%= lang==='ar' ? 'تحميل' : 'Download' %>
+                            </button>
+                        </div>
+                    </div>
+
+                    <!-- IQ Tests Resources -->
+                    <div class="resource-card" data-aos="fade-up">
+                        <div class="card-header">
+                          
+                            <div class="resource-type">PDF</div>
+                        </div>
+                        <div class="card-content">
+                            <h3><%= lang==='ar' ? 'التفكير المنطقي' : 'Logical Reasoning' %></h3>
+                            <p><%= lang==='ar' ? 'تمارين التفكير المنطقي والأنماط' : 'Logical reasoning exercises and patterns' %></p>
+                            <div class="resource-stats">
+                                <span class="file-size">3.4 MB</span>
+                                <span class="download-count">
+                                    <span class="material-icons">download</span>
+                                    <span class="count">2,156</span>
+                                </span>
+                            </div>
+                        </div>
+                        <div class="card-actions">
+                            <button class="btn btn-primary resource-link" 
+                                    data-resource="iq-logical" 
+                                    data-url="/api/track-resource?type=pdf&subject=iq&topic=logical&redirect=https://example.com/iq-logical.pdf">
+                                <span class="material-icons">download</span>
+                                <%= lang==='ar' ? 'تحميل' : 'Download' %>
+                            </button>
+                        </div>
+                    </div>
+
+                    <!-- Cheat Sheets -->
+                    <div class="resource-card cheat-sheet" data-aos="fade-up">
+                        <div class="card-header">
+                            
+                            <div class="resource-type">CHEAT SHEET</div>
+                        </div>
+                        <div class="card-content">
+                            <h3><%= lang==='ar' ? 'صيغ الرياضيات' : 'Math Formulas' %></h3>
+                            <p><%= lang==='ar' ? 'جميع الصيغ المهمة في صفحة واحدة' : 'All important formulas on one page' %></p>
+                            <div class="resource-stats">
+                                <span class="file-size">1.2 MB</span>
+                                <span class="download-count">
+                                    <span class="material-icons">download</span>
+                                    <span class="count">3,421</span>
+                                </span>
+                            </div>
+                        </div>
+                        <div class="card-actions">
+                            <button class="btn btn-primary resource-link" 
+                                    data-resource="cheat-math-formulas" 
+                                    data-url="/api/track-resource?type=cheatsheet&subject=math&topic=formulas&redirect=https://example.com/cheat-math-formulas.pdf">
+                                <span class="material-icons">download</span>
+                                <%= lang==='ar' ? 'تحميل' : 'Download' %>
+                            </button>
+                        </div>
+                    </div>
+
+                    <div class="resource-card cheat-sheet" data-aos="fade-up" data-aos-delay="100">
+                        <div class="card-header">
+                         
+                            <div class="resource-type">CHEAT SHEET</div>
+                        </div>
+                        <div class="card-content">
+                            <h3><%= lang==='ar' ? 'قوانين الفيزياء' : 'Physics Laws' %></h3>
+                            <p><%= lang==='ar' ? 'أهم قوانين الفيزياء في ورقة واحدة' : 'Most important physics laws on one page' %></p>
+                            <div class="resource-stats">
+                                <span class="file-size">1.5 MB</span>
+                                <span class="download-count">
+                                    <span class="material-icons">download</span>
+                                    <span class="count">2,891</span>
+                                </span>
+                            </div>
+                        </div>
+                        <div class="card-actions">
+                            <button class="btn btn-primary resource-link" 
+                                    data-resource="cheat-physics-laws" 
+                                    data-url="/api/track-resource?type=cheatsheet&subject=physics&topic=laws&redirect=https://example.com/cheat-physics-laws.pdf">
+                                <span class="material-icons">download</span>
+                                <%= lang==='ar' ? 'تحميل' : 'Download' %>
+                            </button>
+                        </div>
+                    </div>
+
+                    <div class="resource-card cheat-sheet" data-aos="fade-up" data-aos-delay="200">
+                        <div class="card-header">
+                           
+                            <div class="resource-type">CHEAT SHEET</div>
+                        </div>
+                        <div class="card-content">
+                            <h3><%= lang==='ar' ? 'مصطلحات الكيمياء' : 'Chemistry Terms' %></h3>
+                            <p><%= lang==='ar' ? 'مصطلحات وتفاعلات الكيمياء المهمة' : 'Important chemistry terms and reactions' %></p>
+                            <div class="resource-stats">
+                                <span class="file-size">1.8 MB</span>
+                                <span class="download-count">
+                                    <span class="material-icons">download</span>
+                                    <span class="count">2,345</span>
+                                </span>
+                            </div>
+                        </div>
+                        <div class="card-actions">
+                            <button class="btn btn-primary resource-link" 
+                                    data-resource="cheat-chemistry-terms" 
+                                    data-url="/api/track-resource?type=cheatsheet&subject=chemistry&topic=terms&redirect=https://example.com/cheat-chemistry-terms.pdf">
+                                <span class="material-icons">download</span>
+                                <%= lang==='ar' ? 'تحميل' : 'Download' %>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Mathematics Resources -->
+            <div class="tab-content" id="math-content">
+                <div class="section-header">
+                    <h2><%= lang==='ar' ? 'موارد الرياضيات' : 'Mathematics Resources' %></h2>
+                    <p><%= lang==='ar' ? 'ملخصات وتمارين شاملة في الرياضيات' : 'Comprehensive summaries and exercises in Mathematics' %></p>
+                </div>
+                
+                <div class="resource-cards-grid">
+                    <div class="resource-card" data-aos="fade-up">
+                        <div class="card-header">
+                            <div class="resource-type">PDF</div>
+                        </div>
+                        <div class="card-content">
+                            <h3><%= lang==='ar' ? 'الجبر والمعادلات' : 'Algebra & Equations' %></h3>
+                            <p><%= lang==='ar' ? 'ملخص شامل للجبر والمعادلات الخطية والتربيعية' : 'Comprehensive summary of algebra, linear and quadratic equations' %></p>
+                            <div class="resource-stats">
+                                <span class="file-size">2.5 MB</span>
+                                <span class="download-count">
+                                    <span class="material-icons">download</span>
+                                    <span class="count">1,234</span>
+                                </span>
+                            </div>
+                        </div>
+                        <div class="card-actions">
+                            <button class="btn btn-primary resource-link" 
+                                    data-resource="math-algebra" 
+                                    data-url="/api/track-resource?type=pdf&subject=math&topic=algebra&redirect=https://example.com/math-algebra.pdf">
+                                <span class="material-icons">download</span>
+                                <%= lang==='ar' ? 'تحميل' : 'Download' %>
+                            </button>
+                        </div>
+                    </div>
+
+                    <div class="resource-card" data-aos="fade-up" data-aos-delay="100">
+                        <div class="card-header">
+                          
+                            <div class="resource-type">PDF</div>
+                        </div>
+                        <div class="card-content">
+                            <h3><%= lang==='ar' ? 'الهندسة التحليلية' : 'Analytical Geometry' %></h3>
+                            <p><%= lang==='ar' ? 'دليل شامل للهندسة التحليلية والإحداثيات' : 'Comprehensive guide to analytical geometry and coordinates' %></p>
+                            <div class="resource-stats">
+                                <span class="file-size">3.1 MB</span>
+                                <span class="download-count">
+                                    <span class="material-icons">download</span>
+                                    <span class="count">987</span>
+                                </span>
+                            </div>
+                        </div>
+                        <div class="card-actions">
+                            <button class="btn btn-primary resource-link" 
+                                    data-resource="math-geometry" 
+                                    data-url="/api/track-resource?type=pdf&subject=math&topic=geometry&redirect=https://example.com/math-geometry.pdf">
+                                <span class="material-icons">download</span>
+                                <%= lang==='ar' ? 'تحميل' : 'Download' %>
+                            </button>
+                        </div>
+                    </div>
+
+                    <div class="resource-card" data-aos="fade-up" data-aos-delay="200">
+                        <div class="card-header">
+                           
                             <div class="resource-type">PDF</div>
                         </div>
                         <div class="card-content">
@@ -179,9 +496,7 @@
                 <div class="resource-cards-grid">
                     <div class="resource-card" data-aos="fade-up">
                         <div class="card-header">
-                            <div class="resource-icon science">
-                                <span class="material-icons">science</span>
-                            </div>
+                           
                             <div class="resource-type">PDF</div>
                         </div>
                         <div class="card-content">
@@ -207,9 +522,7 @@
 
                     <div class="resource-card" data-aos="fade-up" data-aos-delay="100">
                         <div class="card-header">
-                            <div class="resource-icon science">
-                                <span class="material-icons">biotech</span>
-                            </div>
+                           
                             <div class="resource-type">PDF</div>
                         </div>
                         <div class="card-content">
@@ -235,9 +548,7 @@
 
                     <div class="resource-card" data-aos="fade-up" data-aos-delay="200">
                         <div class="card-header">
-                            <div class="resource-icon science">
-                                <span class="material-icons">cell_tower</span>
-                            </div>
+                           
                             <div class="resource-type">PDF</div>
                         </div>
                         <div class="card-content">
@@ -273,9 +584,7 @@
                 <div class="resource-cards-grid">
                     <div class="resource-card" data-aos="fade-up">
                         <div class="card-header">
-                            <div class="resource-icon english">
-                                <span class="material-icons">translate</span>
-                            </div>
+                            
                             <div class="resource-type">PDF</div>
                         </div>
                         <div class="card-content">
@@ -301,9 +610,7 @@
 
                     <div class="resource-card" data-aos="fade-up" data-aos-delay="100">
                         <div class="card-header">
-                            <div class="resource-icon english">
-                                <span class="material-icons">menu_book</span>
-                            </div>
+                           
                             <div class="resource-type">PDF</div>
                         </div>
                         <div class="card-content">
@@ -339,9 +646,7 @@
                 <div class="resource-cards-grid">
                     <div class="resource-card" data-aos="fade-up">
                         <div class="card-header">
-                            <div class="resource-icon iq">
-                                <span class="material-icons">psychology</span>
-                            </div>
+                          
                             <div class="resource-type">PDF</div>
                         </div>
                         <div class="card-content">
@@ -377,9 +682,7 @@
                 <div class="resource-cards-grid">
                     <div class="resource-card cheat-sheet" data-aos="fade-up">
                         <div class="card-header">
-                            <div class="resource-icon cheat">
-                                <span class="material-icons">quick_reference</span>
-                            </div>
+                            
                             <div class="resource-type">CHEAT SHEET</div>
                         </div>
                         <div class="card-content">
@@ -405,9 +708,7 @@
 
                     <div class="resource-card cheat-sheet" data-aos="fade-up" data-aos-delay="100">
                         <div class="card-header">
-                            <div class="resource-icon cheat">
-                                <span class="material-icons">flash_on</span>
-                            </div>
+                         
                             <div class="resource-type">CHEAT SHEET</div>
                         </div>
                         <div class="card-content">
@@ -433,9 +734,7 @@
 
                     <div class="resource-card cheat-sheet" data-aos="fade-up" data-aos-delay="200">
                         <div class="card-header">
-                            <div class="resource-icon cheat">
-                                <span class="material-icons">biotech</span>
-                            </div>
+                           
                             <div class="resource-type">CHEAT SHEET</div>
                         </div>
                         <div class="card-content">
@@ -471,9 +770,7 @@
                 <div class="resource-cards-grid">
                     <div class="resource-card" data-aos="fade-up">
                         <div class="card-header">
-                            <div class="resource-icon exam">
-                                <span class="material-icons">quiz</span>
-                            </div>
+                           
                             <div class="resource-type">ONLINE EXAM</div>
                         </div>
                         <div class="card-content">
@@ -497,9 +794,7 @@
 
                     <div class="resource-card" data-aos="fade-up" data-aos-delay="100">
                         <div class="card-header">
-                            <div class="resource-icon exam">
-                                <span class="material-icons">calculate</span>
-                            </div>
+                           
                             <div class="resource-type">PDF EXAM</div>
                         </div>
                         <div class="card-content">
@@ -525,9 +820,7 @@
 
                     <div class="resource-card" data-aos="fade-up" data-aos-delay="200">
                         <div class="card-header">
-                            <div class="resource-icon exam">
-                                <span class="material-icons">science</span>
-                            </div>
+                            
                             <div class="resource-type">PDF EXAM</div>
                         </div>
                         <div class="card-content">
@@ -553,9 +846,7 @@
 
                     <div class="resource-card cheat-sheet" data-aos="fade-up" data-aos-delay="100">
                         <div class="card-header">
-                            <div class="resource-icon cheat">
-                                <span class="material-icons">quick_reference</span>
-                            </div>
+                           
                             <div class="resource-type">CHEAT SHEET</div>
                         </div>
                         <div class="card-content">
@@ -591,9 +882,7 @@
                 <div class="resource-cards-grid">
                     <div class="resource-card exam-card" data-aos="fade-up">
                         <div class="card-header">
-                            <div class="resource-icon exam">
-                                <span class="material-icons">quiz</span>
-                            </div>
+                           
                             <div class="resource-type">ONLINE EXAM</div>
                         </div>
                         <div class="card-content">
@@ -614,9 +903,7 @@
 
                     <div class="resource-card exam-card" data-aos="fade-up" data-aos-delay="100">
                         <div class="card-header">
-                            <div class="resource-icon exam">
-                                <span class="material-icons">quiz</span>
-                            </div>
+                          
                             <div class="resource-type">ONLINE EXAM</div>
                         </div>
                         <div class="card-content">

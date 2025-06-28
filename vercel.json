@@ -8,21 +8,15 @@
   ],
   "routes": [
     {
-      "src": "^/public/(.*)",
-      "dest": "/public/$1"
-    },
-    {
-      "src": "/favicon.ico",
-      "dest": "/public/favicon.ico"
+      "src": "/api/(.*)",
+      "dest": "/api/$1"
     },
     {
       "src": "/(.*)",
-      "dest": "./app.js"
+      "dest": "/app.js"
+    },
+    {
+      "handle": "filesystem"
     }
-  ],
-  "functions": {
-    "app.js": {
-      "maxDuration": 25
-    }
-  }
+  ]
 }

@@ -6,15 +6,18 @@
   "scripts": {
     "start": "node app.js",
     "dev": "nodemon app.js",
-    "build": "echo 'Build step not required'",
-    "vercel-build": "echo 'Vercel build step not required'"
+    "build": "echo 'Build step completed'",
+    "vercel-build": "npm install",
+    "test": "echo 'No tests specified'",
+    "lint": "echo 'No linting configured'"
   },
   "engines": {
     "node": "18.x"
   },
   "dependencies": {
     "express": "^4.18.2",
-    "ejs": "^3.1.8"
+    "ejs": "^3.1.8",
+    "compression": "^1.7.4"
   },
   "devDependencies": {
     "nodemon": "^3.0.1"

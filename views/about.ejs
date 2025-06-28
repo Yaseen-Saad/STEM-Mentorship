@@ -16,7 +16,7 @@
     <div class="container">
       <div class="hero-content" data-aos="fade-up">
         <span class="hero-badge"><%= lang==='ar' ? 'تعرف علينا' : 'Get to Know Us' %></span>
-        <h1 class="gradient-text">
+        <h1 class="gradient-text hero-title">
           <%= lang==='ar' ? 'من نحن' : 'About Us' %>
         </h1>
         <p class="hero-subtitle">
@@ -212,7 +212,7 @@
         <div class="theorem-title">
           <%= lang==='ar' ? 'قصة نجاحنا' : 'Our Success Story' %>
         </div>
-        <div class="timeline">
+        <div class="timeline success-timeline">
           <div class="timeline-item" data-aos="fade-right">
             <div class="timeline-date">2018</div>
             <div class="timeline-content">
@@ -257,9 +257,6 @@
     </section>
   </div>
     <%- include('partials/footer') %>
-  
-  <!-- Include Toast Notifications -->
-  <%- include('partials/toast') %>
   
   <script src="https://unpkg.com/aos@next/dist/aos.js"></script>
   <script>

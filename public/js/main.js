@@ -15,7 +15,6 @@ document.addEventListener('DOMContentLoaded', () => {
   initializeFAQToggle();
   initializeCounters();
   initializeFormValidation();
-  initializeToastNotifications();
   initializeScrollEffects();
 });
 
@@ -76,81 +75,6 @@ function initializeScrollEffects() {
   }
   
   window.addEventListener('scroll', requestTick);
-}
-
-function initializeToastNotifications() {
-  // Get all acceptances from the data divs
-  const acceptanceContainer = document.querySelector('.acceptance-data');
-  if (!acceptanceContainer) return;
-  
-  const acceptances = [];
-  const acceptanceDivs = acceptanceContainer.querySelectorAll('div');
-  
-  acceptanceDivs.forEach(div => {
-    const name = div.dataset.name;
-    const university = div.dataset.university;
-    const program = div.dataset.program;
-    
-    if (name && university && program) {
-      acceptances.push({ name, university, program });
-    }
-  });
-  
-  if (acceptances.length === 0) return;
-  
-  // Get random acceptance
-  const randomIndex = Math.floor(Math.random() * acceptances.length);
-  const acceptance = acceptances[randomIndex];
-  
-  // Format message based on language
-  const lang = document.documentElement.lang;
-  const message = lang === 'ar' 
-    ? `${acceptance.name} تم قبوله في ${acceptance.university} لدراسة ${acceptance.program}!` 
-    : `${acceptance.name} was accepted into ${acceptance.university} to study ${acceptance.program}!`;
-  
-  // Set message in toast
-  const toastMessage = document.getElementById('toastMessage');
-  if (toastMessage) {
-    toastMessage.textContent = message;
-  }
-  
-  // Show toast after a delay
-  setTimeout(showToast, 2000);
-  
-  // Set up automatic rotation of acceptances
-  setInterval(() => {
-    const newIndex = Math.floor(Math.random() * acceptances.length);
-    const newAcceptance = acceptances[newIndex];
-    
-    const newMessage = lang === 'ar' 
-      ? `${newAcceptance.name} تم قبوله في ${newAcceptance.university} لدراسة ${newAcceptance.program}!` 
-      : `${newAcceptance.name} was accepted into ${newAcceptance.university} to study ${newAcceptance.program}!`;
-    
-    if (toastMessage) {
-      toastMessage.textContent = newMessage;
-    }
-    
-    showToast();
-  }, 30000); // Show new acceptance every 30 seconds
-}
-
-function showToast() {
-  const toast = document.getElementById('acceptanceToast');
-  if (toast) {
-    toast.classList.remove('hidden');
-    
-    // Auto hide after 5 seconds
-    setTimeout(() => {
-      toast.classList.add('hidden');
-    }, 5000);
-  }
-}
-
-function dismissToast() {
-  const toast = document.getElementById('acceptanceToast');
-  if (toast) {
-    toast.classList.add('hidden');
-  }
 }
 
 function initializeTestimonialCarousel() {

@@ -16,7 +16,7 @@
     <div class="container">
       <div class="hero-content" data-aos="fade-up">
         <span class="hero-badge"><%= lang==='ar' ? 'خطتك للنجاح' : 'Your Path to Success' %></span>
-        <h1 class="gradient-text">
+        <h1 class="gradient-text hero-title">
           <%= lang==='ar' ? 'تفاصيل البرنامج' : 'Program Details' %>
         </h1>
         <p class="hero-subtitle">
@@ -465,7 +465,7 @@
               'Registration is now open for the new cohort. Seats are limited, hurry up to secure yours!' 
             %>
           </p>
-          <div class="registration-buttons">
+          <div class="cta-buttons">
             <a href="/contact?lang=<%= lang %>" class="btn btn-primary">
               <i class="material-icons">app_registration</i>
               <%= lang==='ar' ? 'سجل الآن' : 'Register Now' %>
@@ -476,9 +476,6 @@
     </section>
   </div>
   <%- include('partials/footer') %>
-  
-  <!-- Include Toast Notifications -->
-  <%- include('partials/toast') %>
   
   <script src="https://unpkg.com/aos@next/dist/aos.js"></script>
   <script>

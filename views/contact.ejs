@@ -5,6 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title><%= lang==='ar' ? 'اتصل بنا' : 'Contact Us' %> - Mentorship STEM</title>
     <link rel="stylesheet" href="/css/style.css">
+    <link rel="stylesheet" href="/css/contact-fix.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
     <link rel="stylesheet" href="https://unpkg.com/aos@next/dist/aos.css" />
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
@@ -12,7 +13,7 @@
 <body>
     <%- include('partials/header', { lang: lang }) %>
     
-    <section class="hero-banner contact-banner">
+    <section class="hero-banner contact-banner creamy-bg">
         <div class="hero-overlay"></div>
         <div class="container">
             <div class="hero-content" data-aos="fade-up">
@@ -262,49 +263,6 @@
 
    </section>    <%- include('partials/footer') %>
     
-    <!-- Include Toast Notifications -->
-    <%- include('partials/toast') %>
-    
-    <script src="https://unpkg.com/aos@next/dist/aos.js"></script>
-    <script>
-        document.addEventListener('DOMContentLoaded', function() {
-            // Initialize AOS
-            AOS.init({
-                duration: 800,
-                once: true
-            });
-            
-            // FAQ toggle functionality
-            const faqItems = document.querySelectorAll('.faq-item');
-            faqItems.forEach(item => {
-                const question = item.querySelector('.faq-question');
-                question.addEventListener('click', () => {
-                    item.classList.toggle('active');
-                    const toggleIcon = item.querySelector('.toggle-icon');
-                    toggleIcon.textContent = item.classList.contains('active') ? 'expand_less' : 'expand_more';
-                });
-            });
-            
-            // Form validation
-            const contactForm = document.getElementById('contactForm');
-            if (contactForm) {
-                contactForm.addEventListener('submit', function(event) {
-                    event.preventDefault();
-                    // Form validation logic would go here
-                    alert('<%= lang==="ar" ? "شكراً لتواصلك معنا! سنرد عليك قريباً." : "Thank you for contacting us! We\'ll respond soon." %>');
-                    contactForm.reset();
-                });
-            }
-            
-            // Map placeholder interaction
-            const mapPlaceholder = document.querySelector('.map-frame');
-            if (mapPlaceholder) {
-                mapPlaceholder.addEventListener('click', function() {
-                    // In a real implementation, this would load an interactive map
-                    alert('<%= lang==="ar" ? "سيتم عرض الخريطة التفاعلية هنا" : "Interactive map would load here" %>');
-                });
-            }
-        });
-    </script>
+    <script src="/js/main.js"></script>
 </body>
 </html>
