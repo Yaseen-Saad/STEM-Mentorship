@@ -71,43 +71,6 @@ document.addEventListener('DOMContentLoaded', function() {
             }
         }
     });    // Enhanced Testimonials Carousel with fade effect
-    const carousel = document.querySelector('.testimonial-carousel');
-    const slides = carousel.querySelectorAll('.testimonial-slide');
-    const prevBtn = document.querySelector('.testimonial-nav .prev');
-    const nextBtn = document.querySelector('.testimonial-nav .next');
-    let currentSlide = 0;
-    let isAnimating = false;
-
-    function showSlide(index) {
-        if (isAnimating) return;
-        isAnimating = true;
-
-        slides.forEach(slide => {
-            slide.style.opacity = '0';
-            slide.classList.remove('active');
-        });
-
-        currentSlide = (index + slides.length) % slides.length;
-        slides[currentSlide].classList.add('active');
-        
-        // Fade in with slight delay for smoother transition
-        setTimeout(() => {
-            slides[currentSlide].style.opacity = '1';
-            isAnimating = false;
-        }, 50);
-    }
-
-    prevBtn.addEventListener('click', () => showSlide(currentSlide - 1));
-    nextBtn.addEventListener('click', () => showSlide(currentSlide + 1));
-
-    // Auto-advance slides with smoother timing
-    let autoAdvance = setInterval(() => showSlide(currentSlide + 1), 6000);
-
-    // Pause auto-advance on hover
-    carousel.addEventListener('mouseenter', () => clearInterval(autoAdvance));
-    carousel.addEventListener('mouseleave', () => {
-        autoAdvance = setInterval(() => showSlide(currentSlide + 1), 6000);
-    });
 
     // Enhanced stat animation with IntersectionObserver and counter animation
     const statsSection = document.querySelector('.stats-section');
