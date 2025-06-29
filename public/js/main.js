@@ -100,40 +100,6 @@ function initializeAnimations() {
   });
 }
 
-// Enhanced scroll effects
-function initializeScrollEffects() {
-  let ticking = false;
-  
-  function updateScrollEffects() {
-    const scrolled = window.pageYOffset;
-    const rate = scrolled * -0.5;
-        
-    // Header shadow effect
-    const header = document.querySelector('header');
-    if (header) {
-      if (scrolled > 100) {
-        header.style.boxShadow = '0 4px 20px rgba(0,0,0,0.1)';
-        header.style.backgroundColor = 'rgba(255,255,255,0.95)';
-        header.style.backdropFilter = 'blur(10px)';
-      } else {
-        header.style.boxShadow = '0 2px 4px rgba(0,0,0,0.1)';
-        header.style.backgroundColor = '#ffffff';
-        header.style.backdropFilter = 'none';
-      }
-    }
-    
-    ticking = false;
-  }
-  
-  function requestTick() {
-    if (!ticking) {
-      requestAnimationFrame(updateScrollEffects);
-      ticking = true;
-    }
-  }
-  
-  window.addEventListener('scroll', requestTick);
-}
 
 function initializeTestimonialCarousel() {
   const carousel = document.querySelector('.testimonial-carousel');

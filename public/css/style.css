@@ -427,9 +427,14 @@ section {
 header {
   background: var(--bg-primary);
   box-shadow: var(--shadow-sm);
-  position: relative;
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  width: 100%;
   border-bottom: 1px solid var(--accent-cream);
   transition: var(--transition-medium);
+  z-index: 1002;
 }
 
 .header-container {
@@ -441,6 +446,7 @@ header {
   margin: 0 auto;
   width: 90%;
   position: relative;
+  z-index: 1003;
 }
 
 .logo {
@@ -482,9 +488,17 @@ header {
   padding: 0.5rem;
   background: none;
   border: none;
-  z-index: 1001;
+  z-index: 1004;
   border-radius: var(--radius-sm);
   transition: background-color var(--transition-fast);
+  position: relative;
+  -webkit-tap-highlight-color: transparent;
+  -webkit-touch-callout: none;
+  -webkit-user-select: none;
+  -khtml-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
 }
 
 .hamburger:hover {
@@ -750,19 +764,22 @@ header {
     display: flex;
     order: 3;
     position: relative;
-    z-index: 1001;
+    z-index: 1004;
+    -webkit-tap-highlight-color: transparent;
   }
 
   .header-container {
     padding: 0.75rem 1rem;
     position: relative;
     justify-content: space-between;
+    z-index: 1003;
   }
 
   .logo {
     height: 40px;
     width: auto;
     order: 1;
+    z-index: 1003;
   }
 
   .navbar {
@@ -780,10 +797,13 @@ header {
     margin-left: 0;
     box-shadow: 2px 0 10px rgba(0, 0, 0, 0.1);
     transition: left 0.3s ease-in-out;
-    z-index: 1000;
+    z-index: 1001;
     gap: 0;
     border-right: 1px solid var(--accent-cream);
     overflow-y: auto;
+    overflow-x: hidden;
+    -webkit-transform: translateZ(0);
+    transform: translateZ(0);
   }
 
   .navbar.active {
@@ -839,7 +859,7 @@ header {
   }
 
   .language-toggle {
-    width: 100%;
+    width: 90%;
     text-align: center;
     padding: 0.75rem;
     background: var(--accent-cream);
@@ -862,14 +882,17 @@ header {
     width: 100%;
     height: 100%;
     background: rgba(0, 0, 0, 0.5);
-    z-index: 999;
+    z-index: 1000;
     opacity: 0;
     transition: opacity 0.3s ease;
+    -webkit-tap-highlight-color: transparent;
+    pointer-events: none;
   }
 
   .nav-overlay.active {
     display: block;
     opacity: 1;
+    pointer-events: auto;
   }
 }
 
@@ -1034,7 +1057,7 @@ header {
 
 /* Improve hamburger menu accessibility */
 .hamburger[aria-expanded="true"] span:nth-child(1) {
-  transform: rotate(-45deg) translate(-5px, 6px);
+  transform: rotate(-45deg) translate(-6px, 6px);
 }
 
 .hamburger[aria-expanded="true"] span:nth-child(2) {
@@ -1042,7 +1065,7 @@ header {
 }
 
 .hamburger[aria-expanded="true"] span:nth-child(3) {
-  transform: rotate(45deg) translate(-5px, -6px);
+  transform: rotate(45deg) translate(-7px, -6px);
 }
 
 /* Hero Banner Sections */
