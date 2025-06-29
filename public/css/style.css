@@ -1029,7 +1029,7 @@ header {
 /* Ensure proper stacking context */
 .header-container {
   position: relative;
-  z-index: 100;
+  z-index: 1000;
 }
 
 /* Improve hamburger menu accessibility */
