@@ -2,11 +2,11 @@
   <div class="container header-container">
     <img src="/images/logo.png" alt="Mentorship STEM Logo" class="logo" />
     <%- include('./navbar', { lang: lang }) %>
-    <button class="hamburger" aria-label="Toggle navigation menu" aria-expanded="false">
-      <span></span>
-      <span></span>
-      <span></span>
+    <button class="hamburger" aria-label="<%= lang==='ar' ? 'فتح قائمة التنقل' : 'Toggle navigation menu' %>" aria-expanded="false" aria-controls="navbar">
+      <span aria-hidden="true"></span>
+      <span aria-hidden="true"></span>
+      <span aria-hidden="true"></span>
     </button>
   </div>
-  <div class="nav-overlay"></div>
+  <div class="nav-overlay" aria-hidden="true"></div>
 </header>

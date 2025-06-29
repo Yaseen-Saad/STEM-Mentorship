@@ -1,14 +1,14 @@
-<nav class="navbar" aria-label="Main navigation">
-  <ul class="nav-links">
-    <li><a href="/?lang=<%= lang %>"><%= lang==='ar' ? 'الرئيسية' : 'Home' %></a></li>
-    <li><a href="/about?lang=<%= lang %>"><%= lang==='ar' ? 'من نحن' : 'About Us' %></a></li>
-    <li><a href="/success?lang=<%= lang %>"><%= lang==='ar' ? 'نجاحنا' : 'Our Success' %></a></li>
-    <li><a href="/program?lang=<%= lang %>"><%= lang==='ar' ? 'تفاصيل البرنامج' : 'Program Details' %></a></li>
-    <li><a href="/resources?lang=<%= lang %>"><%= lang==='ar' ? 'الموارد' : 'Resources' %></a></li>
-    <li><a href="/contact?lang=<%= lang %>"><%= lang==='ar' ? 'اتصل بنا' : 'Contact Us' %></a></li>
+<nav class="navbar" aria-label="Main navigation" role="navigation">
+  <ul class="nav-links" role="menubar">
+    <li role="none"><a href="/?lang=<%= lang %>" role="menuitem"><%= lang==='ar' ? 'الرئيسية' : 'Home' %></a></li>
+    <li role="none"><a href="/about?lang=<%= lang %>" role="menuitem"><%= lang==='ar' ? 'من نحن' : 'About Us' %></a></li>
+    <li role="none"><a href="/success?lang=<%= lang %>" role="menuitem"><%= lang==='ar' ? 'نجاحنا' : 'Our Success' %></a></li>
+    <li role="none"><a href="/program?lang=<%= lang %>" role="menuitem"><%= lang==='ar' ? 'تفاصيل البرنامج' : 'Program Details' %></a></li>
+    <li role="none"><a href="/resources?lang=<%= lang %>" role="menuitem"><%= lang==='ar' ? 'الموارد' : 'Resources' %></a></li>
+    <li role="none"><a href="/contact?lang=<%= lang %>" role="menuitem"><%= lang==='ar' ? 'اتصل بنا' : 'Contact Us' %></a></li>
   </ul>
   <div class="nav-actions">
-    <a href="?lang=<%= lang === 'ar' ? 'en' : 'ar' %>" class="language-toggle" aria-label="Toggle language">
+    <a href="?lang=<%= lang === 'ar' ? 'en' : 'ar' %>" class="language-toggle" aria-label="<%= lang==='ar' ? 'تغيير إلى الإنجليزية' : 'Switch to Arabic' %>">
       <%= lang==='ar' ? 'EN' : 'عربي' %>
     </a>
   </div>

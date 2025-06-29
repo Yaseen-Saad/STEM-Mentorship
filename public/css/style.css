@@ -462,6 +462,16 @@ header {
   gap: 2rem;
   flex-grow: 1;
   margin-left: 2rem;
+  z-index: 100;
+  position: static;
+  width: auto;
+  height: auto;
+  background: transparent;
+  flex-direction: row;
+  padding: 0;
+  box-shadow: none;
+  border: none;
+  overflow: visible;
 }
 
 /* Hamburger Menu Button */
@@ -473,6 +483,17 @@ header {
   background: none;
   border: none;
   z-index: 1001;
+  border-radius: var(--radius-sm);
+  transition: background-color var(--transition-fast);
+}
+
+.hamburger:hover {
+  background: var(--bg-secondary);
+}
+
+.hamburger:focus {
+  outline: 2px solid var(--primary-black);
+  outline-offset: 2px;
 }
 
 .hamburger span {
@@ -480,8 +501,9 @@ header {
   height: 3px;
   background: var(--text-primary);
   margin: 3px 0;
-  transition: var(--transition-medium);
+  transition: all 0.3s ease;
   border-radius: 2px;
+  transform-origin: center;
 }
 
 .hamburger.active span:nth-child(1) {
@@ -490,6 +512,7 @@ header {
 
 .hamburger.active span:nth-child(2) {
   opacity: 0;
+  transform: scale(0);
 }
 
 .hamburger.active span:nth-child(3) {
@@ -503,6 +526,7 @@ header {
   padding: 0;
   gap: 1.5rem;
   align-items: center;
+  flex-wrap: nowrap;
 }
 
 .nav-links li {
@@ -682,7 +706,7 @@ header {
 /* Mobile Navigation */
 @media (max-width: 1024px) {
   .header-container {
-    width: 95%;
+    padding: 0.75rem 1rem;
   }
 
   .navbar {
@@ -691,16 +715,33 @@ header {
   }
 
   .nav-links {
-    gap: 1rem;
+    gap: 0.75rem;
   }
 
   .nav-links a {
     padding: 0.5rem 0.75rem;
     font-size: 0.9rem;
+    white-space: nowrap;
   }
 
-  .nav-search input[type="text"] {
-    width: 120px;
+  .language-toggle {
+    padding: 0.5rem 0.75rem;
+    font-size: 0.9rem;
+  }
+}
+
+@media (max-width: 900px) {
+  .nav-links {
+    gap: 0.5rem;
+  }
+  
+  .nav-links a {
+    padding: 0.4rem 0.6rem;
+    font-size: 0.85rem;
+  }
+  
+  .navbar {
+    margin-left: 0.5rem;
   }
 }
 
@@ -708,11 +749,20 @@ header {
   .hamburger {
     display: flex;
     order: 3;
+    position: relative;
+    z-index: 1001;
   }
 
   .header-container {
-    padding: 0.75rem 0;
+    padding: 0.75rem 1rem;
     position: relative;
+    justify-content: space-between;
+  }
+
+  .logo {
+    height: 40px;
+    width: auto;
+    order: 1;
   }
 
   .navbar {
@@ -720,18 +770,20 @@ header {
     top: 0;
     left: -100%;
     width: 280px;
+    max-width: 80vw;
     height: 100vh;
     background: var(--bg-primary);
     flex-direction: column;
     justify-content: flex-start;
     align-items: flex-start;
-    padding: 80px 2rem 2rem;
+    padding: 80px 1.5rem 2rem;
     margin-left: 0;
-    box-shadow: var(--shadow-lg);
-    transition: left var(--transition-medium);
+    box-shadow: 2px 0 10px rgba(0, 0, 0, 0.1);
+    transition: left 0.3s ease-in-out;
     z-index: 1000;
     gap: 0;
     border-right: 1px solid var(--accent-cream);
+    overflow-y: auto;
   }
 
   .navbar.active {
@@ -762,12 +814,15 @@ header {
     border-radius: 0;
     text-align: left;
     display: block;
+    white-space: normal;
+    transition: all 0.2s ease;
   }
 
   .nav-links a:hover {
     background: var(--bg-secondary);
     transform: none;
     padding-left: 1rem;
+    color: var(--primary-black);
   }
 
   .nav-links a::before {
@@ -779,22 +834,23 @@ header {
     width: 100%;
     gap: 1rem;
     align-items: flex-start;
-  }
-
-  .nav-search {
-    width: 100%;
-    max-width: none;
-  }
-
-  .nav-search input[type="text"] {
-    width: 100%;
-    padding: 0.75rem;
+    border-top: 1px solid var(--accent-cream);
+    padding-top: 1rem;
   }
 
   .language-toggle {
     width: 100%;
     text-align: center;
     padding: 0.75rem;
+    background: var(--accent-cream);
+    border-radius: var(--radius-md);
+    font-weight: 600;
+    transition: all 0.2s ease;
+  }
+
+  .language-toggle:hover {
+    background: var(--primary-black);
+    color: var(--primary-white);
   }
 
   /* Mobile overlay */
@@ -808,7 +864,7 @@ header {
     background: rgba(0, 0, 0, 0.5);
     z-index: 999;
     opacity: 0;
-    transition: opacity var(--transition-medium);
+    transition: opacity 0.3s ease;
   }
 
   .nav-overlay.active {
@@ -818,14 +874,30 @@ header {
 }
 
 @media (max-width: 480px) {
+  .header-container {
+    padding: 0.5rem 1rem;
+  }
+
+  .logo {
+    height: 35px;
+  }
+
   .hamburger {
     display: flex;
     order: 3;
+    padding: 0.25rem;
+  }
+
+  .hamburger span {
+    width: 20px;
+    height: 2px;
   }
 
   .navbar {
     width: 100%;
+    max-width: 90vw;
     left: -100%;
+    padding: 70px 1rem 2rem;
   }
 
   .navbar.active {
@@ -841,48 +913,136 @@ header {
   .nav-links a {
     text-align: left;
     width: 100%;
-    padding: 1rem 0;
+    padding: 0.875rem 0;
+    font-size: 1rem;
   }
 
   .nav-actions {
     flex-direction: column;
     width: 100%;
-  }
-
-  .nav-search {
-    width: 100%;
-    max-width: none;
-  }
-
-  .nav-search input[type="text"] {
-    width: 100%;
-    flex-grow: 1;
+    gap: 0.75rem;
+    padding-top: 0.75rem;
   }
 
   .language-toggle {
-    width: 100%;
-    text-align: center;
+    padding: 0.625rem;
+    font-size: 0.95rem;
   }
 }
 
-.nav-links a {
-  text-align: center;
-  width: 100%;
+/* Additional responsive breakpoints for better navbar behavior */
+@media (max-width: 1200px) {
+  .nav-links {
+    gap: 1rem;
+  }
+  
+  .nav-links a {
+    padding: 0.6rem 0.8rem;
+    font-size: 0.95rem;
+  }
 }
 
-.nav-actions {
-  flex-direction: column;
-  width: 100%;
+@media (max-width: 850px) {
+  .nav-links {
+    gap: 0.5rem;
+  }
+  
+  .nav-links a {
+    padding: 0.5rem 0.6rem;
+    font-size: 0.9rem;
+  }
+  
+  .navbar {
+    margin-left: 0.5rem;
+    gap: 0.5rem;
+  }
 }
 
-.nav-search {
-  width: 100%;
-  max-width: 250px;
+/* Landscape mobile devices */
+@media (max-width: 768px) and (orientation: landscape) {
+  .navbar {
+    padding: 60px 1.5rem 1rem;
+  }
+  
+  .nav-links a {
+    padding: 0.75rem 0;
+  }
 }
 
-.nav-search input[type="text"] {
-  width: 100%;
-  flex-grow: 1;
+/* Very small devices */
+@media (max-width: 320px) {
+  .header-container {
+    padding: 0.5rem 0.75rem;
+  }
+  
+  .navbar {
+    width: 95vw;
+    padding: 60px 0.75rem 1.5rem;
+  }
+  
+  .nav-links a {
+    padding: 0.75rem 0;
+    font-size: 0.95rem;
+  }
+  
+  .language-toggle {
+    padding: 0.5rem;
+    font-size: 0.9rem;
+  }
+}
+
+/* High DPI devices */
+@media (-webkit-min-device-pixel-ratio: 2), (min-resolution: 192dpi) {
+  .hamburger span {
+    height: 2px;
+  }
+}
+
+/* Hover effects for touch devices */
+@media (hover: none) and (pointer: coarse) {
+  .nav-links a:hover {
+    transform: none;
+    background: var(--bg-secondary);
+  }
+  
+  .hamburger:hover {
+    background: none;
+  }
+}
+
+/* Focus styles for keyboard navigation */
+.hamburger:focus {
+  outline: 2px solid var(--primary-black);
+  outline-offset: 2px;
+}
+
+.nav-links a:focus {
+  outline: 2px solid var(--primary-black);
+  outline-offset: 2px;
+}
+
+.language-toggle:focus {
+  outline: 2px solid var(--primary-black);
+  outline-offset: 2px;
+}
+
+/* Ensure proper stacking context */
+.header-container {
+  position: relative;
+  z-index: 100;
+}
+
+/* Improve hamburger menu accessibility */
+.hamburger[aria-expanded="true"] span:nth-child(1) {
+  transform: rotate(-45deg) translate(-5px, 6px);
+}
+
+.hamburger[aria-expanded="true"] span:nth-child(2) {
+  opacity: 0;
+}
+
+.hamburger[aria-expanded="true"] span:nth-child(3) {
+  transform: rotate(45deg) translate(-5px, -6px);
 }
 
 /* Hero Banner Sections */
@@ -1539,546 +1699,6 @@ header {
   font-size: 0.9rem;
   opacity: 0.9;
   margin-top: 0.5rem;
-}
-
-/* School Acceptance Rate Styles */
-.acceptance-display {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-}
-
-.percentage-number {
-  font-size: 2.2rem;
-  margin-bottom: 0.25rem;
-  font-weight: 800;
-  background: var(--gradient-primary);
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
-  background-clip: text;
-}
-
-.percentage-symbol {
-  font-size: 1.2rem;
-  opacity: 0.8;
-}
-
-.acceptance-label {
-  text-align: center;
-  font-size: 0.9rem;
-  font-weight: 600;
-  color: var(--text-secondary);
-  text-transform: uppercase;
-  letter-spacing: 1px;
-  margin-top: 0.5rem;
-  position: relative;
-  z-index: 2;
-}
-
-/* Counter Animation Styles */
-@keyframes countUp {
-  from {
-    opacity: 0;
-    transform: translateY(20px);
-  }
-
-  to {
-    opacity: 1;
-    transform: translateY(0);
-  }
-}
-
-@keyframes progressRing {
-  from {
-    --percentage: 0deg;
-  }
-
-  to {
-    --percentage: var(--target-percentage);
-  }
-}
-
-/* AOS Animation for Acceptance Rate */
-.school-acceptance.aos-init {
-  opacity: 0;
-  transform: scale(0.8);
-}
-
-.school-acceptance.aos-animate {
-  opacity: 1;
-  transform: scale(1);
-  animation: countUp 0.8s ease-out forwards;
-}
-
-.school-acceptance.aos-animate .acceptance-circle {
-  animation: progressRing 2s ease-out forwards;
-}
-
-.school-acceptance.aos-animate .percentage-number {
-  animation: countUp 2s ease-out forwards;
-}
-
-/* Enhanced School Stats with Progress Bars */
-.enhanced-stat {
-  position: relative;
-  background: var(--bg-primary);
-  border-radius: var(--radius-sm);
-  padding: 1rem;
-  margin: 0.5rem 0;
-  border: 1px solid var(--accent-cream);
-  overflow: hidden;
-}
-
-.stat-progress {
-  position: absolute;
-  bottom: 0;
-  left: 0;
-  height: 3px;
-  background: var(--primary-black);
-  transition: width 2s ease-out;
-  width: 0;
-}
-
-.enhanced-stat.aos-animate .stat-progress {
-  width: var(--progress-width, 0%);
-}
-
-/* Pulsing effect for high acceptance rates */
-.high-acceptance .acceptance-circle {
-  animation: pulse 2s infinite;
-}
-
-@keyframes pulse {
-
-  0%,
-  100% {
-    box-shadow: 0 0 0 0 rgba(0, 0, 0, 0.3);
-  }
-
-  50% {
-    box-shadow: 0 0 0 15px rgba(0, 0, 0, 0);
-  }
-}
-
-/* Success rate indicator colors */
-.acceptance-rate-excellent .acceptance-circle {
-  background: conic-gradient(#10b981 0deg,
-      #10b981 var(--percentage, 0deg),
-      var(--accent-cream) var(--percentage, 0deg),
-      var(--accent-cream) 360deg);
-}
-
-.acceptance-rate-good .acceptance-circle {
-  background: conic-gradient(#3b82f6 0deg,
-      #3b82f6 var(--percentage, 0deg),
-      var(--accent-cream) var(--percentage, 0deg),
-      var(--accent-cream) 360deg);
-}
-
-.acceptance-rate-average .acceptance-circle {
-  background: conic-gradient(#f59e0b 0deg,
-      #f59e0b var(--percentage, 0deg),
-      var(--accent-cream) var(--percentage, 0deg),
-      var(--accent-cream) 360deg);
-}
-
-/* Mobile Responsive Styles for Acceptance Rate */
-@media (max-width: 768px) {
-  .acceptance-circle {
-    width: 100px;
-    height: 100px;
-  }
-
-  .acceptance-percentage {
-    font-size: 1.6rem;
-  }
-
-  .percentage-number {
-    font-size: 1.8rem;
-  }
-
-  .percentage-symbol {
-    font-size: 1rem;
-  }
-
-  .acceptance-label {
-    font-size: 0.8rem;
-  }
-}
-
-@media (max-width: 480px) {
-  .school-acceptance {
-    padding: 1rem;
-    margin: 1rem 0;
-  }
-
-  .acceptance-circle {
-    width: 80px;
-    height: 80px;
-  }
-
-  .acceptance-percentage {
-    font-size: 1.4rem;
-  }
-
-  .percentage-number {
-    font-size: 1.6rem;
-  }
-
-  .percentage-symbol {
-    font-size: 0.9rem;
-  }
-}
-
-/* JavaScript Integration for Impact Counter */
-.counter-animate {
-  transition: all 0.05s ease-out;
-}
-
-.impact-item:hover .counter-value {
-  transform: scale(1.1);
-}
-
-.impact-item:hover .impact-label {
-  color: var(--primary-black);
-  font-weight: 700;
-}
-
-/* Syllabus Section Styles 
-
-/* Map Legend Enhancement */
-.map-legend {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
-  gap: 1rem;
-  margin-top: 2rem;
-  padding: 1.5rem;
-  background: var(--bg-secondary);
-  border-radius: var(--radius-md);
-  border: 2px solid var(--primary-black);
-}
-
-.legend-item {
-  display: flex;
-  align-items: center;
-  gap: 0.75rem;
-  font-size: 0.9rem;
-  color: var(--text-primary);
-  font-weight: 600;
-  padding: 0.5rem;
-  border-radius: var(--radius-sm);
-  transition: var(--transition-medium);
-}
-
-.legend-item:hover {
-  background: var(--accent-cream);
-  transform: translateY(-2px);
-}
-
-.legend-item .color {
-  width: 20px;
-  height: 20px;
-  border-radius: 50%;
-  border: 2px solid var(--primary-black);
-  transition: var(--transition-medium);
-}
-
-.legend-item:hover .color {
-  transform: scale(1.2);
-  box-shadow: 0 0 0 4px rgba(242, 239, 235, 0.5);
-}
-
-.legend-item .color.high {
-  background: #10b981;
-}
-
-.legend-item .color.medium {
-  background: #f59e0b;
-}
-
-.legend-item .color.low {
-  background: #ef4444;
-}
-
-.legend-item .color.none {
-  background: #9ca3af;
-}
-
-/* Map Stats Summary */
-.map-stats {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
-  gap: 1rem;
-  margin-top: 1.5rem;
-  padding: 1.5rem;
-  background: var(--primary-black);
-  color: var(--primary-white);
-  border-radius: var(--radius-md);
-}
-
-.map-stat {
-  text-align: center;
-  padding: 1rem;
-  border-radius: var(--radius-sm);
-  background: rgba(242, 239, 235, 0.1);
-  transition: var(--transition-medium);
-}
-
-.map-stat:hover {
-  background: rgba(242, 239, 235, 0.2);
-  transform: translateY(-2px);
-}
-
-.map-stat-number {
-  font-size: 2rem;
-  font-weight: 700;
-  color: var(--accent-cream);
-  display: block;
-}
-
-.map-stat-label {
-  font-size: 0.9rem;
-  opacity: 0.9;
-  margin-top: 0.5rem;
-}
-
-
-.schools-section .section-header {
-  margin-bottom: 3rem;
-  text-align: center;
-}
-
-.schools-section .section-header h2 {
-  background: var(--gradient-primary);
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
-  background-clip: text;
-  font-weight: 700;
-  margin-bottom: 1rem;
-}
-
-.schools-section .section-subtitle {
-  color: var(--text-secondary);
-  max-width: 700px;
-  margin: 0 auto;
-  font-size: 1.1rem;
-  line-height: 1.6;
-}
-
-.schools-grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-  gap: 2rem;
-  margin-top: 3rem;
-  padding: 0 1rem;
-}
-
-.school-card {
-  background: var(--bg-primary);
-  border-radius: var(--radius-lg);
-  padding: 2rem;
-  text-align: center;
-  box-shadow: var(--shadow-md);
-  transition: all var(--transition-medium);
-  border: 2px solid var(--accent-cream);
-  position: relative;
-  overflow: hidden;
-  transform: translateY(0);
-  opacity: 1;
-}
-
-.school-card::before {
-  content: '';
-  position: absolute;
-  top: 0;
-  left: -100%;
-  width: 100%;
-  height: 100%;
-  background: linear-gradient(90deg, transparent, rgba(242, 239, 235, 0.4), transparent);
-  transition: var(--transition-slow);
-  z-index: 1;
-}
-
-.school-card:hover {
-  transform: translateY(-10px) scale(1.02);
-  box-shadow: var(--shadow-lg);
-  border-color: var(--primary-black);
-}
-
-.school-card:hover::before {
-  left: 100%;
-}
-
-.school-logo {
-  width: 80px;
-  height: 80px;
-  margin: 0 auto 1.5rem;
-  border-radius: 50%;
-  overflow: hidden;
-  position: relative;
-  border: 3px solid var(--accent-cream);
-  transition: var(--transition-medium);
-  z-index: 2;
-}
-
-.school-card:hover .school-logo {
-  border-color: var(--primary-black);
-  transform: scale(1.1);
-}
-
-.school-logo img {
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-  transition: var(--transition-medium);
-}
-
-.school-card:hover .school-logo img {
-  transform: scale(1.1);
-}
-
-.placeholder-logo {
-  width: 100%;
-  height: 100%;
-  background: var(--gradient-secondary);
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  color: var(--primary-black);
-  font-weight: 700;
-  font-size: 1.2rem;
-}
-
-.school-info {
-  position: relative;
-  z-index: 2;
-}
-
-.school-info h3 {
-  margin: 0 0 0.5rem 0;
-  color: var(--primary-black);
-  font-size: 1.4rem;
-  font-weight: 700;
-  line-height: 1.3;
-}
-
-.school-type {
-  display: inline-block;
-  background: var(--accent-cream);
-  color: var(--primary-black);
-  padding: 0.3rem 0.8rem;
-  border-radius: 20px;
-  font-size: 0.8rem;
-  font-weight: 600;
-  margin-bottom: 1rem;
-  text-transform: uppercase;
-  letter-spacing: 0.5px;
-}
-
-.school-description {
-  color: var(--text-secondary);
-  line-height: 1.6;
-  font-size: 0.95rem;
-  margin: 1rem 0;
-}
-
-.school-stats {
-  display: flex;
-  justify-content: space-around;
-  margin: 1.5rem 0;
-  padding: 1rem;
-}
-
-.stat-item {
-  text-align: center;
-  background: var(--bg-secondary);
-  border-radius: var(--radius-sm);
-  border: 1px solid var(--accent-cream);
-
-  display: flex;
-  gap: 1rem;
-  margin-top: 1rem;
-  flex-direction: column;
-  align-items: center;
-  gap: 0.5rem;
-  padding: 0.5rem 1rem;
-  border-radius: 20px;
-  font-size: 0.8rem;
-  font-weight: 600;
-
-}
-
-.stat-item .material-icons {
-  font-size: 1rem;
-}
-
-
-.stat-number {
-  display: block;
-  font-size: 1.2rem;
-  font-weight: 700;
-  color: var(--primary-black);
-  margin-bottom: 0.25rem;
-}
-
-.stat-label {
-  font-size: 0.8rem;
-  color: var(--text-secondary);
-  text-transform: uppercase;
-  letter-spacing: 0.5px;
-}
-
-.school-features {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 0.5rem;
-  justify-content: center;
-  margin: 1.5rem 0;
-}
-
-.feature-tag {
-  background: var(--primary-white);
-  color: var(--primary-black);
-  padding: 0.25rem 0.75rem;
-  border-radius: 15px;
-  font-size: 0.8rem;
-  border: 1px solid var(--accent-cream);
-  transition: var(--transition-fast);
-}
-
-.feature-tag:hover {
-  background: var(--primary-black);
-  color: var(--primary-white);
-}
-
-.school-contact {
-  margin-top: 1.5rem;
-  padding-top: 1rem;
-  border-top: 1px solid var(--accent-cream);
-}
-
-.contact-btn {
-  display: inline-flex;
-  align-items: center;
-  gap: 0.5rem;
-  background: var(--primary-black);
-  color: var(--primary-white);
-  padding: 0.75rem 1.5rem;
-  border: none;
-  border-radius: var(--radius-sm);
-  text-decoration: none;
-  font-weight: 600;
-  font-size: 0.9rem;
-  transition: var(--transition-medium);
-  cursor: pointer;
-}
-
-.contact-btn:hover {
-  background: var(--accent-cream);
-  color: var(--primary-black);
-  transform: translateY(-2px);
-  box-shadow: var(--shadow-md);
 }
 
 /* School Acceptance Rate Styles */

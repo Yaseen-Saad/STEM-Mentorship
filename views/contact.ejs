@@ -48,7 +48,7 @@
 
     <!-- Contact Form Section -->
     <section class="contact-form-section" data-aos="fade-right">
-      <div class="theorem-box solution-box">
+      <div class="theorem-box contact-form-box">
         <div class="theorem-title">
           <%= lang==='ar' ? 'أرسل رسالة' : 'Send a Message' %>
         </div>
@@ -275,13 +275,143 @@
       faqItems.forEach(item => {
         const question = item.querySelector('.faq-question');
         question.addEventListener('click', () => {
+          // Close other FAQ items
+          faqItems.forEach(otherItem => {
+            if (otherItem !== item && otherItem.classList.contains('active')) {
+              otherItem.classList.remove('active');
+              const otherToggleIcon = otherItem.querySelector('.toggle-icon');
+              otherToggleIcon.textContent = 'expand_more';
+            }
+          });
+          
+          // Toggle current FAQ item
           item.classList.toggle('active');
           const toggleIcon = item.querySelector('.toggle-icon');
           toggleIcon.textContent = item.classList.contains('active') ? 'expand_less' : 'expand_more';
         });
       });
+
+      // Form validation and handling
+      const contactForm = document.getElementById('contactForm');
+      const nameInput = document.getElementById('name');
+      const emailInput = document.getElementById('email');
+      const subjectSelect = document.getElementById('subject');
+      const messageTextarea = document.getElementById('message');
+      const submitBtn = contactForm.querySelector('.submit-btn');
+
+      // Email validation regex
+      const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+
+      // Form validation functions
+      function validateField(field, validationFn, errorMessage) {
+        const isValid = validationFn(field.value);
+        const errorElement = field.parentNode.parentNode.querySelector('.error-message');
+        
+        if (isValid) {
+          field.classList.remove('invalid');
+          field.classList.add('valid');
+          if (errorElement) errorElement.classList.remove('show');
+        } else {
+          field.classList.remove('valid');
+          field.classList.add('invalid');
+          if (errorElement) {
+            errorElement.textContent = errorMessage;
+            errorElement.classList.add('show');
+          }
+        }
+        
+        return isValid;
+      }
+
+      // Add error message elements
+      function addErrorMessage(fieldGroup) {
+        if (!fieldGroup.querySelector('.error-message')) {
+          const errorDiv = document.createElement('div');
+          errorDiv.className = 'error-message';
+          fieldGroup.appendChild(errorDiv);
+        }
+      }
+
+      // Add error message elements to all form groups
+      document.querySelectorAll('.form-group').forEach(addErrorMessage);
+
+      // Real-time validation
+      nameInput.addEventListener('blur', () => {
+        validateField(nameInput, value => value.trim().length >= 2, 'Name must be at least 2 characters long');
+      });
+
+      emailInput.addEventListener('blur', () => {
+        validateField(emailInput, value => emailRegex.test(value), 'Please enter a valid email address');
+      });
+
+      subjectSelect.addEventListener('change', () => {
+        validateField(subjectSelect, value => value !== '', 'Please select a subject');
+      });
+
+      messageTextarea.addEventListener('blur', () => {
+        validateField(messageTextarea, value => value.trim().length >= 10, 'Message must be at least 10 characters long');
+      });
+
+      // Form submission
+      contactForm.addEventListener('submit', function(e) {
+        e.preventDefault();
+        
+        // Validate all fields
+        const isNameValid = validateField(nameInput, value => value.trim().length >= 2, 'Name must be at least 2 characters long');
+        const isEmailValid = validateField(emailInput, value => emailRegex.test(value), 'Please enter a valid email address');
+        const isSubjectValid = validateField(subjectSelect, value => value !== '', 'Please select a subject');
+        const isMessageValid = validateField(messageTextarea, value => value.trim().length >= 10, 'Message must be at least 10 characters long');
+        
+        if (isNameValid && isEmailValid && isSubjectValid && isMessageValid) {
+          // Show loading state
+          submitBtn.classList.add('loading');
+          submitBtn.querySelector('.material-icons').textContent = 'hourglass_empty';
+          
+          // Simulate form submission (replace with actual submission logic)
+          setTimeout(() => {
+            submitBtn.classList.remove('loading');
+            submitBtn.querySelector('.material-icons').textContent = 'check';
+            submitBtn.style.background = '#28a745';
+            
+            // Show success message
+            alert('Message sent successfully! We will get back to you soon.');
+            
+            // Reset form
+            contactForm.reset();
+            document.querySelectorAll('.form-group input, .form-group select, .form-group textarea').forEach(field => {
+              field.classList.remove('valid', 'invalid');
+            });
+            
+            // Reset button
+            setTimeout(() => {
+              submitBtn.querySelector('.material-icons').textContent = 'send';
+              submitBtn.style.background = '';
+            }, 2000);
+          }, 2000);
+        }
+      });
+
+      // Clear validation on input
+      [nameInput, emailInput, messageTextarea].forEach(field => {
+        field.addEventListener('input', () => {
+          if (field.classList.contains('invalid')) {
+            field.classList.remove('invalid');
+            const errorElement = field.parentNode.parentNode.querySelector('.error-message');
+            if (errorElement) errorElement.classList.remove('show');
+          }
+        });
+      });
+
+      subjectSelect.addEventListener('change', () => {
+        if (subjectSelect.classList.contains('invalid')) {
+          subjectSelect.classList.remove('invalid');
+          const errorElement = subjectSelect.parentNode.parentNode.querySelector('.error-message');
+          if (errorElement) errorElement.classList.remove('show');
+        }
+      });
     });
   </script>
+  <script src="/js/main.js"></script>
 </body>
 
 </html>
