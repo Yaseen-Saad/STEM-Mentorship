@@ -15,7 +15,6 @@ document.addEventListener('DOMContentLoaded', () => {
   initializeFAQToggle();
   initializeCounters();
   initializeFormValidation();
-  initializeScrollEffects();
   initializeHamburgerMenu();
 });
 
@@ -28,9 +27,23 @@ function initializeHamburgerMenu() {
   
   if (!hamburger || !navbar || !navOverlay) return;
   
+  let scrollPosition = 0;
+  
   // Toggle menu
   function toggleMenu() {
     const isActive = hamburger.classList.contains('active');
+    
+    if (!isActive) {
+      // Store current scroll position before opening menu
+      scrollPosition = window.pageYOffset;
+      document.body.classList.add('nav-open');
+      document.body.style.top = `-${scrollPosition}px`;
+    } else {
+      // Restore scroll position when closing menu
+      document.body.classList.remove('nav-open');
+      document.body.style.top = '';
+      window.scrollTo(0, scrollPosition);
+    }
     
     hamburger.classList.toggle('active');
     navbar.classList.toggle('active');
@@ -38,18 +51,20 @@ function initializeHamburgerMenu() {
     
     // Update ARIA attributes
     hamburger.setAttribute('aria-expanded', !isActive);
-    
-    // Prevent body scroll when menu is open
-    document.body.style.overflow = isActive ? '' : 'hidden';
   }
   
   // Close menu
   function closeMenu() {
+    if (hamburger.classList.contains('active')) {
+      document.body.classList.remove('nav-open');
+      document.body.style.top = '';
+      window.scrollTo(0, scrollPosition);
+    }
+    
     hamburger.classList.remove('active');
     navbar.classList.remove('active');
     navOverlay.classList.remove('active');
     hamburger.setAttribute('aria-expanded', 'false');
-    document.body.style.overflow = '';
   }
   
   // Event listeners

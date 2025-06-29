@@ -283,6 +283,7 @@ body {
   background: var(--bg-primary);
   scroll-behavior: smooth;
   overflow-x: hidden;
+  padding-top: 80px;
 }
 
 [lang="ar"] {
@@ -717,6 +718,34 @@ header {
   transform: translateY(-2px);
 }
 
+/* Prevent mobile scroll issues */
+body {
+  overflow-x: hidden;
+}
+
+body.nav-open {
+  overflow: hidden;
+  position: fixed;
+  width: 100%;
+  height: 100%;
+}
+
+/* Fixed header positioning */
+header {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 1000;
+  transform: translateZ(0);
+  backface-visibility: hidden;
+}
+
+/* Add padding to body to account for fixed header */
+body {
+  padding-top: 80px;
+}
+
 /* Mobile Navigation */
 @media (max-width: 1024px) {
   .header-container {
@@ -810,6 +839,31 @@ header {
     left: 0;
   }
 
+  /* Prevent body scroll when menu is open */
+  body.nav-open {
+    overflow: hidden;
+    position: fixed;
+    width: 100%;
+    height: 100vh;
+  }
+  
+  /* Prevent touch conflicts */
+  .navbar {
+    touch-action: pan-y;
+  }
+  
+  .hamburger {
+    touch-action: manipulation;
+  }
+  
+  /* Ensure header stays fixed */
+  header {
+    position: fixed !important;
+    top: 0 !important;
+    transform: none !important;
+  }
+}
+
   .nav-links {
     flex-direction: column;
     width: 100%;
@@ -882,7 +936,7 @@ header {
     width: 100%;
     height: 100%;
     background: rgba(0, 0, 0, 0.5);
-    z-index: 1000;
+    z-index: 999;
     opacity: 0;
     transition: opacity 0.3s ease;
     -webkit-tap-highlight-color: transparent;
@@ -893,6 +947,50 @@ header {
     display: block;
     opacity: 1;
     pointer-events: auto;
+  }
+}
+
+/* Mobile-specific fixes to prevent accidental menu triggers */
+@media (max-width: 768px) {
+  /* Ensure header doesn't respond to touch unless intended */
+  header {
+    touch-action: manipulation;
+  }
+  
+  /* Prevent navbar from responding to touch gestures */
+  .navbar {
+    touch-action: none;
+    pointer-events: none;
+  }
+  
+  /* Only hamburger and nav links should be touchable on mobile */
+  .hamburger,
+  .nav-links a,
+  .language-toggle {
+    touch-action: manipulation;
+    pointer-events: auto;
+  }
+  
+  /* When menu is active, restore touch for navbar */
+  .navbar.active {
+    pointer-events: auto;
+    touch-action: manipulation;
+  }
+  
+  /* Prevent text selection on mobile menu items */
+  .hamburger,
+  .nav-links a {
+    -webkit-user-select: none;
+    user-select: none;
+  }
+  
+  /* Ensure no hover effects trigger on touch devices */
+  .nav-links a:hover {
+    background-color: transparent;
+  }
+  
+  .nav-links a:active {
+    background-color: rgba(255, 255, 255, 0.1);
   }
 }
 
@@ -973,11 +1071,6 @@ header {
   .nav-links a {
     padding: 0.5rem 0.6rem;
     font-size: 0.9rem;
-  }
-  
-  .navbar {
-    margin-left: 0.5rem;
-    gap: 0.5rem;
   }
 }
 
@@ -1175,14 +1268,6 @@ header {
 .nav-list a {
   text-decoration: none;
   color: var(--stemdarkblue);
-  font-weight: 600;
-}
-
-.nav-list .lang-toggle {
-  background: none;
-  border: none;
-  color: var(--dark-accent-cream);
-  cursor: pointer;
   font-weight: 600;
 }
 
