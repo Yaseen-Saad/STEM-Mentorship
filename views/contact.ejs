@@ -1,269 +1,287 @@
 <!DOCTYPE html>
 <html lang="<%= lang %>">
+
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title><%= lang==='ar' ? 'اتصل بنا' : 'Contact Us' %> - Mentorship STEM</title>
-    <link rel="stylesheet" href="/css/style.css">
-    <link rel="stylesheet" href="/css/contact.css">
-    <link rel="stylesheet" href="/css/contact-fix.css">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
-    <link rel="stylesheet" href="https://unpkg.com/aos@next/dist/aos.css" />
-    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title><%= lang==='ar' ? 'اتصل بنا' : 'Contact Us' %> - Mentorship STEM</title>
+  <link rel="stylesheet" href="/css/style.css">
+  <link rel="stylesheet" href="/css/contact.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+  <link rel="stylesheet" href="https://unpkg.com/aos@next/dist/aos.css" />
+  <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
 </head>
+
 <body>
-    <%- include('partials/header', { lang: lang }) %>
-    
-    <section class="hero-banner contact-banner creamy-bg">
-        <div class="hero-overlay"></div>
-        <div class="container">
-            <div class="hero-content" data-aos="fade-up">
-                <span class="hero-badge"><%= lang==='ar' ? 'دعنا نتحدث' : 'Let\'s Talk' %></span>
-                <h1 class="gradient-text">
-                    <%= lang==='ar' ? 'تواصل معنا' : 'Get in Touch' %>
-                </h1>
-                <p class="hero-subtitle">
-                    <%= lang==='ar' ? 'نحن هنا للإجابة على استفساراتك ومساعدتك في رحلتك التعليمية' : 'We\'re here to answer your questions and help you on your educational journey' %>
-                </p>
-            </div>
-        </div>
-    </section>
-    
+  <%- include('partials/header', { lang: lang }) %>
+
+  <section class="hero-banner program-banner">
+    <div class="hero-overlay"></div>
     <div class="container">
-        <div class="latex-box info-box" data-aos="fade-up">
-            <div class="box-header">
-                <i class="material-icons">info</i>
-                <h2><%= lang==='ar' ? 'كيفية التواصل' : 'How to Reach Us' %></h2>
-            </div>
-            <div class="box-content">
-                <p>
-                    <%= lang==='ar' ? 
+      <div class="hero-content" data-aos="fade-up">
+        <span class="hero-badge"><%= lang==='ar' ? 'دعنا نتحدث' : 'Let\'s Talk' %></span>
+        <h1 class="gradient-text hero-title">
+          <%= lang==='ar' ? 'تواصل معنا' : 'Get in Touch' %>
+        </h1>
+        <p class="hero-subtitle">
+          <%= lang==='ar' ? 'نحن هنا للإجابة على استفساراتك ومساعدتك في رحلتك التعليمية' : 'We\'re here to answer your questions and help you on your educational journey' %>
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <div class="container">
+    <div class="latex-box info-box" data-aos="fade-up">
+      <div class="box-header">
+        <i class="material-icons">info</i>
+        <h2><%= lang==='ar' ? 'كيفية التواصل' : 'How to Reach Us' %></h2>
+      </div>
+      <div class="box-content">
+        <p>
+          <%= lang==='ar' ? 
                         'هناك عدة طرق للتواصل معنا. يمكنك استخدام النموذج أدناه، أو التواصل عبر منصات التواصل الاجتماعي، أو زيارة مقرنا خلال ساعات العمل الرسمية.' : 
                         'There are several ways to contact us. You can use the form below, reach out through social media platforms, or visit our headquarters during official working hours.' 
                     %>
-                </p>
-            </div>
-        </div>
-
-        <div class="contact-grid">
-            <!-- Contact Form Section -->
-            <section class="contact-form-section" data-aos="fade-right">
-                <div class="theorem-box solution-box">
-                    <div class="theorem-title">
-                        <%= lang==='ar' ? 'أرسل رسالة' : 'Send a Message' %>
-                    </div>
-                    <form id="contactForm" class="contact-form" novalidate>
-                        <div class="form-group">
-                            <label for="name"><%= lang==='ar' ? 'الاسم' : 'Name' %> *</label>
-                            <div class="input-with-icon">
-                                <span class="material-icons">person</span>
-                                <input type="text" id="name" name="name" required 
-                                    placeholder="<%= lang==='ar' ? 'أدخل اسمك' : 'Enter your name' %>">
-                            </div>
-                        </div>
-                        <div class="form-group">
-                            <label for="email"><%= lang==='ar' ? 'البريد الإلكتروني' : 'Email' %> *</label>
-                            <div class="input-with-icon">
-                                <span class="material-icons">email</span>
-                                <input type="email" id="email" name="email" required 
-                                    placeholder="<%= lang==='ar' ? 'أدخل بريدك الإلكتروني' : 'Enter your email' %>">
-                            </div>
-                        </div>
-                        <div class="form-group">
-                            <label for="subject"><%= lang==='ar' ? 'الموضوع' : 'Subject' %> *</label>
-                            <div class="input-with-icon">
-                                <span class="material-icons">topic</span>
-                                <select id="subject" name="subject" required>
-                                    <option value=""><%= lang==='ar' ? 'اختر الموضوع' : 'Select a subject' %></option>
-                                    <option value="general"><%= lang==='ar' ? 'استفسار عام' : 'General Inquiry' %></option>
-                                    <option value="application"><%= lang==='ar' ? 'طلب الانضمام' : 'Application' %></option>
-                                    <option value="support"><%= lang==='ar' ? 'الدعم الفني' : 'Technical Support' %></option>
-                                </select>
-                            </div>
-                        </div>
-                        <div class="form-group">
-                            <label for="message"><%= lang==='ar' ? 'الرسالة' : 'Message' %> *</label>
-                            <div class="input-with-icon textarea-container">
-                                <span class="material-icons">chat</span>
-                                <textarea id="message" name="message" required rows="5"
-                                    placeholder="<%= lang==='ar' ? 'اكتب رسالتك هنا' : 'Type your message here' %>"></textarea>
-                            </div>
-                        </div>
-                        <button type="submit" class="btn btn-primary submit-btn">
-                            <i class="material-icons">send</i>
-                            <%= lang==='ar' ? 'إرسال الرسالة' : 'Send Message' %>
-                        </button>
-                    </form>
-                </div>
-            </section>
-
-            <!-- Contact Info Section -->
-            <section class="contact-info-section" data-aos="fade-left">
-                <!-- Social Media Links -->
-                <div class="theorem-box">
-                    <div class="theorem-title">
-                        <%= lang==='ar' ? 'تواصل معنا عبر' : 'Connect With Us' %>
-                    </div>
-                    <div class="social-links">
-                        <a href="https://t.me/STEM0mentorship" class="social-link telegram" target="_blank" rel="noopener">
-                            <div class="social-icon">
-                                <i class="fab fa-telegram"></i>
-                            </div>
-                            <div class="social-info">
-                                <h4>Telegram</h4>
-                                <span>STEM0mentorship</span>
-                            </div>
-                        </a>
-                        <a href="https://t.me/stemship" class="social-link telegram" target="_blank" rel="noopener">
-                            <div class="social-icon">
-                                <i class="fab fa-telegram"></i>
-                            </div>
-                            <div class="social-info">
-                                <h4>Telegram</h4>
-                                <span>stemship</span>
-                            </div>
-                        </a>
-                        <a href="https://tiktok.com/@stemship" class="social-link tiktok" target="_blank" rel="noopener">
-                            <div class="social-icon">
-                                <i class="fab fa-tiktok"></i>
-                            </div>
-                            <div class="social-info">
-                                <h4>TikTok</h4>
-                                <span>@stemship</span>
-                            </div>
-                        </a>
-                        <a href="https://facebook.com/stemmentorship" class="social-link facebook" target="_blank" rel="noopener">
-                            <div class="social-icon">
-                                <i class="fab fa-facebook"></i>
-                            </div>
-                            <div class="social-info">
-                                <h4>Facebook</h4>
-                                <span>stemmentorship</span>
-                            </div>
-                        </a>
-                    </div>
-                </div>
-
-                <!-- Contact Details -->
-                <div class="theorem-box conceptbox" data-aos="fade-up">
-                    <div class="theorem-title">
-                        <%= lang==='ar' ? 'معلومات الاتصال' : 'Contact Information' %>
-                    </div>
-                    <div class="contact-details">
-                        <div class="contact-item">
-                            <div class="contact-icon">
-                                <span class="material-icons">call</span>
-                            </div>
-                            <div class="contact-info">
-                                <h4><%= lang==='ar' ? 'الهاتف' : 'Phone' %></h4>
-                                <p>+20 123 456 7890</p>
-                            </div>
-                        </div>
-                        <div class="contact-item">
-                            <div class="contact-icon">
-                                <span class="material-icons">email</span>
-                            </div>
-                            <div class="contact-info">
-                                <h4><%= lang==='ar' ? 'البريد الإلكتروني' : 'Email' %></h4>
-                                <p>contact@stemmentorship.org</p>
-                            </div>
-                        </div>
-                        <div class="contact-item">
-                            <div class="contact-icon">
-                                <span class="material-icons">location_on</span>
-                            </div>
-                            <div class="contact-info">
-                                <h4><%= lang==='ar' ? 'العنوان' : 'Address' %></h4>
-                                <p><%= lang==='ar' ? 'القاهرة، مصر' : 'Cairo, Egypt' %></p>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- FAQ Section -->
-                <div class="theorem-box example-box" data-aos="fade-up">
-                    <div class="theorem-title">
-                        <%= lang==='ar' ? 'أسئلة شائعة' : 'Frequently Asked Questions' %>
-                    </div>
-                    <div class="faq-list">
-                        <div class="faq-item">
-                            <div class="faq-question">
-                                <span class="material-icons">help</span>
-                                <h4><%= lang==='ar' ? 'كيف يمكنني الانضمام للبرنامج؟' : 'How can I join the program?' %></h4>
-                                <span class="material-icons toggle-icon">expand_more</span>
-                            </div>
-                            <div class="faq-answer">
-                                <p><%= lang==='ar' ? 'يمكنك التسجيل من خلال نموذج التسجيل في موقعنا، أو التواصل معنا عبر قناة التيليجرام الخاصة بنا.' : 'You can register through the registration form on our website, or contact us via our Telegram channel.' %></p>
-                            </div>
-                        </div>
-                        <div class="faq-item">
-                            <div class="faq-question">
-                                <span class="material-icons">monetization_on</span>
-                                <h4><%= lang==='ar' ? 'هل البرنامج مجاني؟' : 'Is the program free?' %></h4>
-                                <span class="material-icons toggle-icon">expand_more</span>
-                            </div>
-                            <div class="faq-answer">
-                                <p><%= lang==='ar' ? 'نعم، البرنامج مجاني بالكامل! نحن منظمة غير ربحية نسعى لدعم التعليم ونشر المعرفة.' : 'Yes, the program is completely free! We are a non-profit organization that aims to support education and spread knowledge.' %></p>
-                            </div>
-                        </div>
-                        <div class="faq-item">
-                            <div class="faq-question">
-                                <span class="material-icons">schedule</span>
-                                <h4><%= lang==='ar' ? 'ما هي مدة البرنامج؟' : 'What is the program duration?' %></h4>
-                                <span class="material-icons toggle-icon">expand_more</span>
-                            </div>
-                            <div class="faq-answer">
-                                <p><%= lang==='ar' ? 'يمتد البرنامج على مدار العام الدراسي بأكمله، مع جلسات تفاعلية أسبوعية وموارد تعليمية متاحة على مدار الساعة.' : 'The program extends throughout the entire academic year, with weekly interactive sessions and educational resources available 24/7.' %></p>
-                            </div>
-                        </div>
-                        <div class="faq-item">
-                            <div class="faq-question">
-                                <span class="material-icons">laptop</span>
-                                <h4><%= lang==='ar' ? 'هل أحتاج لأجهزة خاصة للمشاركة؟' : 'Do I need special equipment to participate?' %></h4>
-                                <span class="material-icons toggle-icon">expand_more</span>
-                            </div>
-                            <div class="faq-answer">
-                                <p><%= lang==='ar' ? 'تحتاج فقط لجهاز كمبيوتر أو هاتف ذكي مع اتصال بالإنترنت. جميع المواد التعليمية متوفرة رقمياً.' : 'You only need a computer or smartphone with internet connection. All educational materials are available digitally.' %></p>
-                            </div>
-                        </div>
-                        <div class="faq-item">
-                            <div class="faq-question">
-                                <span class="material-icons">groups</span>
-                                <h4><%= lang==='ar' ? 'كم عدد الطلاب في المجموعة الواحدة؟' : 'How many students are in each group?' %></h4>
-                                <span class="material-icons toggle-icon">expand_more</span>
-                            </div>
-                            <div class="faq-answer">
-                                <p><%= lang==='ar' ? 'نحافظ على مجموعات صغيرة من 15-20 طالب لضمان الاهتمام الشخصي والتفاعل الفعال مع المرشدين.' : 'We maintain small groups of 15-20 students to ensure personal attention and effective interaction with mentors.' %></p>
-                            </div>
-                        </div>
-                        <div class="faq-item">
-                            <div class="faq-question">
-                                <span class="material-icons">school</span>
-                                <h4><%= lang==='ar' ? 'ما هي معدلات النجاح في القبول؟' : 'What are the acceptance success rates?' %></h4>
-                                <span class="material-icons toggle-icon">expand_more</span>
-                            </div>
-                            <div class="faq-answer">
-                                <p><%= lang==='ar' ? 'حقق طلابنا معدلات قبول عالية تتراوح بين 85-95% في مدارس STEM المختلفة، بفضل الإعداد المتميز والمتابعة المستمرة.' : 'Our students have achieved high acceptance rates ranging from 85-95% in various STEM schools, thanks to excellent preparation and continuous follow-up.' %></p>
-                            </div>
-                        </div>
-                        <div class="faq-item">
-                            <div class="faq-question">
-                                <span class="material-icons">support_agent</span>
-                                <h4><%= lang==='ar' ? 'هل يوجد دعم فني متاح؟' : 'Is technical support available?' %></h4>
-                                <span class="material-icons toggle-icon">expand_more</span>
-                            </div>
-                            <div class="faq-answer">
-                                <p><%= lang==='ar' ? 'نعم، فريق الدعم الفني متاح على مدار الساعة لمساعدتك في أي مشاكل تقنية أو استفسارات حول استخدام المنصة.' : 'Yes, our technical support team is available 24/7 to help you with any technical issues or questions about using the platform.' %></p>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </section>
-        </div>
+        </p>
+      </div>
     </div>
 
-   </section>    <%- include('partials/footer') %>
-    
-    <script src="/js/main.js"></script>
+    <!-- Contact Form Section -->
+    <section class="contact-form-section" data-aos="fade-right">
+      <div class="theorem-box solution-box">
+        <div class="theorem-title">
+          <%= lang==='ar' ? 'أرسل رسالة' : 'Send a Message' %>
+        </div>
+        <form id="contactForm" class="contact-form" novalidate>
+          <div class="form-group">
+            <label for="name"><%= lang==='ar' ? 'الاسم' : 'Name' %> *</label>
+            <div class="input-with-icon">
+              <span class="material-icons">person</span>
+              <input type="text" id="name" name="name" required placeholder="<%= lang==='ar' ? 'أدخل اسمك' : 'Enter your name' %>">
+            </div>
+          </div>
+          <div class="form-group">
+            <label for="email"><%= lang==='ar' ? 'البريد الإلكتروني' : 'Email' %> *</label>
+            <div class="input-with-icon">
+              <span class="material-icons">email</span>
+              <input type="email" id="email" name="email" required placeholder="<%= lang==='ar' ? 'أدخل بريدك الإلكتروني' : 'Enter your email' %>">
+            </div>
+          </div>
+          <div class="form-group">
+            <label for="subject"><%= lang==='ar' ? 'الموضوع' : 'Subject' %> *</label>
+            <div class="input-with-icon">
+              <span class="material-icons">topic</span>
+              <select id="subject" name="subject" required>
+                <option value=""><%= lang==='ar' ? 'اختر الموضوع' : 'Select a subject' %></option>
+                <option value="general"><%= lang==='ar' ? 'استفسار عام' : 'General Inquiry' %></option>
+                <option value="application"><%= lang==='ar' ? 'طلب الانضمام' : 'Application' %></option>
+                <option value="support"><%= lang==='ar' ? 'الدعم الفني' : 'Technical Support' %></option>
+              </select>
+            </div>
+          </div>
+          <div class="form-group">
+            <label for="message"><%= lang==='ar' ? 'الرسالة' : 'Message' %> *</label>
+            <div class="input-with-icon textarea-container">
+              <span class="material-icons">chat</span>
+              <textarea id="message" name="message" required rows="5" placeholder="<%= lang==='ar' ? 'اكتب رسالتك هنا' : 'Type your message here' %>"></textarea>
+            </div>
+          </div>
+          <button type="submit" class="btn btn-primary submit-btn">
+            <i class="material-icons">send</i>
+            <%= lang==='ar' ? 'إرسال الرسالة' : 'Send Message' %>
+          </button>
+        </form>
+      </div>
+    </section>
+
+    <!-- Contact Info Section -->
+    <section class="contact-info-section" data-aos="fade-left">
+      <!-- Social Media Links -->
+      <div class="theorem-box">
+        <div class="theorem-title">
+          <%= lang==='ar' ? 'تواصل معنا عبر' : 'Connect With Us' %>
+        </div>
+        <div class="social-links">
+          <a href="https://t.me/STEM0mentorship" class="social-link telegram" target="_blank" rel="noopener">
+            <div class="social-icon">
+              <i class="fab fa-telegram"></i>
+            </div>
+            <div class="social-info">
+              <h4>Telegram</h4>
+              <span>STEM0mentorship</span>
+            </div>
+          </a>
+          <a href="https://t.me/stemship" class="social-link telegram" target="_blank" rel="noopener">
+            <div class="social-icon">
+              <i class="fab fa-telegram"></i>
+            </div>
+            <div class="social-info">
+              <h4>Telegram</h4>
+              <span>stemship</span>
+            </div>
+          </a>
+          <a href="https://tiktok.com/@stemship" class="social-link tiktok" target="_blank" rel="noopener">
+            <div class="social-icon">
+              <i class="fab fa-tiktok"></i>
+            </div>
+            <div class="social-info">
+              <h4>TikTok</h4>
+              <span>@stemship</span>
+            </div>
+          </a>
+          <a href="https://facebook.com/stemmentorship" class="social-link facebook" target="_blank" rel="noopener">
+            <div class="social-icon">
+              <i class="fab fa-facebook"></i>
+            </div>
+            <div class="social-info">
+              <h4>Facebook</h4>
+              <span>stemmentorship</span>
+            </div>
+          </a>
+        </div>
+      </div>
+
+      <!-- Contact Details -->
+      <div class="theorem-box conceptbox" data-aos="fade-up">
+        <div class="theorem-title">
+          <%= lang==='ar' ? 'معلومات الاتصال' : 'Contact Information' %>
+        </div>
+        <div class="contact-details">
+          <div class="contact-item">
+            <div class="contact-icon">
+              <span class="material-icons">call</span>
+            </div>
+            <div class="contact-info">
+              <h4><%= lang==='ar' ? 'الهاتف' : 'Phone' %></h4>
+              <p>+20 123 456 7890</p>
+            </div>
+          </div>
+          <div class="contact-item">
+            <div class="contact-icon">
+              <span class="material-icons">email</span>
+            </div>
+            <div class="contact-info">
+              <h4><%= lang==='ar' ? 'البريد الإلكتروني' : 'Email' %></h4>
+              <p>contact@stemmentorship.org</p>
+            </div>
+          </div>
+          <div class="contact-item">
+            <div class="contact-icon">
+              <span class="material-icons">location_on</span>
+            </div>
+            <div class="contact-info">
+              <h4><%= lang==='ar' ? 'العنوان' : 'Address' %></h4>
+              <p><%= lang==='ar' ? 'القاهرة، مصر' : 'Cairo, Egypt' %></p>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- FAQ Section -->
+      <div class="theorem-box example-box" data-aos="fade-up">
+        <div class="theorem-title">
+          <%= lang==='ar' ? 'أسئلة شائعة' : 'Frequently Asked Questions' %>
+        </div>
+        <div class="faq-list">
+          <div class="faq-item">
+            <div class="faq-question">
+              <span class="material-icons">help</span>
+              <h4><%= lang==='ar' ? 'كيف يمكنني الانضمام للبرنامج؟' : 'How can I join the program?' %></h4>
+              <span class="material-icons toggle-icon">expand_more</span>
+            </div>
+            <div class="faq-answer">
+              <p><%= lang==='ar' ? 'يمكنك التسجيل من خلال نموذج التسجيل في موقعنا، أو التواصل معنا عبر قناة التيليجرام الخاصة بنا.' : 'You can register through the registration form on our website, or contact us via our Telegram channel.' %></p>
+            </div>
+          </div>
+          <div class="faq-item">
+            <div class="faq-question">
+              <span class="material-icons">monetization_on</span>
+              <h4><%= lang==='ar' ? 'هل البرنامج مجاني؟' : 'Is the program free?' %></h4>
+              <span class="material-icons toggle-icon">expand_more</span>
+            </div>
+            <div class="faq-answer">
+              <p><%= lang==='ar' ? 'نعم، البرنامج مجاني بالكامل! نحن منظمة غير ربحية نسعى لدعم التعليم ونشر المعرفة.' : 'Yes, the program is completely free! We are a non-profit organization that aims to support education and spread knowledge.' %></p>
+            </div>
+          </div>
+          <div class="faq-item">
+            <div class="faq-question">
+              <span class="material-icons">schedule</span>
+              <h4><%= lang==='ar' ? 'ما هي مدة البرنامج؟' : 'What is the program duration?' %></h4>
+              <span class="material-icons toggle-icon">expand_more</span>
+            </div>
+            <div class="faq-answer">
+              <p><%= lang==='ar' ? 'يمتد البرنامج على مدار العام الدراسي بأكمله، مع جلسات تفاعلية أسبوعية وموارد تعليمية متاحة على مدار الساعة.' : 'The program extends throughout the entire academic year, with weekly interactive sessions and educational resources available 24/7.' %></p>
+            </div>
+          </div>
+          <div class="faq-item">
+            <div class="faq-question">
+              <span class="material-icons">laptop</span>
+              <h4><%= lang==='ar' ? 'هل أحتاج لأجهزة خاصة للمشاركة؟' : 'Do I need special equipment to participate?' %></h4>
+              <span class="material-icons toggle-icon">expand_more</span>
+            </div>
+            <div class="faq-answer">
+              <p><%= lang==='ar' ? 'تحتاج فقط لجهاز كمبيوتر أو هاتف ذكي مع اتصال بالإنترنت. جميع المواد التعليمية متوفرة رقمياً.' : 'You only need a computer or smartphone with internet connection. All educational materials are available digitally.' %></p>
+            </div>
+          </div>
+          <div class="faq-item">
+            <div class="faq-question">
+              <span class="material-icons">groups</span>
+              <h4><%= lang==='ar' ? 'كم عدد الطلاب في المجموعة الواحدة؟' : 'How many students are in each group?' %></h4>
+              <span class="material-icons toggle-icon">expand_more</span>
+            </div>
+            <div class="faq-answer">
+              <p><%= lang==='ar' ? 'نحافظ على مجموعات صغيرة من 15-20 طالب لضمان الاهتمام الشخصي والتفاعل الفعال مع المرشدين.' : 'We maintain small groups of 15-20 students to ensure personal attention and effective interaction with mentors.' %></p>
+            </div>
+          </div>
+          <div class="faq-item">
+            <div class="faq-question">
+              <span class="material-icons">school</span>
+              <h4><%= lang==='ar' ? 'ما هي معدلات النجاح في القبول؟' : 'What are the acceptance success rates?' %></h4>
+              <span class="material-icons toggle-icon">expand_more</span>
+            </div>
+            <div class="faq-answer">
+              <p><%= lang==='ar' ? 'حقق طلابنا معدلات قبول عالية تتراوح بين 85-95% في مدارس STEM المختلفة، بفضل الإعداد المتميز والمتابعة المستمرة.' : 'Our students have achieved high acceptance rates ranging from 85-95% in various STEM schools, thanks to excellent preparation and continuous follow-up.' %></p>
+            </div>
+          </div>
+          <div class="faq-item">
+            <div class="faq-question">
+              <span class="material-icons">support_agent</span>
+              <h4><%= lang==='ar' ? 'هل يوجد دعم فني متاح؟' : 'Is technical support available?' %></h4>
+              <span class="material-icons toggle-icon">expand_more</span>
+            </div>
+            <div class="faq-answer">
+              <p><%= lang==='ar' ? 'نعم، فريق الدعم الفني متاح على مدار الساعة لمساعدتك في أي مشاكل تقنية أو استفسارات حول استخدام المنصة.' : 'Yes, our technical support team is available 24/7 to help you with any technical issues or questions about using the platform.' %></p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+  </div>
+
+  </section> <%- include('partials/footer') %>
+
+  <script src="https://unpkg.com/aos@next/dist/aos.js"></script>
+  <script>
+    document.addEventListener('DOMContentLoaded', function() {
+      // Initialize AOS
+      AOS.init({
+        duration: 800,
+        once: true,
+        offset: 100
+      });
+
+      // FAQ toggle functionality
+      const faqItems = document.querySelectorAll('.faq-item');
+      faqItems.forEach(item => {
+        const question = item.querySelector('.faq-question');
+        question.addEventListener('click', () => {
+          item.classList.toggle('active');
+          const toggleIcon = item.querySelector('.toggle-icon');
+          toggleIcon.textContent = item.classList.contains('active') ? 'expand_less' : 'expand_more';
+        });
+      });
+    });
+  </script>
 </body>
+
 </html>

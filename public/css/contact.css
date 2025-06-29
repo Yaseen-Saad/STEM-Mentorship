@@ -81,11 +81,6 @@
   transform: translate(-50%, -50%);
 }
 
-.contact-item:hover .contact-icon::after {
-  width: 60px;
-  height: 60px;
-}
-
 /* Form Input Enhancements */
 .input-with-icon input:focus,
 .input-with-icon select:focus,

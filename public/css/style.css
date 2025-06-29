@@ -2678,12 +2678,6 @@ header {
   color: white;
 }
 
-.contact-item:hover {
-  background: var(--bg-primary);
-  transform: translateY(-2px);
-  box-shadow: var(--shadow-md);
-}
-
 /* =================================
    MODERN MAIN PAGE SECTIONS STYLING
    ================================= */
