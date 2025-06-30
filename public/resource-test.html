@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Resource Link Test</title>
+    <style>
+        body { font-family: Arial, sans-serif; padding: 20px; }
+        h1 { color: #333; }
+        .resource-list { margin: 20px 0; }
+        .resource-item { 
+            margin: 10px 0; 
+            padding: 15px; 
+            border: 1px solid #ddd; 
+            border-radius: 5px;
+        }
+        .btn {
+            display: inline-block;
+            padding: 8px 15px;
+            background-color: #007bff;
+            color: white;
+            text-decoration: none;
+            border-radius: 5px;
+            cursor: pointer;
+            border: none;
+        }
+        .btn:hover { background-color: #0056b3; }
+    </style>
+</head>
+<body>
+    <h1>Resource Link Test</h1>
+    <p>This page tests direct links to PDF resources in the resources folder.</p>
+    
+    <div class="resource-list">
+        <div class="resource-item">
+            <h3>Math - Algebra Basics</h3>
+            <a href="/resources/math/algebra-basics.pdf" target="_blank" class="btn">Direct Link Test</a>
+        </div>
+        
+        <div class="resource-item">
+            <h3>Science - Physics Mechanics</h3>
+            <a href="/resources/science/physics-mechanics.pdf" target="_blank" class="btn">Direct Link Test</a>
+        </div>
+        
+        <div class="resource-item">
+            <h3>English - Grammar Guide</h3>
+            <a href="/resources/english/grammar-guide.pdf" target="_blank" class="btn">Direct Link Test</a>
+        </div>
+        
+        <div class="resource-item">
+            <h3>IQ - Logical Reasoning</h3>
+            <a href="/resources/iq/logical-reasoning.pdf" target="_blank" class="btn">Direct Link Test</a>
+        </div>
+    </div>
+    
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            console.log('Resource Link Test Page Loaded');
+        });
+    </script>
+</body>
+</html>

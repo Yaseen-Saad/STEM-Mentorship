@@ -1,0 +1,58 @@
+{
+  "math": [
+    {
+      "fileId": "math-algebra-basics",
+      "fileName": "Algebra Basics.pdf",
+      "category": "Algebra",
+      "filePath": "/resources/math/algebra-basics.pdf",
+      "downloadCount": 1234,
+      "fileSize": "2.5 MB"
+    },
+    {
+      "fileId": "math-geometry-fundamentals",
+      "fileName": "Geometry Fundamentals.pdf",
+      "category": "Geometry",
+      "filePath": "/resources/math/geometry-fundamentals.pdf",
+      "downloadCount": 987,
+      "fileSize": "3.1 MB"
+    }
+  ],
+  "science": [
+    {
+      "fileId": "science-chemistry-fundamentals",
+      "fileName": "Chemistry Fundamentals.pdf",
+      "category": "Chemistry",
+      "filePath": "/resources/science/chemistry-fundamentals.pdf",
+      "downloadCount": 1123,
+      "fileSize": "3.7 MB"
+    },
+    {
+      "fileId": "science-physics-mechanics",
+      "fileName": "Physics Mechanics.pdf",
+      "category": "Physics",
+      "filePath": "/resources/science/physics-mechanics.pdf",
+      "downloadCount": 1456,
+      "fileSize": "4.2 MB"
+    }
+  ],
+  "english": [
+    {
+      "fileId": "english-grammar-guide",
+      "fileName": "Grammar Guide.pdf",
+      "category": "Grammar",
+      "filePath": "/resources/english/grammar-guide.pdf",
+      "downloadCount": 1678,
+      "fileSize": "2.3 MB"
+    }
+  ],
+  "iq": [
+    {
+      "fileId": "iq-logical-reasoning",
+      "fileName": "Logical Reasoning Tests.pdf",
+      "category": "Logical Reasoning",
+      "filePath": "/resources/iq/logical-reasoning.pdf",
+      "downloadCount": 2156,
+      "fileSize": "3.4 MB"
+    }
+  ]
+}

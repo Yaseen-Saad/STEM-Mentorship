@@ -7,17 +7,21 @@
     "start": "node app.js",
     "dev": "nodemon app.js",
     "build": "echo 'Build step completed'",
+    "build:static": "node scripts/build-static.js",
     "vercel-build": "npm install",
     "test": "echo 'No tests specified'",
-    "lint": "echo 'No linting configured'"
+    "lint": "echo 'No linting configured'",
+    "check-deployment": "node scripts/check-deployment.js",
+    "setup": "npm install && node scripts/check-deployment.js"
   },
   "engines": {
     "node": "18.x"
   },
   "dependencies": {
-    "express": "^4.18.2",
+    "compression": "^1.7.4",
     "ejs": "^3.1.8",
-    "compression": "^1.7.4"
+    "express": "^4.18.2",
+    "mongoose": "^8.16.1"
   },
   "devDependencies": {
     "nodemon": "^3.0.1"

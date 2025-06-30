@@ -3,20 +3,56 @@
   "builds": [
     {
       "src": "./app.js",
-      "use": "@vercel/node"
+      "use": "@vercel/node",
+      "config": {
+        "maxLambdaSize": "50mb"
+      }
     }
   ],
   "routes": [
     {
+      "src": "/favicon.ico",
+      "dest": "/public/favicon.ico"
+    },
+    {
+      "src": "/css/(.*)",
+      "dest": "/public/css/$1"
+    },
+    {
+      "src": "/js/(.*)",
+      "dest": "/public/js/$1"
+    },
+    {
+      "src": "/images/(.*)",
+      "dest": "/public/images/$1"
+    },
+    {
+      "src": "/resources/(.*)",
+      "dest": "/public/resources/$1"
+    },
+    {
       "src": "/api/(.*)",
-      "dest": "/api/$1"
+      "dest": "/app.js"
+    },
+    {
+      "src": "/health",
+      "dest": "/app.js"
+    },
+    {
+      "src": "/test-setup",
+      "dest": "/app.js"
     },
     {
       "src": "/(.*)",
       "dest": "/app.js"
-    },
-    {
-      "handle": "filesystem"
     }
-  ]
+  ],
+  "functions": {
+    "app.js": {
+      "maxDuration": 30
+    }
+  },
+  "env": {
+    "NODE_ENV": "production"
+  }
 }
