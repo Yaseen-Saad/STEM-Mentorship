@@ -262,7 +262,8 @@ document.addEventListener('DOMContentLoaded', function() {
                 const counterElements = entry.target.querySelectorAll('.counter-value');
                 counterElements.forEach(counter => {
                     const target = parseInt(counter.dataset.value);
-                    const duration = 2000;
+                    // Adjust duration based on the size of the number
+                    let duration = target > 1000 ? 1500 : target > 100 ? 1000 : 800;
                     let start = 0;
                     let increment = target / (duration / 16);
                     
