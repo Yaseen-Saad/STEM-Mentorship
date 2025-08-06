@@ -1,23 +1,45 @@
 document.addEventListener('DOMContentLoaded', function() {
-    // Initialize Schools Chart with modern design
+    // Initialize Schools Pie Chart with real data from last season
     const schoolsCtx = document.getElementById('schoolsChart').getContext('2d');
     new Chart(schoolsCtx, {
-        type: 'bar',
+        type: 'pie',
         data: {
-            labels: ['October STEM', 'Maadi STEM', 'Alexandria STEM', 'Dakahlia STEM', 'Kafr El Sheikh STEM'],
+            labels: [
+                'Maadi STEM (31)', 'Red Sea STEM (28)', 'October STEM (22)', 'Ismailia STEM (21)', 'Alexandria STEM (20)',
+                'Assiut STEM (19)', 'Gharbia STEM (17)', 'New Cairo STEM (15)', 'Dakahlia STEM (15)', 'Qena STEM (14)', 
+                'Obour STEM (13)', 'Beni Suef STEM (12)', 'Sharqia STEM (10)', 'Menoufia STEM (10)', 'Menoufia Girls STEM (10)', '11th District STEM (10)',
+                'Kafr El Sheikh STEM (9)', 'Luxor STEM (7)', 'Sadat STEM (5)', 'Sohag STEM (5)', 'Minya STEM (2)'
+            ],
             datasets: [{
-                label: 'Acceptance Rate (%)',
-                data: [85, 80, 75, 72, 70],
+                label: 'Students Accepted',
+                data: [31, 28, 22, 21, 20, 19, 17, 15, 15, 14, 13, 12, 10, 10, 10, 10, 9, 7, 5, 5, 2], // Actual numbers
                 backgroundColor: [
-                    'rgba(94, 67, 126, 0.9)',
-                    'rgba(77, 173, 121, 0.9)',
-                    'rgba(173, 216, 230, 0.9)',
-                    'rgba(126, 94, 67, 0.9)',
-                    'rgba(67, 126, 94, 0.9)'
+                    '#5E437E', // Maadi - Purple
+                    '#4DAD79', // Red Sea - Green
+                    '#3B82F6', // October - Blue
+                    '#F59E0B', // Ismailia - Amber
+                    '#EF4444', // Alexandria - Red
+                    '#8B5CF6', // Assiut - Violet
+                    '#22C55E', // Gharbia - Green
+                    '#06B6D4', // New Cairo - Cyan
+                    '#F97316', // Dakahlia - Orange
+                    '#84CC16', // Qena - Lime
+                    '#EC4899', // Obour - Pink
+                    '#6366F1', // Beni Suef - Indigo
+                    '#10B981', // Sharqia - Emerald
+                    '#F472B6', // Menoufia - Rose
+                    '#DC2626', // Menoufia Girls - Red
+                    '#14B8A6', // 11th District - Teal
+                    '#A855F7', // Kafr El Sheikh - Purple
+                    '#F59E0B', // Luxor - Yellow
+                    '#6B7280', // Sadat - Gray
+                    '#8B5A3C', // Sohag - Brown
+                    '#9CA3AF'  // Minya - Light Gray
                 ],
-                borderRadius: 6,
-                borderSkipped: false,
-                borderWidth: 0
+                borderColor: '#ffffff',
+                borderWidth: 2,
+                hoverBorderWidth: 3,
+                hoverOffset: 6
             }]
         },
         options: {
@@ -25,7 +47,31 @@ document.addEventListener('DOMContentLoaded', function() {
             maintainAspectRatio: false,
             plugins: {
                 legend: {
-                    display: false
+                    position: 'right',
+                    labels: {
+                        padding: 15,
+                        font: {
+                            size: 11,
+                            weight: '500'
+                        },
+                        usePointStyle: true,
+                        pointStyle: 'circle',
+                        generateLabels: function(chart) {
+                            const data = chart.data;
+                            const total = data.datasets[0].data.reduce((a, b) => a + b, 0);
+                            return data.labels.map((label, i) => {
+                                const value = data.datasets[0].data[i];
+                                const percentage = ((value / total) * 100).toFixed(1);
+                                return {
+                                    text: `${label} - ${percentage}%`,
+                                    fillStyle: data.datasets[0].backgroundColor[i],
+                                    strokeStyle: data.datasets[0].backgroundColor[i],
+                                    pointStyle: 'circle',
+                                    index: i
+                                };
+                            });
+                        }
+                    }
                 },
                 tooltip: {
                     backgroundColor: 'rgba(0, 0, 0, 0.8)',
@@ -37,30 +83,11 @@ document.addEventListener('DOMContentLoaded', function() {
                     bodyFont: {
                         size: 13
                     },
-                    displayColors: false
-                }
-            },
-            scales: {
-                y: {
-                    beginAtZero: true,
-                    max: 100,
-                    grid: {
-                        display: true,
-                        color: 'rgba(0, 0, 0, 0.05)'
-                    },
-                    ticks: {
-                        font: {
-                            size: 12
-                        }
-                    }
-                },
-                x: {
-                    grid: {
-                        display: false
-                    },
-                    ticks: {
-                        font: {
-                            size: 12
+                    callbacks: {
+                        label: function(context) {
+                            const total = context.dataset.data.reduce((a, b) => a + b, 0);
+                            const percentage = ((context.parsed / total) * 100).toFixed(1);
+                            return `${context.label}: ${context.parsed} students (${percentage}%)`;
                         }
                     }
                 }

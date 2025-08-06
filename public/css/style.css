@@ -1682,20 +1682,28 @@ body.nav-open {
   box-shadow: 0 0 0 4px rgba(242, 239, 235, 0.5);
 }
 
+.legend-item .color.highest {
+  background: #15803d;
+}
+
 .legend-item .color.high {
-  background: #10b981;
+  background: #22c55e;
 }
 
 .legend-item .color.medium {
-  background: #f59e0b;
+  background: #65a30d;
 }
 
 .legend-item .color.low {
-  background: #ef4444;
+  background: #86efac;
+}
+
+.legend-item .color.minimal {
+  background: #dcfce7;
 }
 
 .legend-item .color.none {
-  background: #9ca3af;
+  background: #e5e7eb;
 }
 
 /* Map Stats Summary */

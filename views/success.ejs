@@ -28,8 +28,8 @@
         </h1>
         <p class="hero-subtitle">
           <%= lang==='ar' ? 
-                        'من خلال برنامج التوجيه المتميز، ساعدنا أكثر من 240 طالباً في تحقيق طموحاتهم' : 
-                        'Through our distinguished mentorship program, we\'ve helped over 240 students achieve their ambitions' 
+                        'من خلال برنامج التوجيه المتميز، ساعدنا أكثر من 1600 طالباً في تحقيق طموحاتهم' : 
+                        'Through our distinguished mentorship program, we\'ve helped over 1600 students achieve their ambitions' 
                     %>
         </p>
         <div class="hero-actions">
@@ -70,7 +70,7 @@
       <div class="impact-grid" data-aos="fade-up" data-aos-delay="100">
         <div class="impact-item">
           <div class="impact-value">
-            <span class="counter-value" data-value="1200">0</span>
+            <span class="counter-value" data-value="3600">0</span>
             <span class="impact-plus">+</span>
           </div>
           <div class="impact-label">
@@ -80,37 +80,36 @@
 
         <div class="impact-item">
           <div class="impact-value">
-            <span class="counter-value" data-value="35">0</span>
-            <span class="impact-plus">%</span>
+            <span class="counter-value" data-value="800">0</span>
           </div>
           <div class="impact-label">
-            <%= lang==='ar' ? 'من الطلاب من المناطق النائية' : 'Students from remote areas' %>
+            <%= lang==='ar' ? 'طالب في الموسم الحالي' : 'Students in current season' %>
           </div>
         </div>
 
         <div class="impact-item">
           <div class="impact-value">
-            <span class="counter-value" data-value="42">0</span>
+            <span class="counter-value" data-value="70">0</span>
             <span class="impact-plus">%</span>
           </div>
           <div class="impact-label">
-            <%= lang==='ar' ? 'من الطالبات (الإناث)' : 'Female students' %>
+            <%= lang==='ar' ? 'معدل القبول في الموسم الماضي' : 'Acceptance rate last season' %>
           </div>
         </div>
 
         <div class="impact-item">
           <div class="impact-value">
-            <span class="counter-value" data-value="87">0</span>
+            <span class="counter-value" data-value="100">0</span>
             <span class="impact-plus">%</span>
           </div>
           <div class="impact-label">
-            <%= lang==='ar' ? 'يواصلون دراستهم في مجالات STEM' : 'Continue studies in STEM fields' %>
+            <%= lang==='ar' ? 'من مدارس المتفوقين دخلها طلابنا' : 'STEM Schools Reached' %>
           </div>
         </div>
 
         <div class="impact-item">
           <div class="impact-value">
-            <span class="counter-value" data-value="18">0</span>
+            <span class="counter-value" data-value="23">0</span>
           </div>
           <div class="impact-label">
             <%= lang==='ar' ? 'محافظة مصرية' : 'Egyptian governorates' %>
@@ -135,16 +134,28 @@
           <div id="map"></div>
           <div class="map-legend">
             <div class="legend-item">
+              <span class="color highest"></span>
+              <span><%= lang==='ar' ? 'انتشار عالي جداً (30+ طالب)' : 'Very high reach (30+ students)' %></span>
+            </div>
+            <div class="legend-item">
               <span class="color high"></span>
-              <span><%= lang==='ar' ? 'وجود قوي (5+ مراكز)' : 'Strong presence (5+ centers)' %></span>
+              <span><%= lang==='ar' ? 'انتشار عالي (15-29 طالب)' : 'High reach (15-29 students)' %></span>
             </div>
             <div class="legend-item">
               <span class="color medium"></span>
-              <span><%= lang==='ar' ? 'وجود متوسط (2-4 مراكز)' : 'Medium presence (2-4 centers)' %></span>
+              <span><%= lang==='ar' ? 'انتشار متوسط (7-14 طالب)' : 'Medium reach (7-14 students)' %></span>
             </div>
             <div class="legend-item">
               <span class="color low"></span>
-              <span><%= lang==='ar' ? 'وجود محدود (1 مركز)' : 'Limited presence (1 center)' %></span>
+              <span><%= lang==='ar' ? 'انتشار قليل (3-6 طلاب)' : 'Low reach (3-6 students)' %></span>
+            </div>
+            <div class="legend-item">
+              <span class="color minimal"></span>
+              <span><%= lang==='ar' ? 'انتشار محدود (1-2 طالب)' : 'Minimal reach (1-2 students)' %></span>
+            </div>
+            <div class="legend-item">
+              <span class="color none"></span>
+              <span><%= lang==='ar' ? 'لا يوجد طلاب بعد' : 'No students yet' %></span>
             </div>
           </div>
         </div>
@@ -155,12 +166,12 @@
       <div class="section-header latex-style" data-aos="fade-up">
         <div class="theorem-box solution-box">
           <div class="theorem-title">
-            <%= lang==='ar' ? 'المدارس الأفضل أداءً' : 'Top Performing Schools' %>
+            <%= lang==='ar' ? 'توزيع طلابنا المقبولين' : 'Distribution of Our Accepted Students' %>
           </div>
           <p class="theorem-content">
             <%= lang==='ar' ? 
-                            'حققت مدارس STEM في مصر معدلات قبول متميزة لطلاب برنامجنا، وفيما يلي تحليل لأداء كل مدرسة للعام 2024-2025' : 
-                            'STEM schools in Egypt achieved outstanding acceptance rates for our program students. Below is an analysis of each school\'s performance for 2024-2025' 
+                            'توزيع طلاب برنامجنا المقبولين في مدارس STEM المختلفة في مصر للعام 2024-2025' : 
+                            'Distribution of our program students accepted across different STEM schools in Egypt for 2024-2025' 
                         %>
           </p>
         </div>
@@ -170,7 +181,6 @@
         <div class="schools-chart" data-aos="fade-right">
           <canvas id="schoolsChart"></canvas>
         </div>
-
       </div>
     </section>
 
