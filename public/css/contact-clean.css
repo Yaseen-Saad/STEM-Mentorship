@@ -35,14 +35,9 @@
   border-color: var(--accent-green);
 }
 
-.contact-method.primary-method:hover {
-  border-color: #0066aa !important;
-  box-shadow: 0 8px 25px rgba(0, 136, 204, 0.3) !important;
-}
-
 .contact-method.primary-method {
-  border: 2px solid #0088cc !important;
-  background: linear-gradient(135deg, var(--bg-secondary) 0%, rgba(0, 136, 204, 0.05) 100%) !important;
+  border: 2px solid var(--accent-green);
+  background: linear-gradient(135deg, var(--bg-secondary) 0%, rgba(74, 222, 128, 0.05) 100%);
 }
 
 .method-icon {
@@ -59,8 +54,8 @@
 }
 
 .contact-method.primary-method .method-icon {
-  background: linear-gradient(135deg, #0088cc 0%, #0066aa 100%) !important;
-  box-shadow: 0 4px 15px rgba(0, 136, 204, 0.3) !important;
+  background: linear-gradient(135deg, var(--accent-green) 0%, #10b981 100%);
+  box-shadow: 0 4px 15px rgba(74, 222, 128, 0.3);
 }
 
 .method-content {
@@ -98,12 +93,12 @@
 }
 
 .telegram-links .btn-primary {
-  background: #0088cc !important;
-  color: white !important;
+  background: var(--accent-green);
+  color: white;
 }
 
 .telegram-links .btn-primary:hover {
-  background: #0066aa !important;
+  background: #10b981;
   transform: translateY(-1px);
 }
 
@@ -131,8 +126,6 @@
   border-radius: var(--radius-md);
   border: 1px solid var(--dark-accent-cream);
   transition: all var(--transition-fast);
-  margin-bottom: 0.5rem;
-  margin-right: 0.5rem;
 }
 
 .phone-number:hover,
@@ -140,22 +133,6 @@
   background: var(--dark-accent-cream);
   transform: translateY(-1px);
   text-decoration: none;
-}
-
-.phone-numbers {
-  display: flex;
-  flex-direction: column;
-  gap: 0.5rem;
-}
-
-.phone-number.whatsapp {
-  color: #25d366;
-  border-color: rgba(37, 211, 102, 0.3);
-}
-
-.phone-number.whatsapp:hover {
-  background: rgba(37, 211, 102, 0.1);
-  border-color: #25d366;
 }
 
 .contact-note {
@@ -224,10 +201,6 @@
   border-color: #1877f2;
 }
 
-.social-link.instagram:hover {
-  border-color: #e4405f;
-}
-
 .social-icon {
   width: 50px;
   height: 50px;
@@ -249,10 +222,6 @@
 
 .social-link.facebook .social-icon {
   background: #1877f2;
-}
-
-.social-link.instagram .social-icon {
-  background: linear-gradient(45deg, #f09433 0%, #e6683c 25%, #dc2743 50%, #cc2366 75%, #bc1888 100%);
 }
 
 .social-info h4 {
@@ -403,10 +372,6 @@
   
   .telegram-links {
     justify-content: center;
-  }
-  
-  .phone-numbers {
-    align-items: center;
   }
   
   .telegram-links .btn {

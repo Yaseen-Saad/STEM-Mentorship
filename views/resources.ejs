@@ -180,15 +180,15 @@
                 </div>
             </div>
             <div class="card-actions">
-                <button class="btn btn-primary resource-link">
+                <a href="#" class="btn btn-primary resource-link">
                     <span class="material-icons">download</span>
                     <%= lang==='ar' ? 'تحميل' : 'Download' %>
-                </button>
+                </a>
             </div>
         </div>
     </template>
 
-    <script src="/js/resources-new.js"></script>
+    <script src="/js/resources.js"></script>
 
 <%- include('partials/footer', { lang: lang }) %>
 
@@ -200,17 +200,6 @@
         duration: 800,
         once: true,
         offset: 100
-      });
-      
-      // FAQ toggle functionality
-      const faqItems = document.querySelectorAll('.faq-item');
-      faqItems.forEach(item => {
-        const question = item.querySelector('.faq-question');
-        question.addEventListener('click', () => {
-          item.classList.toggle('active');
-          const toggleIcon = item.querySelector('.toggle-icon');
-          toggleIcon.textContent = item.classList.contains('active') ? 'expand_less' : 'expand_more';
-        });
       });
     });
   </script>

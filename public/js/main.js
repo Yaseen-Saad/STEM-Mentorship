@@ -173,18 +173,42 @@ function initializeTestimonialCarousel() {
 function initializeFAQToggle() {
   const faqItems = document.querySelectorAll('.faq-item');
   
-  faqItems.forEach(item => {
+  if (faqItems.length === 0) {
+    return;
+  }
+  
+  faqItems.forEach((item, index) => {
     const question = item.querySelector('.faq-question');
-    if (!question) return;
+    if (!question) {
+      return;
+    }
     
-    question.addEventListener('click', () => {
-      item.classList.toggle('active');
-      const toggleIcon = item.querySelector('.toggle-icon');
-      if (toggleIcon) {
-        toggleIcon.textContent = item.classList.contains('active') ? 'expand_less' : 'expand_more';
-      }
-    });
+    // Remove any existing listeners to prevent duplicates
+    question.removeEventListener('click', handleFAQClick);
+    question.addEventListener('click', handleFAQClick);
   });
+}
+
+function handleFAQClick(event) {
+  const question = event.currentTarget;
+  const item = question.closest('.faq-item');
+  
+  if (!item) return;
+  
+  // Toggle active state
+  item.classList.toggle('active');
+  
+  // Update toggle icon
+  const toggleIcon = item.querySelector('.toggle-icon');
+  if (toggleIcon) {
+    const isActive = item.classList.contains('active');
+    toggleIcon.textContent = isActive ? 'expand_less' : 'expand_more';
+    
+    // Fallback for browsers that don't support Material Icons
+    if (!toggleIcon.textContent) {
+      toggleIcon.innerHTML = isActive ? '&#8722;' : '&#43;'; // minus or plus symbols
+    }
+  }
 }
 
 function initializeCounters() {

@@ -39,87 +39,110 @@
       <div class="box-content">
         <p>
           <%= lang==='ar' ? 
-                        'هناك عدة طرق للتواصل معنا. يمكنك استخدام النموذج أدناه، أو التواصل عبر منصات التواصل الاجتماعي، أو زيارة مقرنا خلال ساعات العمل الرسمية.' : 
-                        'There are several ways to contact us. You can use the form below, reach out through social media platforms, or visit our headquarters during official working hours.' 
+                        'هناك عدة طرق للتواصل معنا. يمكنك التواصل عبر تيليجرام للحصول على رد سريع، أو الاتصال بنا هاتفياً، أو مراسلتنا عبر البريد الإلكتروني.' : 
+                        'There are several ways to contact us. You can reach us via Telegram for a quick response, call us directly, or send us an email.' 
                     %>
         </p>
       </div>
     </div>
 
-    <!-- Contact Form Section -->
-    <section class="contact-form-section" data-aos="fade-right">
-      <div class="theorem-box contact-form-box">
+    <!-- Contact Methods Section -->
+    <section class="contact-methods-section" data-aos="fade-up">
+      <div class="theorem-box contact-methods-box">
         <div class="theorem-title">
-          <%= lang==='ar' ? 'أرسل رسالة' : 'Send a Message' %>
+          <%= lang==='ar' ? 'طرق التواصل معنا' : 'How to Contact Us' %>
         </div>
-        <form id="contactForm" class="contact-form" novalidate>
-          <div class="form-group">
-            <label for="name"><%= lang==='ar' ? 'الاسم' : 'Name' %> *</label>
-            <div class="input-with-icon">
-              <span class="material-icons">person</span>
-              <input type="text" id="name" name="name" required placeholder="<%= lang==='ar' ? 'أدخل اسمك' : 'Enter your name' %>">
+        <div class="contact-methods">
+          <div class="contact-method primary-method">
+            <div class="method-icon">
+              <i class="fab fa-telegram"></i>
+            </div>
+            <div class="method-content">
+              <h3><%= lang==='ar' ? 'تيليجرام (الطريقة المفضلة)' : 'Telegram (Preferred Method)' %></h3>
+              <p><%= lang==='ar' ? 'أسرع طريقة للحصول على رد فوري' : 'Fastest way to get an immediate response' %></p>
+              <div class="telegram-links">
+                <a href="https://t.me/STEM0mentorship" class="btn btn-primary" target="_blank" rel="noopener">
+                  <i class="fab fa-telegram"></i>
+                  @STEM0mentorship
+                </a>
+                <a href="https://t.me/stemship" class="btn btn-secondary" target="_blank" rel="noopener">
+                  <i class="fab fa-telegram"></i>
+                  @stemship
+                </a>
+              </div>
             </div>
           </div>
-          <div class="form-group">
-            <label for="email"><%= lang==='ar' ? 'البريد الإلكتروني' : 'Email' %> *</label>
-            <div class="input-with-icon">
-              <span class="material-icons">email</span>
-              <input type="email" id="email" name="email" required placeholder="<%= lang==='ar' ? 'أدخل بريدك الإلكتروني' : 'Enter your email' %>">
+          
+          <div class="contact-method">
+            <div class="method-icon">
+              <i class="fas fa-phone"></i>
+            </div>
+            <div class="method-content">
+              <h3><%= lang==='ar' ? 'الهاتف والواتساب' : 'Phone & WhatsApp' %></h3>
+              <p><%= lang==='ar' ? 'للاستفسارات العاجلة والدعم المباشر' : 'For urgent inquiries and direct support' %></p>
+              <div class="phone-numbers">
+                <a href="tel:+201234567890" class="phone-number">
+                  <i class="fas fa-phone"></i>
+                  +20 123 456 7890
+                </a>
+                <a href="https://wa.me/201234567890" class="phone-number whatsapp" target="_blank" rel="noopener">
+                  <i class="fab fa-whatsapp"></i>
+                  WhatsApp: +20 123 456 7890
+                </a>
+                <a href="tel:+201987654321" class="phone-number">
+                  <i class="fas fa-phone"></i>
+                  +20 198 765 4321
+                </a>
+                <a href="https://wa.me/201987654321" class="phone-number whatsapp" target="_blank" rel="noopener">
+                  <i class="fab fa-whatsapp"></i>
+                  WhatsApp: +20 198 765 4321
+                </a>
+                <a href="tel:+201555123456" class="phone-number">
+                  <i class="fas fa-phone"></i>
+                  +20 155 512 3456
+                </a>
+                <a href="https://wa.me/201555123456" class="phone-number whatsapp" target="_blank" rel="noopener">
+                  <i class="fab fa-whatsapp"></i>
+                  WhatsApp: +20 155 512 3456
+                </a>
+              </div>
             </div>
           </div>
-          <div class="form-group">
-            <label for="subject"><%= lang==='ar' ? 'الموضوع' : 'Subject' %> *</label>
-            <div class="input-with-icon">
-              <span class="material-icons">topic</span>
-              <select id="subject" name="subject" required>
-                <option value=""><%= lang==='ar' ? 'اختر الموضوع' : 'Select a subject' %></option>
-                <option value="general"><%= lang==='ar' ? 'استفسار عام' : 'General Inquiry' %></option>
-                <option value="application"><%= lang==='ar' ? 'طلب الانضمام' : 'Application' %></option>
-                <option value="support"><%= lang==='ar' ? 'الدعم الفني' : 'Technical Support' %></option>
-              </select>
+          
+          <div class="contact-method">
+            <div class="method-icon">
+              <i class="fas fa-envelope"></i>
+            </div>
+            <div class="method-content">
+              <h3><%= lang==='ar' ? 'البريد الإلكتروني' : 'Email' %></h3>
+              <p><%= lang==='ar' ? 'للاستفسارات الرسمية والمفصلة' : 'For formal and detailed inquiries' %></p>
+              <a href="mailto:contact@stemmentorship.org" class="email-link">
+                <i class="fas fa-envelope"></i>
+                contact@stemmentorship.org
+              </a>
             </div>
           </div>
-          <div class="form-group">
-            <label for="message"><%= lang==='ar' ? 'الرسالة' : 'Message' %> *</label>
-            <div class="input-with-icon textarea-container">
-              <span class="material-icons">chat</span>
-              <textarea id="message" name="message" required rows="5" placeholder="<%= lang==='ar' ? 'اكتب رسالتك هنا' : 'Type your message here' %>"></textarea>
-            </div>
-          </div>
-          <button type="submit" class="btn btn-primary submit-btn">
-            <i class="material-icons">send</i>
-            <%= lang==='ar' ? 'إرسال الرسالة' : 'Send Message' %>
-          </button>
-        </form>
+        </div>
+        
+        <div class="contact-note">
+          <i class="material-icons">info</i>
+          <p>
+            <%= lang==='ar' ? 
+              'للحصول على أسرع استجابة، نوصي بالتواصل عبر تيليجرام. فريقنا متاح للرد على استفساراتكم يومياً من 9 صباحاً حتى 9 مساءً.' : 
+              'For the fastest response, we recommend contacting us via Telegram. Our team is available to respond to your inquiries daily from 9 AM to 9 PM.' 
+            %>
+          </p>
+        </div>
       </div>
     </section>
 
-    <!-- Contact Info Section -->
-    <section class="contact-info-section" data-aos="fade-left">
-      <!-- Social Media Links -->
+    <!-- Social Media Links -->
+    <section class="social-section" data-aos="fade-up">
       <div class="theorem-box">
         <div class="theorem-title">
-          <%= lang==='ar' ? 'تواصل معنا عبر' : 'Connect With Us' %>
+          <%= lang==='ar' ? 'تابعنا على' : 'Follow Us On' %>
         </div>
         <div class="social-links">
-          <a href="https://t.me/STEM0mentorship" class="social-link telegram" target="_blank" rel="noopener">
-            <div class="social-icon">
-              <i class="fab fa-telegram"></i>
-            </div>
-            <div class="social-info">
-              <h4>Telegram</h4>
-              <span>STEM0mentorship</span>
-            </div>
-          </a>
-          <a href="https://t.me/stemship" class="social-link telegram" target="_blank" rel="noopener">
-            <div class="social-icon">
-              <i class="fab fa-telegram"></i>
-            </div>
-            <div class="social-info">
-              <h4>Telegram</h4>
-              <span>stemship</span>
-            </div>
-          </a>
           <a href="https://tiktok.com/@stemship" class="social-link tiktok" target="_blank" rel="noopener">
             <div class="social-icon">
               <i class="fab fa-tiktok"></i>
@@ -138,47 +161,22 @@
               <span>stemmentorship</span>
             </div>
           </a>
+          <a href="https://instagram.com/stemmentorship" class="social-link instagram" target="_blank" rel="noopener">
+            <div class="social-icon">
+              <i class="fab fa-instagram"></i>
+            </div>
+            <div class="social-info">
+              <h4>Instagram</h4>
+              <span>@stemmentorship</span>
+            </div>
+          </a>
         </div>
       </div>
+    </section>
 
-      <!-- Contact Details -->
-      <div class="theorem-box conceptbox" data-aos="fade-up">
-        <div class="theorem-title">
-          <%= lang==='ar' ? 'معلومات الاتصال' : 'Contact Information' %>
-        </div>
-        <div class="contact-details">
-          <div class="contact-item">
-            <div class="contact-icon">
-              <span class="material-icons">call</span>
-            </div>
-            <div class="contact-info">
-              <h4><%= lang==='ar' ? 'الهاتف' : 'Phone' %></h4>
-              <p>+20 123 456 7890</p>
-            </div>
-          </div>
-          <div class="contact-item">
-            <div class="contact-icon">
-              <span class="material-icons">email</span>
-            </div>
-            <div class="contact-info">
-              <h4><%= lang==='ar' ? 'البريد الإلكتروني' : 'Email' %></h4>
-              <p>contact@stemmentorship.org</p>
-            </div>
-          </div>
-          <div class="contact-item">
-            <div class="contact-icon">
-              <span class="material-icons">location_on</span>
-            </div>
-            <div class="contact-info">
-              <h4><%= lang==='ar' ? 'العنوان' : 'Address' %></h4>
-              <p><%= lang==='ar' ? 'القاهرة، مصر' : 'Cairo, Egypt' %></p>
-            </div>
-          </div>
-        </div>
-      </div>
-
-      <!-- FAQ Section -->
-      <div class="theorem-box example-box" data-aos="fade-up">
+    <!-- FAQ Section -->
+    <section class="faq-section" data-aos="fade-up">
+      <div class="theorem-box example-box">
         <div class="theorem-title">
           <%= lang==='ar' ? 'أسئلة شائعة' : 'Frequently Asked Questions' %>
         </div>
@@ -258,7 +256,7 @@
     </section>
   </div>
 
-  </section> <%- include('partials/footer') %>
+  <%- include('partials/footer') %>
 
   <script src="https://unpkg.com/aos@next/dist/aos.js"></script>
   <script>
@@ -268,146 +266,6 @@
         duration: 800,
         once: true,
         offset: 100
-      });
-
-      // FAQ toggle functionality
-      const faqItems = document.querySelectorAll('.faq-item');
-      faqItems.forEach(item => {
-        const question = item.querySelector('.faq-question');
-        question.addEventListener('click', () => {
-          // Close other FAQ items
-          faqItems.forEach(otherItem => {
-            if (otherItem !== item && otherItem.classList.contains('active')) {
-              otherItem.classList.remove('active');
-              const otherToggleIcon = otherItem.querySelector('.toggle-icon');
-              otherToggleIcon.textContent = 'expand_more';
-            }
-          });
-          
-          // Toggle current FAQ item
-          item.classList.toggle('active');
-          const toggleIcon = item.querySelector('.toggle-icon');
-          toggleIcon.textContent = item.classList.contains('active') ? 'expand_less' : 'expand_more';
-        });
-      });
-
-      // Form validation and handling
-      const contactForm = document.getElementById('contactForm');
-      const nameInput = document.getElementById('name');
-      const emailInput = document.getElementById('email');
-      const subjectSelect = document.getElementById('subject');
-      const messageTextarea = document.getElementById('message');
-      const submitBtn = contactForm.querySelector('.submit-btn');
-
-      // Email validation regex
-      const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-
-      // Form validation functions
-      function validateField(field, validationFn, errorMessage) {
-        const isValid = validationFn(field.value);
-        const errorElement = field.parentNode.parentNode.querySelector('.error-message');
-        
-        if (isValid) {
-          field.classList.remove('invalid');
-          field.classList.add('valid');
-          if (errorElement) errorElement.classList.remove('show');
-        } else {
-          field.classList.remove('valid');
-          field.classList.add('invalid');
-          if (errorElement) {
-            errorElement.textContent = errorMessage;
-            errorElement.classList.add('show');
-          }
-        }
-        
-        return isValid;
-      }
-
-      // Add error message elements
-      function addErrorMessage(fieldGroup) {
-        if (!fieldGroup.querySelector('.error-message')) {
-          const errorDiv = document.createElement('div');
-          errorDiv.className = 'error-message';
-          fieldGroup.appendChild(errorDiv);
-        }
-      }
-
-      // Add error message elements to all form groups
-      document.querySelectorAll('.form-group').forEach(addErrorMessage);
-
-      // Real-time validation
-      nameInput.addEventListener('blur', () => {
-        validateField(nameInput, value => value.trim().length >= 2, 'Name must be at least 2 characters long');
-      });
-
-      emailInput.addEventListener('blur', () => {
-        validateField(emailInput, value => emailRegex.test(value), 'Please enter a valid email address');
-      });
-
-      subjectSelect.addEventListener('change', () => {
-        validateField(subjectSelect, value => value !== '', 'Please select a subject');
-      });
-
-      messageTextarea.addEventListener('blur', () => {
-        validateField(messageTextarea, value => value.trim().length >= 10, 'Message must be at least 10 characters long');
-      });
-
-      // Form submission
-      contactForm.addEventListener('submit', function(e) {
-        e.preventDefault();
-        
-        // Validate all fields
-        const isNameValid = validateField(nameInput, value => value.trim().length >= 2, 'Name must be at least 2 characters long');
-        const isEmailValid = validateField(emailInput, value => emailRegex.test(value), 'Please enter a valid email address');
-        const isSubjectValid = validateField(subjectSelect, value => value !== '', 'Please select a subject');
-        const isMessageValid = validateField(messageTextarea, value => value.trim().length >= 10, 'Message must be at least 10 characters long');
-        
-        if (isNameValid && isEmailValid && isSubjectValid && isMessageValid) {
-          // Show loading state
-          submitBtn.classList.add('loading');
-          submitBtn.querySelector('.material-icons').textContent = 'hourglass_empty';
-          
-          // Simulate form submission (replace with actual submission logic)
-          setTimeout(() => {
-            submitBtn.classList.remove('loading');
-            submitBtn.querySelector('.material-icons').textContent = 'check';
-            submitBtn.style.background = '#28a745';
-            
-            // Show success message
-            alert('Message sent successfully! We will get back to you soon.');
-            
-            // Reset form
-            contactForm.reset();
-            document.querySelectorAll('.form-group input, .form-group select, .form-group textarea').forEach(field => {
-              field.classList.remove('valid', 'invalid');
-            });
-            
-            // Reset button
-            setTimeout(() => {
-              submitBtn.querySelector('.material-icons').textContent = 'send';
-              submitBtn.style.background = '';
-            }, 2000);
-          }, 2000);
-        }
-      });
-
-      // Clear validation on input
-      [nameInput, emailInput, messageTextarea].forEach(field => {
-        field.addEventListener('input', () => {
-          if (field.classList.contains('invalid')) {
-            field.classList.remove('invalid');
-            const errorElement = field.parentNode.parentNode.querySelector('.error-message');
-            if (errorElement) errorElement.classList.remove('show');
-          }
-        });
-      });
-
-      subjectSelect.addEventListener('change', () => {
-        if (subjectSelect.classList.contains('invalid')) {
-          subjectSelect.classList.remove('invalid');
-          const errorElement = subjectSelect.parentNode.parentNode.querySelector('.error-message');
-          if (errorElement) errorElement.classList.remove('show');
-        }
       });
     });
   </script>

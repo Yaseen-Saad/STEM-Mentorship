@@ -23,7 +23,38 @@ function initializeResourcesPage() {
         // Initialize existing functionality
         initializeMathFormulas();
         initializePracticeCards();
+        
+        // Check if we need to update UI after a download and page reload
+        updateDownloadCountsAfterRedirect();
     });
+}
+
+// Update download counts after a redirect from download
+function updateDownloadCountsAfterRedirect() {
+    const lastDownloadedId = sessionStorage.getItem('lastDownloaded');
+    if (lastDownloadedId && !isStaticMode) {
+        // Get the latest count from the API
+        fetch(`/api/stats/${lastDownloadedId}`)
+            .then(response => response.json())
+            .then(data => {
+                if (data.success && data.data && data.data.downloadCount) {
+                    // Find all instances of this resource on the page and update counts
+                    const buttons = document.querySelectorAll(`[data-resource="${lastDownloadedId}"]`);
+                    buttons.forEach(button => {
+                        const countElement = button.closest('.resource-card')?.querySelector('.count');
+                        if (countElement) {
+                            countElement.textContent = data.data.downloadCount.toString();
+                        }
+                    });
+                    
+                    // Clear the stored ID
+                    sessionStorage.removeItem('lastDownloaded');
+                }
+            })
+            .catch(error => {
+                console.error('Error updating download count:', error);
+            });
+    }
 }
 
 // Check if server/API is available
@@ -185,10 +216,27 @@ function createResourceCard(resource, index) {
     card.querySelector('.file-size').textContent = resource.fileSize || 'PDF';
     card.querySelector('.count').textContent = isStaticMode ? 'Static' : resource.downloadCount;
     
-    // Set button attributes for download
+    // Set button/link attributes for backend download 
     const button = card.querySelector('.resource-link');
     button.setAttribute('data-resource', resource.fileId);
     button.setAttribute('data-file-path', resource.filePath);
+    
+    // In dynamic mode, set href to the backend endpoint directly
+    if (!isStaticMode) {
+        if (button.tagName.toLowerCase() === 'a') {
+            // If it's an anchor tag, set href directly
+            button.href = `/api/download/${resource.fileId}?track=true`;
+            // Don't add download attribute as we want backend to handle it
+        } else {
+            // Otherwise it stays as a button that our click handler will process
+        }
+    } else {
+        // In static mode, set direct file path and download attribute
+        if (button.tagName.toLowerCase() === 'a') {
+            button.href = resource.filePath;
+            button.setAttribute('download', '');
+        }
+    }
     
     return card;
 }
@@ -219,30 +267,29 @@ function initializeTabNavigation() {
 
 // Initialize download handlers
 function initializeDownloadHandlers() {
+    
     document.addEventListener('click', function(e) {
-        if (e.target.classList.contains('resource-link') || e.target.closest('.resource-link')) {
+        // Only handle button clicks - anchor links will navigate directly
+        const target = e.target.classList.contains('resource-link') ? e.target : e.target.closest('.resource-link');
+        if (target && target.tagName.toLowerCase() !== 'a') {
             e.preventDefault();
-            const button = e.target.classList.contains('resource-link') ? e.target : e.target.closest('.resource-link');
-            const resourceId = button.getAttribute('data-resource');
+            const resourceId = target.getAttribute('data-resource');
             
             // Find resource in our data
             const resourceItem = getResourceById(resourceId);
             
             if (resourceItem) {
-                if (isStaticMode) {
-                    // Direct download in static mode
-                    console.log('Static mode: Direct download', resourceItem.filePath);
-                    // Create a temporary anchor to force download
-                    const a = document.createElement('a');
-                    a.href = resourceItem.filePath;
-                    a.download = resourceItem.fileName || 'download.pdf'; // Forces download instead of navigation
-                    document.body.appendChild(a);
-                    a.click();
-                    document.body.removeChild(a);
-                } else {
-                    // Use tracking API in dynamic mode
-                    trackAndDownload(resourceItem);
+                // Show loading state
+                target.classList.add('loading');
+                target.disabled = true;
+                
+                // Store last downloaded resource ID for tracking
+                if (!isStaticMode) {
+                    sessionStorage.setItem('lastDownloaded', resourceId);
                 }
+                
+                // Use backend redirect for download
+                trackAndDownload(resourceItem);
             } else {
                 console.error('Resource not found:', resourceId);
             }
@@ -261,7 +308,7 @@ function getResourceById(fileId) {
     return null;
 }
 
-// Track download and initiate download of the file (not just opening it)
+// Track download and initiate download of the file by redirecting to backend endpoint
 function trackAndDownload(resource) {
     const subject = resource.fileId.split('-')[0];
     const topic = resource.fileId.split('-').slice(1).join('-');
@@ -273,34 +320,32 @@ function trackAndDownload(resource) {
         button.disabled = true;
     }
     
-    fetch(`/api/track-resource?type=pdf&subject=${subject}&topic=${topic}`)
-        .finally(() => {
-            // Create a temporary anchor to trigger download
-            const a = document.createElement('a');
-            a.href = resource.filePath;
-            a.download = resource.fileName || 'download.pdf'; // Forces download instead of navigation
-            a.target = '_blank';
-            document.body.appendChild(a);
-            a.click();
-            document.body.removeChild(a);
+    try {
+        if (!isStaticMode) {
+            // In dynamic mode, redirect to the backend endpoint that handles both tracking and download
+            window.location.href = `/api/download/${resource.fileId}?track=true`;
             
-            // Update UI after download starts
-            setTimeout(() => {
-                if (button) {
-                    button.classList.remove('loading');
-                    button.disabled = false;
-                    
-                    // Update download count display if not in static mode
-                    if (!isStaticMode) {
-                        const countElement = button.closest('.resource-card')?.querySelector('.count');
-                        if (countElement) {
-                            const currentCount = parseInt(countElement.textContent) || 0;
-                            countElement.textContent = (currentCount + 1).toString();
-                        }
-                    }
-                }
-            }, 1000);
-        });
+            // Since we're redirecting, we need to update the UI when the user comes back
+            // Store the fileId in sessionStorage so we can update the count when page is viewed again
+            sessionStorage.setItem('lastDownloaded', resource.fileId);
+        } else {
+            // In static mode, use a direct file download
+            window.location.href = resource.filePath;
+        }
+    } catch (error) {
+        console.error('Error redirecting to download:', error);
+        
+        // Fallback to direct download if redirect fails
+        window.location.href = resource.filePath;
+    } finally {
+        // Reset button state after a short delay
+        setTimeout(() => {
+            if (button) {
+                button.classList.remove('loading');
+                button.disabled = false;
+            }
+        }, 1000);
+    }
 }
 
 // Initialize math formulas (existing functionality)

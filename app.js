@@ -18,11 +18,15 @@ let mongoConnected = false;
 connectDB()
   .then(() => {
     mongoConnected = true;
-    console.log('MongoDB connected successfully');
+    if (isDevelopment) {
+      console.log('MongoDB connected successfully');
+    }
   })
   .catch((error) => {
     console.error('MongoDB connection failed:', error.message);
-    console.log('Running without database (static mode)');
+    if (isDevelopment) {
+      console.log('Running without database (static mode)');
+    }
   });
 
 // Enable compression
@@ -48,13 +52,15 @@ app.set('view engine', 'ejs');
 
 // Remove duplicate static files middleware since we already have it with caching above
 
-// Enhanced request logging
+// Enhanced request logging (development only)
 app.use((req, res, next) => {
-  const start = Date.now();
-  res.on('finish', () => {
-    const duration = Date.now() - start;
-    console.log(`${req.method} ${req.url} - ${res.statusCode} - ${duration}ms`);
-  });
+  if (isDevelopment) {
+    const start = Date.now();
+    res.on('finish', () => {
+      const duration = Date.now() - start;
+      console.log(`${req.method} ${req.url} - ${res.statusCode} - ${duration}ms`);
+    });
+  }
   next();
 });
 
@@ -70,10 +76,8 @@ app.use((err, req, res, next) => {
 
 // routes
 app.get('/', (req, res, next) => {
-  console.log("Rendering index page for language:", req.query.lang || 'en');
   try {
     res.render('index', { lang: req.query.lang || 'en' });
-    console.log("Index page render call completed.");
   } catch (err) {
     console.error("Error rendering index.ejs:", err);
     next(err); // Pass to the error handler
@@ -111,57 +115,6 @@ app.get('/health', (req, res) => {
     database: mongoConnected ? 'connected' : 'disconnected',
     environment: process.env.NODE_ENV || 'development'
   });
-});
-
-// Test endpoint to add sample data quickly
-app.get('/test-setup', async (req, res) => {
-  try {
-    // Check if database is connected
-    if (!mongoConnected) {
-      return res.status(503).json({
-        success: false,
-        message: 'Database not available. Running in static mode.'
-      });
-    }
-
-    // Clear existing data
-    await Download.deleteMany({});
-
-    // Add sample files
-    const sampleFiles = [
-      {
-        fileId: 'math-algebra-basics',
-        fileName: 'Algebra Basics.pdf',
-        subject: 'math',
-        category: 'Algebra',
-        filePath: 'resources/math/algebra-basics.pdf',
-        downloadCount: 5
-      },
-      {
-        fileId: 'science-chemistry-basics',
-        fileName: 'Chemistry Fundamentals.pdf',
-        subject: 'science',
-        category: 'Chemistry',
-        filePath: 'resources/science/chemistry-fundamentals.pdf',
-        downloadCount: 3
-      }
-    ];
-
-    await Download.insertMany(sampleFiles);
-
-    res.json({
-      success: true,
-      message: 'Test data created successfully',
-      files: sampleFiles
-    });
-
-  } catch (error) {
-    res.status(500).json({
-      success: false,
-      message: 'Error setting up test data',
-      error: error.message
-    });
-  }
 });
 
 app.get('/api/search', (req, res) => {
@@ -205,17 +158,24 @@ app.get('/api/download/:fileId', async (req, res) => {
     // Increment download count
     await Download.incrementDownload(fileId);
 
-    // Set appropriate headers for PDF download
-    res.setHeader('Content-Type', 'application/pdf');
+    // Set appropriate headers for PDF download - force download
+    res.setHeader('Content-Type', 'application/octet-stream'); // Forces download in most browsers
     res.setHeader('Content-Disposition', `attachment; filename="${downloadRecord.fileName}"`);
-    res.setHeader('Cache-Control', 'no-cache');
-
+    res.setHeader('Cache-Control', 'no-cache, must-revalidate');
+    res.setHeader('Pragma', 'no-cache');
+    res.setHeader('Expires', '0');
+    
+    // Add cross-browser download support
+    res.setHeader('X-Download-Options', 'noopen'); // Prevents IE from opening PDFs in the browser
+    
     // Stream the file
     const fileStream = fs.createReadStream(filePath);
     fileStream.pipe(res);
 
-    // Log download
-    console.log(`PDF downloaded: ${downloadRecord.fileName} (ID: ${fileId})`);
+    // Log download in development
+    if (isDevelopment) {
+      console.log(`PDF downloaded: ${downloadRecord.fileName} (ID: ${fileId})`);
+    }
 
   } catch (error) {
     console.error('Download error:', error);
@@ -400,6 +360,11 @@ app.get('/api/track-resource', async (req, res) => {
         await downloadRecord.save();
       }
       
+      // Fetch the updated record to ensure we have the latest count
+      // This handles race conditions if multiple downloads occur at once
+      const freshRecord = await Download.findOne({ fileId });
+      const downloadCount = freshRecord ? freshRecord.downloadCount : downloadRecord.downloadCount;
+      
       // Tracking data for response
       const trackingData = {
         timestamp: new Date().toISOString(),
@@ -407,10 +372,12 @@ app.get('/api/track-resource', async (req, res) => {
         subject: subject || 'unknown',
         topic: topic || 'unknown',
         fileId,
-        downloadCount: downloadRecord.downloadCount
+        downloadCount: downloadCount
       };
       
-      console.log('Download tracked:', trackingData);
+      if (isDevelopment) {
+        console.log('Download tracked:', trackingData);
+      }
       
       // Redirect to the actual resource if requested
       if (redirect) {
@@ -423,15 +390,23 @@ app.get('/api/track-resource', async (req, res) => {
         });
       }
     } else {
-      // Static mode tracking (just logging)
-      console.log(`Resource downloaded: ${type} - ${subject}/${topic} (static mode)`);
+      // Static mode tracking (just logging in development)
+      if (isDevelopment) {
+        console.log(`Resource downloaded: ${type} - ${subject}/${topic} (static mode)`);
+      }
+      
+      // Build fileId to match our naming convention
+      const fileId = `${subject}-${topic}`;
       
       // Tracking data for response
       const trackingData = {
         timestamp: new Date().toISOString(),
         type: type || 'unknown',
         subject: subject || 'unknown',
-        topic: topic || 'unknown'
+        topic: topic || 'unknown',
+        fileId,
+        // In static mode, we don't have real counts
+        downloadCount: 1
       };
       
       // Redirect to the actual resource if requested
@@ -514,7 +489,9 @@ app.use((req, res, next) => {
     return res.status(404).end();
   }
 
-  console.log('404 Error - Page not found:', req.url);
+  if (isDevelopment) {
+    console.log('404 Error - Page not found:', req.url);
+  }
   try {
     res.status(404).render('404', { lang: req.query.lang || 'en' });
   } catch (error) {

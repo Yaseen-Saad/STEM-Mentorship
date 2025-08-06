@@ -30,7 +30,6 @@ module.exports = async (req, res) => {
       timestamp: new Date().toISOString()
     });
   } catch (error) {
-    console.error('Search API Error:', error);
     return res.status(500).json({
       error: 'Internal server error',
       message: 'Failed to process search request'
